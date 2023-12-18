@@ -1,0 +1,19 @@
+.field {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        color: $grey;
+        font-size: 9px;
+        font-weight: 500;
+    }
+
+    &__input {
+        border: none;
+        color: $black;
+        font-weight: 500;
+        font-size: 13px;
+        border-bottom: 2px solid $blue;
+        padding: 7px 0;
+    }
+}

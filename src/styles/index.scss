@@ -1,2 +1,15 @@
+// ===== FONTS =====
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+// ===== GLOBALS =====
 @import "./globals/normalize";
-@import "./globals/reset"
+@import "./globals/reset";
+@import "./globals/variables";
+
+// ===== COMPONENTS =====
+@import "../components/field/field";
+
+html {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}

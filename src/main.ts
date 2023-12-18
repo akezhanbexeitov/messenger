@@ -3,7 +3,8 @@ import * as Components from './components';
 import * as Pages from './pages';
 
 const pages = {
-  'auth': [ Pages.AuthPage ],
+  'login': [ Pages.LoginPage ],
+  'register': [ Pages.RegisterPage ],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {
@@ -17,7 +18,7 @@ function navigate(page: string) {
   container.innerHTML = Handlebars.compile(source)(context);
 }
 
-document.addEventListener('DOMContentLoaded', () => navigate('auth'));
+document.addEventListener('DOMContentLoaded', () => navigate('login'));
 
 document.addEventListener('click', e => {
   //@ts-ignore
