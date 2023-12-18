@@ -1,0 +1,27 @@
+.button {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+    color: $blue;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &_primary {
+        border: none;
+        width: 100%;
+        background-color: $blue;
+        border-radius: 8px;
+        color: $white;
+        padding: 12px 0;
+        cursor: pointer;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}

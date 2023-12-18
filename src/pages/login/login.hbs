@@ -1,5 +1,7 @@
 <main>
-    <form class="">
+    <form class="auth-login">
+        <h1 class="title">Login</h1>
+
         {{> 
             Field 
                 name="login" 
@@ -12,6 +14,17 @@
                 name="password"
                 label="Password"
                 type="password"
+        }}
+
+        {{>
+            Button
+                primary="true"
+                text="Login"
+        }}
+        
+        {{>
+            Button
+                text="Register"
         }}
     </form>
 </main>
