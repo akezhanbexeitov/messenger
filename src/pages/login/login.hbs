@@ -1,30 +1,37 @@
-<main>
-    <form class="auth-login">
-        <h1 class="title">Login</h1>
+<main class="login">
+    <form class="login__form">
+        <div class="login__fields">
+            <h1 class="title">Login</h1>
+            
+            {{>
+                Field
+                    name="login"
+                    label="Username"
+                    type="text"
+            }}
 
-        {{> 
-            Field 
-                name="login" 
-                label="Username"
-                type="text"
-        }}
+            {{>
+                Field
+                    name="password"
+                    label="Password"
+                    type="password"
+            }}
+        </div>
 
-        {{>
-            Field
-                name="password"
-                label="Password"
-                type="password"
-        }}
-
-        {{>
-            Button
-                primary="true"
-                text="Login"
-        }}
+        <div class="login__buttons">
+            {{>
+                Button
+                    primary="true"
+                    text="Login"
+                    type="submit"
+            }}
+            
+            {{>
+                Button
+                    text="Register"
+                    type="button"
+            }}
+        </div>
         
-        {{>
-            Button
-                text="Register"
-        }}
     </form>
 </main>

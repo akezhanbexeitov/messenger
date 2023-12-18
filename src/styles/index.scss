@@ -10,6 +10,9 @@
 @import "../components/field/field";
 @import "../components/button/button";
 
+// ===== PAGES =====
+@import "../pages/login/login";
+
 html {
     font-family: Inter, Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;

@@ -15,5 +15,9 @@
         font-size: 13px;
         border-bottom: 2px solid $blue;
         padding: 7px 0;
+
+        &:focus {
+            outline: none;
+        }
     }
 }
