@@ -1,0 +1,74 @@
+<main class="auth">
+    <form class="auth__form auth__form_register">
+        <div class="auth__fields">
+            {{> Title text="Register"}}
+
+            {{>
+                Field
+                    name="email"
+                    label="Email"
+                    type="email"
+            }}
+
+            {{>
+                Field
+                    name="login"
+                    label="Username"
+                    type="text"
+            }}
+
+            {{>
+                Field
+                    name="first_name"
+                    label="First Name"
+                    type="text"
+            }}
+
+            {{>
+                Field
+                    name="second_name"
+                    label="Second Name"
+                    type="text"
+            }}
+
+            {{>
+                Field
+                    name="phone"
+                    label="Phone Number"
+                    type="text"
+            }}
+
+
+            {{>
+                Field
+                    name="password"
+                    label="Password"
+                    type="password"
+            }}
+
+            {{>
+                Field
+                    name="repeat_password"
+                    label="Repeat Password"
+                    type="password"
+            }}
+        </div>
+
+        <div class="auth__buttons">
+            {{>
+                Button
+                    primary="true"
+                    text="Register"
+                    type="submit"
+            }}
+
+            {{>
+                Button
+                    text="Login"
+                    type="button"
+                    page="login"
+            }}
+        </div>
+
+    </form>
+</main>

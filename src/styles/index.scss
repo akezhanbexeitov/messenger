@@ -9,18 +9,12 @@
 // ===== COMPONENTS =====
 @import "../components/field/field";
 @import "../components/button/button";
+@import "../components/title/title";
 
 // ===== PAGES =====
-@import "../pages/login/login";
+@import "../pages/auth/auth";
 
 html {
     font-family: Inter, Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
-}
-
-.title {
-    color: $black;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 500;
 }

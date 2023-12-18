@@ -1,7 +1,7 @@
-<main class="login">
-    <form class="login__form">
-        <div class="login__fields">
-            <h1 class="title">Login</h1>
+<main class="auth">
+    <form class="auth__form auth__form_login">
+        <div class="auth__fields">
+            {{> Title text="Login"}}
             
             {{>
                 Field
@@ -18,7 +18,7 @@
             }}
         </div>
 
-        <div class="login__buttons">
+        <div class="auth__buttons">
             {{>
                 Button
                     primary="true"
@@ -30,6 +30,7 @@
                 Button
                     text="Register"
                     type="button"
+                    page="register"
             }}
         </div>
         
