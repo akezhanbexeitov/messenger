@@ -1,5 +1,13 @@
-<main>
-    {{> Search}}
-    <br /><br /><br /><br /><br /><br /><br />
-    {{> ChatsList }}
+<main class="chats">
+    <aside class="chats__aside">
+        {{> Search }}
+        {{!-- TODO Adjust scrollbar --}}
+        <nav>
+            {{> ChatsList }}
+        </nav>
+    </aside>
+
+    <section class="chats__main">
+        <h1 class="chats__dummy">Choose a chat to send a message</h1>
+    </section>
 </main>
