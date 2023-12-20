@@ -72,7 +72,6 @@ Handlebars.registerHelper('chats', () => {
             name: "Андрей",
             message: "Здравствуйте",
             avatar: avatar,
-            active: true,
             time: "21:05"
         },
         {
@@ -111,7 +110,6 @@ Handlebars.registerHelper('chats', () => {
             name: "Андрей",
             message: "Здравствуйте",
             avatar: avatar,
-            active: true,
             time: "21:05"
         },
         {

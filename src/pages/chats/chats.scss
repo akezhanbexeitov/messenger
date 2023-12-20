@@ -3,6 +3,12 @@
     max-height: 100svh;
     overflow: hidden;
 
+    & .link {
+        padding: 0 10px;
+        margin: 20px 0;
+        justify-content: flex-end;
+    }
+
     &__aside {
         background-color: $dark-white;
         width: 100%;

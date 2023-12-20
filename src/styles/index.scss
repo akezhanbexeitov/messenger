@@ -19,7 +19,8 @@
 @import "../pages/auth/auth";
 @import "../pages/chats/chats";
 
-body {
+* {
     font-family: Inter, Arial, Helvetica, sans-serif;
     scroll-behavior: smooth !important;
+    box-sizing: border-box !important;
 }
