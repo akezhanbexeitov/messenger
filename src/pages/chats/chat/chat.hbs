@@ -1,0 +1,35 @@
+<main class="chats">
+    <aside class="chats__aside">
+        {{> Link }}
+        {{> Search }}
+        {{!-- TODO Adjust scrollbar --}}
+        <nav>
+            {{> ChatsList }}
+        </nav>
+    </aside>
+
+    <section class="chat">
+        <header class="chat-header">
+            <div class="chat-header__details">
+                <div class="chat-header__avatar">
+                    <img 
+                        src="../../../assets/avatar.png"
+                        alt="User Avatar"
+                        width="34px"
+                        height="34px"
+                    >
+                </div>
+                <h3 class="chat-header__name">Вадим</h3>
+            </div>
+            <button class="chat-header__options" type="button">
+                {{> OptionsIcon }}
+            </button>
+        </header>
+        <div class="chat-main">
+            Body    
+        </div>
+        <footer class="chat-footer">
+            Footer
+        </footer>
+    </section>
+</main>
