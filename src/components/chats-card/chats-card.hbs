@@ -1,4 +1,11 @@
-<li class="chats-card">
+{{!-- TODO: Fix issue with clicking on li item not working on inside elements --}}
+<li 
+    class="
+        chats-card 
+        {{#if active}} chats-card_active {{/if}}
+    " 
+    page="chat"
+> 
     <div class="chats-card__image">
         <img 
             src="{{ avatar }}" 

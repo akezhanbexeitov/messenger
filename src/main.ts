@@ -6,6 +6,7 @@ const pages = {
   'login': [ Pages.LoginPage ],
   'register': [Pages.RegisterPage],
   'chats': [Pages.ChatsPage],
+  'chat': [Pages.ChatPage],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {
