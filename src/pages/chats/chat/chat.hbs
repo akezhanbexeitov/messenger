@@ -21,15 +21,32 @@
                 </div>
                 <h3 class="chat-header__name">Вадим</h3>
             </div>
-            <button class="chat-header__options" type="button">
+            <button class="chat__button" type="button">
                 {{> OptionsIcon }}
             </button>
         </header>
+
+
         <div class="chat-main">
             Body    
         </div>
+
+
         <footer class="chat-footer">
-            Footer
+            <button class="chat__button" type="button">
+                {{> PinIcon }}
+            </button>
+
+            <input 
+                class="chat-footer__input" 
+                type="text" 
+                name="message"
+                placeholder="Message"
+            >
+
+            <button class="chat__button" type="button">
+                {{> ArrowIcon }}
+            </button>
         </footer>
     </section>
 </main>

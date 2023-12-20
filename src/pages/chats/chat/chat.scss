@@ -6,6 +6,12 @@
     width: 100%;
     padding: 0 20px;
 
+    &__button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+    }
+
     &-header {
         display: flex;
         justify-content: space-between;
@@ -36,15 +42,25 @@
             font-size: 13px;
             font-weight: 600;
         }
-
-        &__options {
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-        }
     }
 
     &-main {
         flex-grow: 1;
+    }
+
+    &-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+
+        &__input {
+            padding: 10px 20px;
+            background-color: $light-grey;
+            border-radius: 30px;
+            border: none;
+            flex: 1 1 auto;
+            outline: none;
+        }
     }
 }
