@@ -4,7 +4,6 @@
     justify-content: space-between;
     min-height: 100svh;
     width: 100%;
-    padding: 0 20px;
 
     &__button {
         cursor: pointer;
@@ -17,6 +16,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 0;
+        margin: 0 20px;
         border-bottom: 1px solid $light-grey;
 
         &__details {
@@ -29,6 +29,7 @@
             width: 34px;
             height: 34px;
             border-radius: 50%;
+            background-color: $light-grey;
             overflow: hidden;
 
             & img {
@@ -45,14 +46,87 @@
     }
 
     &-main {
+        overflow: scroll;
         flex-grow: 1;
+        padding: 20px;
+
+        &__date {
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: $grey;
+            margin: 38px 0;
+        }
+
+        &__messages {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+        }
+
+        &__message {
+            padding: 11px;
+            background-color: $light-grey;
+            border-radius: 0 12px 12px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            max-width: 402px;
+            line-height: 125%;
+
+            &-details {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 4px;
+                margin-top: 6px;
+            }
+
+            &_mine {
+                padding: 11px;
+                background-color: $light-blue;
+                border-radius: 12px 12px 0 12px;
+                width: fit-content;
+                margin-left: auto;
+                max-width: 402px;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 125%;
+
+                & time {
+                    display: flex;
+                    justify-content: flex-end;
+                    font-size: 9px;
+                    font-weight: 500;
+                    color: $blue;
+                }
+            }
+
+            & time {
+                display: flex;
+                justify-content: flex-end;
+                font-size: 9px;
+                font-weight: 500;
+                color: $grey;
+                margin-top: 6px;
+            }
+        }
+
+        &__photo {
+            border-radius: 12px;
+            width: 316px;
+            height: 211px;
+            background-color: $light-grey;
+        }
     }
 
     &-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-top: 1px solid $light-grey;
         padding: 10px 0;
+        margin: 0 20px;
 
         &__input {
             padding: 10px 20px;
