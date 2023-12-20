@@ -1,0 +1,9 @@
+.chats-list {
+    & .chats-card {
+        border-bottom: 1px solid $grey;
+    }
+
+    & .chats-card:first-child {
+        border-top: 1px solid $grey;
+    }
+}
