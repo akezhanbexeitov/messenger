@@ -57,6 +57,39 @@
 
 
         <footer class="chat-footer">
+            <div class="chat-footer__options">
+                <div class="chat-footer__options-item">
+                    {{> MediaIcon }}
+
+                    <label for="media">
+                        <span>Photo or Video</span>
+                        <input 
+                            type="file" 
+                            accept="image/*" 
+                            hidden="true" 
+                            id="media"
+                        >
+                    </label>
+                </div>
+                <div class="chat-footer__options-item">
+                    {{> FileIcon }}
+
+                    {{!-- TODO Adjust all inputs to work correctly --}}
+                    <label for="media">
+                        <span>File</span>
+                        <input type="file" accept="image/*" hidden="true" id="media">
+                    </label>
+                </div>
+                <div class="chat-footer__options-item">
+                    {{> LocationIcon }}
+                
+                    <label for="media">
+                        <span>Location</span>
+                        <input type="file" accept="image/*" hidden="true" id="media">
+                    </label>
+                </div>
+            </div>
+
             <button class="chat__button" type="button">
                 {{> PinIcon }}
             </button>

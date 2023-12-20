@@ -127,6 +127,7 @@
         border-top: 1px solid $light-grey;
         padding: 10px 0;
         margin: 0 20px;
+        position: relative;
 
         &__input {
             padding: 10px 20px;
@@ -135,6 +136,43 @@
             border: none;
             flex: 1 1 auto;
             outline: none;
+        }
+
+        &__options {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 120%;
+            border-radius: 12px;
+            background: #FFF;
+            box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.14);
+            overflow: hidden;
+            cursor: pointer;
+
+            &-item {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                font-size: 12px;
+                font-weight: 500;
+
+                &:hover {
+                    background-color: $light-grey;
+                }
+            }
+
+            &-item:first-child {
+                padding: 15px 15px 7.5px 15px;
+            }
+
+            &-item:not(:first-child):not(:last-child) {
+                padding: 7.5px 15px;
+
+            }
+
+            &-item:last-child {
+                padding: 7.5px 15px 15px 15px;
+            }
         }
     }
 }
