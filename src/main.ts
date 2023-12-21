@@ -9,6 +9,7 @@ const pages = {
   'chat': [Pages.ChatPage],
   'profile': [Pages.ProfilePage],
   'change-profile': [Pages.ChangeProfilePage],
+  'change-password': [Pages.ChangePasswordPage],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {
