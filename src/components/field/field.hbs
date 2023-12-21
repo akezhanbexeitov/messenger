@@ -1,16 +1,22 @@
-<div class="field">
-    <label 
-        class="field__label" 
-        for={{ name }}
-    >
-        {{ label }}
-    </label>
+{{#if (isAuthField env)}}
+    <div class="field">
+        <label 
+            class="field__label" 
+            for={{ name }}
+        >
+            {{ label }}
+        </label>
 
-    <input 
-        class="field__input"
-        type={{ type }} 
-        id={{ name }} 
-        placeholder=""
-        name={{ name }}
-    >
-</div>
+        <input 
+            class="field__input"
+            type={{ type }} 
+            id={{ name }} 
+            placeholder=""
+            name={{ name }}
+        >
+    </div>
+{{/if}}
+
+{{#if (isProfileField env)}}
+    <div>something else</div>
+{{/if}}

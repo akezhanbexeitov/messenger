@@ -1,9 +1,13 @@
 .link {
+    width: 100%;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 8px;
     color: $grey;
-    text-decoration: none;
     font-size: 12px;
     font-weight: 500;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
