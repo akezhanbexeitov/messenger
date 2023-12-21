@@ -25,8 +25,18 @@
         max-width: 510px;
         margin: 0 auto;
 
+        & .avatar {
+            margin: 0 auto 20px;
+        }
+
         & .field-profile:not(:last-of-type) {
             border-bottom: 1px solid $light-grey;
+        }
+
+        &__name {
+            margin: 0 auto 60px;
+            font-size: 16px;
+            font-weight: 600;
         }
     }
 }
