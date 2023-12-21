@@ -10,6 +10,8 @@ const pages = {
   'profile': [Pages.ProfilePage],
   'change-profile': [Pages.ChangeProfilePage],
   'change-password': [Pages.ChangePasswordPage],
+  '404': [Pages.NotFoundPage],
+  '500': [Pages.InternalServerErrorPage],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {
