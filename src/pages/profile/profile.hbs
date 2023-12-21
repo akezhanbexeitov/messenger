@@ -1,10 +1,56 @@
-<main>
-    {{> 
-        Field
-            name="email"
-            label="Email"
-            type="email"
-            env="profile"
-            placeholder="pochta@yandex.ru"
-    }}
+<main class="profile">
+    <aside class="profile-aside">
+        {{> ArrowIcon }}
+    </aside>
+
+    <section class="profile-main">
+        {{> 
+            Field
+                name="email"
+                label="Email"
+                type="email"
+                env="profile"
+                placeholder="pochta@yandex.ru"
+        }}
+        {{>
+            Field
+                name="login"
+                label="Login"
+                type="text"
+                env="profile"
+                placeholder="ivanivanov"
+        }}
+        {{>
+            Field
+                name="first_name"
+                label="First Name"
+                type="text"
+                env="profile"
+                placeholder="Ivan"
+        }}
+        {{>
+            Field
+                name="second_name"
+                label="Second Name"
+                type="text"
+                env="profile"
+                placeholder="Ivanov"
+        }}
+        {{>
+            Field
+                name="display_name"
+                label="Display Name"
+                type="text"
+                env="profile"
+                placeholder="Ivan"
+        }}
+        {{>
+            Field
+                name="phone"
+                label="Phone Number"
+                type="text"
+                env="profile"
+                placeholder="+7(909)9673030"
+        }}
+    </section>
 </main>
