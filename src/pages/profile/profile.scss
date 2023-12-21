@@ -1,4 +1,32 @@
 .profile {
     display: flex;
     height: 100svh;
+
+    &-aside {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 64px;
+        background-color: $dark-white;
+        border-right: 1px solid $light-grey;
+        transition: background-color 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $light-grey;
+        }
+    }
+
+    &-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 510px;
+        margin: 0 auto;
+
+        & .field-profile:not(:last-of-type) {
+            border-bottom: 1px solid $light-grey;
+        }
+    }
 }
