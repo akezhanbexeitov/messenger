@@ -33,10 +33,37 @@
             border-bottom: 1px solid $light-grey;
         }
 
+        & .field-profile:last-of-type {
+            margin-bottom: 60px;
+        }
+
         &__name {
             margin: 0 auto 60px;
             font-size: 16px;
             font-weight: 600;
+        }
+
+        &__button {
+            background-color: transparent;
+            border: none;
+            font-size: 13px;
+            font-weight: 500;
+            color: $blue;
+            text-align: left;
+            padding: 10px 0;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &:not(:last-of-type) {
+                border-bottom: 1px solid $light-grey;
+            }
+
+            &_danger {
+                color: $red;
+            }
         }
     }
 }

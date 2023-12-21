@@ -51,6 +51,7 @@
                 env="profile"
                 placeholder="Ivan"
         }}
+        {{!-- TODO Fix number representation --}}
         {{>
             Field
                 name="phone"
@@ -59,5 +60,26 @@
                 env="profile"
                 placeholder="+7(909)9673030"
         }}
+
+        <button 
+            class="profile-main__button"
+            type="button"
+        >
+            Change profile
+        </button>
+
+        <button 
+            class="profile-main__button" 
+            type="button"
+        >
+            Change password
+        </button>
+
+        <button 
+            class="profile-main__button profile-main__button_danger" 
+            type="button"
+        >
+            Logout
+        </button>
     </section>
 </main>
