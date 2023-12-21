@@ -1,23 +1,51 @@
 .field {
-    display: flex;
-    flex-direction: column;
+    &-auth {
+        display: flex;
+        flex-direction: column;
 
-    &__label {
-        color: $grey;
-        font-size: 9px;
-        font-weight: 500;
+        &__label {
+            color: $grey;
+            font-size: 9px;
+            font-weight: 500;
+        }
+
+        &__input {
+            border: none;
+            color: $black;
+            font-weight: 500;
+            font-size: 13px;
+            border-bottom: 2px solid $blue;
+            padding: 7px 0;
+
+            &:focus {
+                outline: none;
+            }
+        }
     }
+    
+    &-profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0;
 
-    &__input {
-        border: none;
-        color: $black;
-        font-weight: 500;
-        font-size: 13px;
-        border-bottom: 2px solid $blue;
-        padding: 7px 0;
+        &__label {
+            font-size: 13px;
+            font-weight: 500;
+        }
 
-        &:focus {
+        &__input {
+            flex: 1 1 auto;
+            direction: rtl;
+            font-size: 13px;
+            font-weight: 500;
             outline: none;
+            border: none;
+
+            &::placeholder {
+                text-align: right;
+            }
         }
     }
 }
