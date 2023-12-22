@@ -2,10 +2,13 @@
   "name": "messenger",
   "version": "0.0.1",
   "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "start": "vite preview"
   },
   "devDependencies": {
     "handlebars": "^4.7.8",
