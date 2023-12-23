@@ -17,6 +17,10 @@
 
 Ссылка на дизайн, который был взят за основу - https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1&mode=dev
 
+## Ссылка
+
+Ссылка на задеплоенный проект - https://main--classy-quokka-e30016.netlify.app/
+
 ## Изменения (22.12.2023)
 
 1. Сверстаны все страницы
