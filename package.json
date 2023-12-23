@@ -7,9 +7,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "start": "vite preview --port 3000 & npm run server",
-    "server": "node src/server/index.cjs"
+    "start": "tsc && vite preview --port 3000"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
