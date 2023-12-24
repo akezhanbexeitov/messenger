@@ -1,0 +1,37 @@
+<li 
+    class="
+        chats-card 
+        {{#if active}} chats-card_active {{/if}}
+    " 
+    page="chat"
+> 
+    <div class="chats-card__image" page="chat">
+        <img 
+            src="{{ avatar }}" 
+            alt="Chat card image"
+            width="47px"
+            height="47px"
+            page="chat"
+        />
+    </div>
+
+    <div class="chats-card__info" page="chat">
+        <h2 class="chats-card__name" page="chat">{{ name }}</h2>
+        <h3 class="chats-card__message" page="chat">{{ message }}</h3>
+    </div>
+    
+    <div class="chats-card__additional" page="chat">
+        <time 
+            class="chats-card__time" 
+            datetime={{ time }}
+            page="chat"
+        >
+            {{ time }}
+        </time>
+        {{#if unread}}
+            <div class="chats-card__unread" page="chat">
+                <span page="chat">{{ unread }}</span>
+            </div>
+        {{/if}}
+    </div>
+</li>

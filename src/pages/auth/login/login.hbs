@@ -1,0 +1,40 @@
+<main class="auth">
+    <form class="auth__form auth__form_login">
+        <div class="auth__fields">
+            {{> Title text="Login"}}
+            
+            {{>
+                Field
+                    name="login"
+                    label="Username"
+                    type="text"
+                    env="auth"
+            }}
+
+            {{>
+                Field
+                    name="password"
+                    label="Password"
+                    type="password"
+                    env="auth"
+            }}
+        </div>
+
+        <div class="auth__buttons">
+            {{>
+                Button
+                    primary="true"
+                    text="Login"
+                    type="submit"
+                    page="chats"
+            }}
+            
+            {{>
+                Button
+                    text="Register"
+                    type="button"
+                    page="register"
+            }}
+        </div>
+    </form>
+</main>

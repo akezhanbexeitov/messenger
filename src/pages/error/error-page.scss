@@ -1,0 +1,33 @@
+.error-page {
+    width: 100vw;
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__number {
+        font-size: 40px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+
+    &__button {
+        font-size: 11px;
+        font-weight: 500;
+        background-color: transparent;
+        border: none;
+        color: $blue;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

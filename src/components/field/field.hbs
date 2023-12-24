@@ -1,0 +1,40 @@
+{{#if (isAuthField env)}}
+    <div class="field-auth">
+        <label 
+            class="field-auth__label" 
+            for={{ name }}
+        >
+            {{ label }}
+        </label>
+
+        <input 
+            class="field-auth__input"
+            type={{ type }} 
+            id={{ name }} 
+            placeholder=""
+            name={{ name }}
+        >
+    </div>
+{{/if}}
+
+{{#if (isProfileField env)}}
+    <div class="field-profile">
+        <label  
+            class="field-profile__label"
+            for={{ name }}
+        >
+            {{ label }}
+        </label>
+
+        <input 
+            class="field-profile__input"
+            type={{ type }}
+            id={{ name }}
+            placeholder={{ placeholder }}
+            name={{ name }}
+            {{#if disabled }}
+                disabled
+            {{/if}}
+        >
+    </div>
+{{/if}}

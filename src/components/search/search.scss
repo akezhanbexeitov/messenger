@@ -1,0 +1,32 @@
+.search {
+    position: relative;
+
+    // &::before {
+    //     content: '';
+    //     width: 20px;
+    //     height: 20px;
+    //     position: absolute;
+    //     top: 50%;
+    //     transform: translateY(-50%);
+    //     left: 10px;
+    //     background-image: url('../../assets/icons/search.svg');
+    //     background-size: cover;
+    //     background-position: center;
+    //     background-repeat: no-repeat;
+    // }
+
+    &__input {
+        width: 100%;
+        padding: 10px 20px;
+        border: none;
+        background-color: $light-grey;
+        border-radius: 5px;
+        outline: none;
+
+        &::placeholder {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+}

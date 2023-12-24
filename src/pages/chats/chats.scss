@@ -1,0 +1,40 @@
+.chats {
+    display: flex;
+    max-height: 100svh;
+    overflow: hidden;
+
+    & .link {
+        padding: 0 10px;
+        margin: 20px 0;
+        justify-content: flex-end;
+    }
+
+    &__aside {
+        background-color: $dark-white;
+        width: 100%;
+        max-width: 310px;
+
+        & .search__input {
+            margin: 14px 0;
+        }
+
+        & nav {
+            max-height: 100%;
+            overflow: scroll;
+        }
+    }
+
+    &__main {
+        width: 100%;
+        height: 100svh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__dummy {
+        color: $grey;
+        font-size: 12px;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,76 @@
+.chats-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 10px;
+    color: $grey;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+        background-color: $light-blue;
+    }
+
+    &_active {
+        background-color: $light-blue;
+    }
+
+    &__image {
+        width: 47px;
+        height: 47px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__info {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+    }
+
+    &__name {
+        color: $black;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    &__message {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    &__additional {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__time {
+        font-size: 9px;
+        font-weight: 500;
+    }
+
+    &__unread {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $blue;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+
+        & span {
+            color: $white;
+            font-size: 11px;
+            font-weight: 500;
+        }
+    }
+}

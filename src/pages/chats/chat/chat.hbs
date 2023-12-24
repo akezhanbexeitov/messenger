@@ -1,0 +1,138 @@
+<main class="chats">
+    <aside class="chats__aside">
+        {{> 
+            Link
+                text="Profile"
+                page="profile"
+        }}
+        {{> Search }}
+        <nav>
+            {{> ChatsList }}
+        </nav>
+    </aside>
+
+    <section class="chat">
+        <header class="chat-header">
+            <div class="chat-header__options">
+                <div class="chat-header__options-item">
+                    {{> PlusIcon }}
+                    <span>Add member</span>
+                </div>
+                <div class="chat-header__options-item">
+                    {{> DeleteIcon }}
+                    <span>Delete member</span>
+                </div>
+            </div>
+
+            <div class="chat-header__details">
+                <div class="chat-header__avatar">
+                    <img 
+                        src="http://localhost:3000/avatar.png"
+                        alt="User Avatar"
+                        width="34px"
+                        height="34px"
+                    >
+                </div>
+                <h3 class="chat-header__name">Вадим</h3>
+            </div>
+            <button class="chat__button" type="button">
+                {{> OptionsIcon }}
+            </button>
+        </header>
+
+
+        <div class="chat-main">
+            <time class="chat-main__date" datetime="2023-12-20">20 декабря</time> 
+            <div class="chat-main__messages">
+                <div class="chat-main__message">
+                    <p>
+                        Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад
+                        адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову
+                        говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с
+                        пленкой.<br /><br />
+                
+                        Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего
+                        их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.
+                    </p>
+                    <time datetime="11:56">11:56</time>
+                </div>
+                <div class="chat-main__photo">
+                    <img src="http://localhost:3000/videocamera.png" alt="Videocamera image">
+                    <time datetime="9:20">9:20</time>
+                </div>
+                <div class="chat-main__message_mine">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ipsum officiis rerum atque repudiandae esse autem et excepturi inventore labore?</p>
+                    <div class="chat-main__message-details">
+                        {{> TicksIcon }}
+                        <time datetime="13:40">13:40</time>
+                    </div>
+                </div>
+                <div class="chat-main__message_mine">
+                    <p page="404">404 not found page</p>
+                    <div class="chat-main__message-details">
+                        {{> TicksIcon }}
+                        <time datetime="13:45">13:45</time>
+                    </div>
+                </div>
+                <div class="chat-main__message_mine">
+                    <p page="500">500 interval server error page</p>
+                    <div class="chat-main__message-details">
+                        {{> TicksIcon }}
+                        <time datetime="13:45">13:45</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="chat-footer">
+            <div class="chat-footer__options">
+                <div class="chat-footer__options-item">
+                    {{> MediaIcon }}
+
+                    <label for="media">
+                        <span>Photo or Video</span>
+                        <input 
+                            type="file" 
+                            accept="image/*" 
+                            hidden="true" 
+                            id="media"
+                        >
+                    </label>
+                </div>
+                <div class="chat-footer__options-item">
+                    {{> FileIcon }}
+
+                    {{!-- TODO Adjust all inputs to work correctly --}}
+                    <label for="media">
+                        <span>File</span>
+                        <input type="file" accept="image/*" hidden="true" id="media">
+                    </label>
+                </div>
+                <div class="chat-footer__options-item">
+                    {{> LocationIcon }}
+                
+                    <label for="media">
+                        <span>Location</span>
+                        <input type="file" accept="image/*" hidden="true" id="media">
+                    </label>
+                </div>
+            </div>
+
+            <button class="chat__button" type="button">
+                {{> PinIcon }}
+            </button>
+
+            <input 
+                class="chat-footer__input" 
+                type="text" 
+                name="message"
+                placeholder="Message"
+            >
+
+            <button class="chat__button" type="button">
+                {{> ArrowIcon }}
+            </button>
+        </footer>
+    </section>
+</main>
