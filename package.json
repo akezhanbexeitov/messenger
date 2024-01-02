@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "start": "tsc && vite build && node src/server/index.cjs"
+    "start": "tsc --noEmmit && vite build && node src/server/index.cjs"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
@@ -17,5 +17,8 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-plugin-handlebars": "^1.6.0"
+  },
+  "dependencies": {
+    "vite-plugin-checker": "^0.6.2"
   }
 }
