@@ -1,4 +1,17 @@
-import { METHODS, TOptions } from "./types"
+enum METHODS {
+    GET = 'GET',
+    POST = 'POST',
+    PUT = 'PUT',
+    DELETE = 'DELETE'
+}
+
+type TOptions = {
+    method?: METHODS
+    data?: Record<string, string>
+    timeout?: number
+    headers?: Record<string, string>
+    tries?: number
+}
 
 const queryStringify = (data: Record<string, string>) => {
     if (typeof data !== 'object') {
