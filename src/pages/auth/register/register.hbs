@@ -1,81 +1,83 @@
 <main class="auth">
     <form class="auth__form auth__form_register">
         <div class="auth__fields">
-            {{> Title text="Register"}}
+            {{{ Title text="Register" }}}
 
-            {{>
+            {{{
                 Field
                     name="email"
                     label="Email"
                     type="email"
                     env="auth"
-            }}
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="login"
                     label="Username"
                     type="text"
                     env="auth"
-            }}
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="first_name"
                     label="First Name"
                     type="text"
                     env="auth"
-            }}
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="second_name"
                     label="Second Name"
                     type="text"
                     env="auth"
-            }}
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="phone"
                     label="Phone Number"
                     type="text"
                     env="auth"
-            }}
+            }}}
 
 
-            {{>
+            {{{
                 Field
                     name="password"
                     label="Password"
                     type="password"
                     env="auth"
-            }}
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="repeat_password"
                     label="Repeat Password"
                     type="password"
                     env="auth"
-            }}
+            }}}
         </div>
 
         <div class="auth__buttons">
-            {{>
+            {{{
                 Button
                     primary="true"
                     text="Register"
                     type="submit"
                     page="chats"
-            }}
+                    onClick=handleRegister
+            }}}
 
-            {{>
+            {{{
                 Button
                     text="Login"
                     type="button"
                     page="login"
-            }}
+                    onClick=handleLogin
+            }}}
         </div>
 
     </form>

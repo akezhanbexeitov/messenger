@@ -35,6 +35,6 @@ export function navigate(page: string): void {
   //@ts-ignore
   const Component = pages[page]
   const component = new Component();
-  app?.append(component.getContent()!);
+  app?.replaceChildren(component.getContent()!);
 }
   

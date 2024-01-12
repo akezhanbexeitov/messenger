@@ -8,10 +8,14 @@ interface IProps {}
 export class LoginPage extends Block<IProps> {
     constructor() {
         super({
-            onLogin: (event: Event) => {
+            handleLogin: (event: Event) => {
                 event.preventDefault()
                 navigate(PAGES.CHATS)
-            }
+            },
+            handleRegister: (event: Event) => {
+                event.preventDefault()
+                navigate(PAGES.REGISTER)
+            },
         })
     }
 
