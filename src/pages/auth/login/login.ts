@@ -1,4 +1,5 @@
 import Block from "../../../core/Block"
+import { PAGES, navigate } from "../../../core/navigate"
 import template from "./login.hbs?raw"
 // import * as validators from "../../../utils/validators"
 
@@ -9,7 +10,7 @@ export class LoginPage extends Block<IProps> {
         super({
             onLogin: (event: Event) => {
                 event.preventDefault()
-                console.log('LOGIN EVENT FIRED')
+                navigate(PAGES.CHATS)
             }
         })
     }

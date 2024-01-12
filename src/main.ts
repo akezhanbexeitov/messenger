@@ -1,7 +1,7 @@
 import * as Icons from './components/icons';
 import * as Components from './components'
 import { registerComponent } from './core/registerComponent';
-import { navigate } from './core/navigate';
+import { PAGES, navigate } from './core/navigate';
 import Block from './core/Block';
 import Handlebars from 'handlebars';
 
@@ -17,4 +17,4 @@ registerComponent('Avatar', Components.Avatar as typeof Block)
 registerComponent('ChatsList', Components.ChatsList as typeof Block)
 registerComponent('Search', Components.Search as typeof Block)
 
-document.addEventListener('DOMContentLoaded', () => navigate('login'));
+document.addEventListener('DOMContentLoaded', () => navigate(PAGES.LOGIN));
