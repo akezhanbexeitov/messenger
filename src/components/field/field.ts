@@ -1,5 +1,6 @@
 import Block from "../../core/Block";
-import template from "./field.hbs?raw"
+import templateAuth from "./field-auth.hbs?raw"
+import templateProfile from "./field-profile.hbs?raw"
 
 interface IProps {
     name: string
@@ -18,6 +19,10 @@ export class Field extends Block<IProps> {
     }
 
     protected render(): string {
-        return template
+        if (this.props.env === 'profile') {
+            return templateProfile
+        }
+        
+        return templateAuth
     }
 }
