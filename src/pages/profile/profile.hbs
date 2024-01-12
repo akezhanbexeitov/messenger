@@ -7,11 +7,11 @@
     </aside>
 
     <section class="profile-main">
-        {{> Avatar }}
+        {{{ Avatar }}}
 
         <h1 class="profile-main__name">Ivan</h1>
         
-        {{> 
+        {{{ 
             Field
                 name="email"
                 label="Email"
@@ -19,8 +19,8 @@
                 env="profile"
                 placeholder="pochta@yandex.ru"
                 disabled="true"
-        }}
-        {{>
+        }}}
+        {{{
             Field
                 name="login"
                 label="Login"
@@ -28,8 +28,8 @@
                 env="profile"
                 placeholder="ivanivanov"
                 disabled="true"
-        }}
-        {{>
+        }}}
+        {{{
             Field
                 name="first_name"
                 label="First Name"
@@ -37,8 +37,8 @@
                 env="profile"
                 placeholder="Ivan"
                 disabled="true"
-        }}
-        {{>
+        }}}
+        {{{
             Field
                 name="second_name"
                 label="Second Name"
@@ -46,8 +46,8 @@
                 env="profile"
                 placeholder="Ivanov"
                 disabled="true"
-        }}
-        {{>
+        }}}
+        {{{
             Field
                 name="display_name"
                 label="Display Name"
@@ -55,10 +55,10 @@
                 env="profile"
                 placeholder="Ivan"
                 disabled="true"
-        }}
+        }}}
         {{!-- TODO Fix number representation --}}
         {{!-- TODO Remove input backgrounds when disabled --}}
-        {{>
+        {{{
             Field
                 name="phone"
                 label="Phone Number"
@@ -66,7 +66,7 @@
                 env="profile"
                 placeholder="+7(909)9673030"
                 disabled="true"
-        }}
+        }}}
 
         <button 
             class="profile-main__button"

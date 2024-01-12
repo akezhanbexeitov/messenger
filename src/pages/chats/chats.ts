@@ -1,6 +1,7 @@
 import Block from "../../core/Block";
 import template from './chats.hbs?raw'
 import avatar from "../../assets/avatar.png"
+import { PAGES, navigate } from "../../core/navigate";
 
 interface IProps {}
 
@@ -123,7 +124,11 @@ export class ChatsPage extends Block<IProps> {
                     unread: 5,
                     time: "15:30"
                 }
-            ]
+            ],
+            handleClick: (event: Event) => {
+                event.preventDefault()
+                navigate(PAGES.PROFILE)
+            },
         })
     }
 
