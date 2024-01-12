@@ -1,5 +1,4 @@
-import Handlebars from 'handlebars';
-
+import Handlebars from 'handlebars'
 export { default as Field } from './field.hbs?raw'
 
 Handlebars.registerHelper('isAuthField', (value) => {

@@ -1,39 +1,16 @@
+import * as Templates from './components/templates';
+import * as Components from './components'
+import { registerComponent } from './core/registerComponent';
+import { navigate } from './core/navigate';
+import Block from './core/Block';
 import Handlebars from 'handlebars';
-import * as Components from './components';
-import * as Pages from './pages';
 
-const pages = {
-  'login': [ Pages.LoginPage ],
-  'register': [Pages.RegisterPage],
-  'chats': [Pages.ChatsPage],
-  'chat': [Pages.ChatPage],
-  'profile': [Pages.ProfilePage],
-  'change-profile': [Pages.ChangeProfilePage],
-  'change-password': [Pages.ChangePasswordPage],
-  '404': [Pages.NotFoundPage],
-  '500': [Pages.InternalServerErrorPage],
-};
-
-Object.entries(Components).forEach(([ name, component ]) => {
-  Handlebars.registerPartial(name, component);
+Object.entries(Templates).forEach(([ name, template ]) => {
+  Handlebars.registerPartial(name, template);
 });
 
-function navigate(page: string) {
-  //@ts-ignore
-  const [ source, context ] = pages[page];
-  const container = document.getElementById('app')!;
-  container.innerHTML = Handlebars.compile(source)(context);
-}
+registerComponent('Field', Components.Field as typeof Block)
+registerComponent('Button', Components.Button as typeof Block)
+registerComponent('Title', Components.Title as typeof Block)
 
 document.addEventListener('DOMContentLoaded', () => navigate('login'));
-
-document.addEventListener('click', e => {
-  //@ts-ignore
-  const page = e.target.getAttribute('page');
-  if (page) {
-    navigate(page);
-
-    e.preventDefault();
-    e.stopImmediatePropagation();
-  }
-});
