@@ -16,5 +16,6 @@ registerComponent('ChatsCard', Components.ChatsCard as typeof Block)
 registerComponent('Avatar', Components.Avatar as typeof Block)
 registerComponent('ChatsList', Components.ChatsList as typeof Block)
 registerComponent('Search', Components.Search as typeof Block)
+registerComponent('Link', Components.Link as typeof Block)
 
 document.addEventListener('DOMContentLoaded', () => navigate(PAGES.LOGIN));

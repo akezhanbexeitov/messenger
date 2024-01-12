@@ -1,5 +1,12 @@
 <ul class="chats-list">
-    {{#each (chats) }}
-        {{> ChatsCard }}
+    {{#each chats}}
+        {{{ 
+            ChatsCard 
+                name=this.name 
+                avatar=this.avatar  
+                message=this.message
+                time=this.time
+                unread=this.unread
+        }}}
     {{/each}}
 </ul>

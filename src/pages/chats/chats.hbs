@@ -1,13 +1,13 @@
 <main class="chats">
     <aside class="chats__aside">
-        {{> 
+        {{{ 
             Link
                 page="profile"
                 text="Profile"
-        }}
-        {{> Search }}
+        }}}
+        {{{ Search }}}
         <nav>
-            {{> ChatsList }}
+            {{#ChatsList chats=chats}}{{/ChatsList}}
         </nav>
     </aside>
 

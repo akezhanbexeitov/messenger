@@ -1,11 +1,14 @@
 import Block from "../../core/Block";
 import template from "./link.hbs?raw"
 
-interface IProps {}
+interface IProps {
+    page: string
+    text: string
+}
 
 export class Link extends Block<IProps> {
-    constructor() {
-        super()
+    constructor(props: IProps) {
+        super(props)
     }
 
     protected render(): string {
