@@ -1,4 +1,4 @@
-import Block from "../../core/Block";
+import Block, { Events } from "../../core/Block";
 import template from "./button.hbs?raw"
 
 interface IProps {
@@ -7,6 +7,8 @@ interface IProps {
     type: 'button' | 'submit' | 'reset'
     disabled?: boolean
     page: string
+    onClick?: () => void
+    events?: Events
 }
 
 export class Button extends Block<IProps> { 
@@ -14,7 +16,15 @@ export class Button extends Block<IProps> {
         super(props)
     }
 
-    protected render(): string {
+    protected init(): void {
+        if (this.props.onClick) {
+            this.props.events = {
+                click: this.props.onClick
+            }
+        }
+    }
+
+    protected render(): string { 
         return template
     }
 }

@@ -6,7 +6,7 @@ interface IProps {
     name: string
     label: string
     type: 'email' | 'password' | 'text'
-    placeholder: string
+    placeholder?: string
     disabled?: boolean
     env?: 'auth' | 'profile'
 }

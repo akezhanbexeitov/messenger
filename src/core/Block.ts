@@ -6,6 +6,10 @@ export type RefType = {
   [key: string]: Element | Block<object>
 }
 
+export type Events = {
+  [key: string]: (event: Event) => void;
+}
+
 export interface BlockClass<P extends object, R extends RefType> extends Function {
   new (props: P): Block<P, R>;
   componentName?: string;
@@ -40,21 +44,22 @@ class Block<Props extends object, Refs extends RefType = RefType> {
   }
 
     _addEvents() {
-      // @ts-ignore
-    const {events = {}} = this.props;
+      const {events = {}}: {events?: Events} = this.props;
 
-    Object.keys(events).forEach(eventName => {
-      this._element!.addEventListener(eventName, events[eventName]);
-    });
-  }
+      if (!events) return
+      
+      Object.keys(events).forEach(eventName => {
+        this._element!.addEventListener(eventName, events[eventName]);
+      });
+    }
 
-  _registerEvents(eventBus: EventBus) {
-    eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_CWU, this._componentWillUnmount.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
-  }
+    _registerEvents(eventBus: EventBus) {
+      eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
+      eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
+      eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+      eventBus.on(Block.EVENTS.FLOW_CWU, this._componentWillUnmount.bind(this));
+      eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+    }
 
   private _init() {
     this.init();
