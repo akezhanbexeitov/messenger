@@ -2,7 +2,7 @@ import * as Pages from '../pages';
 
 const pages = {
   'login': Pages.LoginPage,
-  // 'register': Pages.RegisterPage,
+  'register': Pages.RegisterPage,
   // 'chats': Pages.ChatsPage,
   // 'chat': Pages.ChatPage,
   // 'profile': Pages.ProfilePage,

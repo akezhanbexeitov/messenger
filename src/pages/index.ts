@@ -1,5 +1,5 @@
 export { default as LoginPage } from './auth/login'
-export { RegisterPage } from './auth/register'
+export { default as RegisterPage } from './auth/register'
 export { ChatsPage } from './chats'
 export { ChatPage } from './chats/chat'
 export { ProfilePage } from './profile'
