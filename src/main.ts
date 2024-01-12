@@ -12,5 +12,9 @@ Object.entries(Templates).forEach(([ name, template ]) => {
 registerComponent('Field', Components.Field as typeof Block)
 registerComponent('Button', Components.Button as typeof Block)
 registerComponent('Title', Components.Title as typeof Block)
+registerComponent('ChatsCard', Components.ChatsCard as typeof Block)
+registerComponent('Avatar', Components.Avatar as typeof Block)
+registerComponent('ChatsList', Components.ChatsList as typeof Block)
+registerComponent('Search', Components.Search as typeof Block)
 
 document.addEventListener('DOMContentLoaded', () => navigate('login'));
