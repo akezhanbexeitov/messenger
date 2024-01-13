@@ -1,13 +1,9 @@
 <main class="chats">
     <aside class="chats__aside">
-        {{> 
-            Link
-                text="Profile"
-                page="profile"
-        }}
-        {{> Search }}
+        {{{ Link text="Profile" }}}
+        {{{ Search }}}
         <nav>
-            {{> ChatsList }}
+            {{{ ChatsList }}}
         </nav>
     </aside>
 
@@ -68,14 +64,14 @@
                     </div>
                 </div>
                 <div class="chat-main__message_mine">
-                    <p page="404">404 not found page</p>
+                    <p>404 not found page</p>
                     <div class="chat-main__message-details">
                         {{> TicksIcon }}
                         <time datetime="13:45">13:45</time>
                     </div>
                 </div>
                 <div class="chat-main__message_mine">
-                    <p page="500">500 interval server error page</p>
+                    <p>500 interval server error page</p>
                     <div class="chat-main__message-details">
                         {{> TicksIcon }}
                         <time datetime="13:45">13:45</time>

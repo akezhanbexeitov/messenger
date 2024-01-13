@@ -7,7 +7,6 @@ interface IProps {
   text: string
   type: 'button' | 'submit' | 'reset'
   disabled?: boolean
-  page: string
   onClick?: () => void
   events?: Events
   env?: string

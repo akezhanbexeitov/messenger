@@ -2,7 +2,6 @@ import Block, { Events } from "../../core/Block";
 import template from "./link.hbs?raw"
 
 interface IProps {
-    page: string
     text: string
     onClick?: () => void
     events?: Events
