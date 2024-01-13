@@ -1,7 +1,7 @@
-import Block from "../../core/Block";
+import Block from "../../core/Block"
 import template from './chats.hbs?raw'
 import avatar from "../../assets/avatar.png"
-import { PAGES, navigate } from "../../core/navigate";
+import { PAGES, navigate } from "../../core/navigate"
 
 interface IProps {}
 
