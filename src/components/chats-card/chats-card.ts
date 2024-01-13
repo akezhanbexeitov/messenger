@@ -5,7 +5,8 @@ interface IProps {
     name: string
     message: string
     time: string
-    unread: number
+    unread?: number
+    active?: boolean
     avatar: string
 }
 
