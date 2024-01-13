@@ -68,27 +68,23 @@
                 disabled="true"
         }}}
 
-        <button 
-            class="profile-main__button"
-            type="button"
-            page="change-profile"
-        >
-            Change profile
-        </button>
+        {{{ 
+            Button
+                text="Change profile"
+                env="profile"
+        }}}
 
-        <button 
-            class="profile-main__button" 
-            type="button"
-            page="change-password"
-        >
-            Change password
-        </button>
+        {{{
+            Button
+                text="Change password"
+                env="profile"
+        }}}
 
-        <button 
-            class="profile-main__button profile-main__button_danger" 
-            type="button"
-        >
-            Logout
-        </button>
+        {{{
+            Button
+                text="Logout"
+                env="profile"
+                danger="true"
+        }}}
     </section>
 </main>

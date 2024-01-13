@@ -1,14 +1,17 @@
 import Block, { Events } from '../../core/Block.ts';
-import template from './button.hbs?raw';
+import button from './button.hbs?raw';
+import buttonProfile from './button-profile.hbs?raw';
 
 interface IProps {
-    primary?: boolean
-    text: string
-    type: 'button' | 'submit' | 'reset'
-    disabled?: boolean
-    page: string
-    onClick?: () => void
-    events?: Events
+  primary?: boolean
+  text: string
+  type: 'button' | 'submit' | 'reset'
+  disabled?: boolean
+  page: string
+  onClick?: () => void
+  events?: Events
+  env?: string
+  danger?: boolean
 }
 
 export class Button extends Block<IProps> {
@@ -21,6 +24,10 @@ export class Button extends Block<IProps> {
   }
 
   protected render(): string {
-    return template;
+    if (this.props.env === 'profile') {
+      return buttonProfile
+    }
+
+    return button
   }
 }
