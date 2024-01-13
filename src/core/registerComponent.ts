@@ -2,7 +2,7 @@ import Handlebars from 'handlebars';
 import Block from "./Block";
 import { HelperOptions } from "handlebars";
 
-interface BlockConstructable<Props extends object, R extends {}> {
+export interface BlockConstructable<Props extends object, R extends {}> {
   new (props: Props): Block<Props, R>
 }
 

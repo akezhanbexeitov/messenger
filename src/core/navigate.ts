@@ -1,5 +1,5 @@
 import * as Pages from '../pages';
-import Block from './Block';
+import { BlockConstructable } from './registerComponent';
 
 export enum PAGES {
   LOGIN = 'login',
@@ -14,19 +14,19 @@ export enum PAGES {
 }
 
 type Pages = {
-  [key in PAGES]: typeof Block;
+  [key in PAGES]: BlockConstructable<object, object>
 };
 
 const pages: Pages = {
-  [PAGES.LOGIN]: Pages.LoginPage as typeof Block,
-  [PAGES.REGISTER]: Pages.RegisterPage as typeof Block,
-  [PAGES.CHATS]: Pages.ChatsPage as typeof Block,
-  [PAGES.CHAT]: Pages.ChatPage as typeof Block,
-  [PAGES.PROFILE]: Pages.ProfilePage as typeof Block,
-  [PAGES.CHANGE_PROFILE]: Pages.ChangeProfilePage as typeof Block,
-  [PAGES.CHANGE_PASSWORD]: Pages.ChangePasswordPage as typeof Block,
-  [PAGES.NOT_FOUND]: Pages.NotFoundPage as typeof Block,
-  [PAGES.INTERNAL_SERVER_ERROR]: Pages.InternalServerErrorPage as typeof Block,
+  [PAGES.LOGIN]: Pages.LoginPage,
+  [PAGES.REGISTER]: Pages.RegisterPage,
+  [PAGES.CHATS]: Pages.ChatsPage,
+  [PAGES.CHAT]: Pages.ChatPage,
+  [PAGES.PROFILE]: Pages.ProfilePage,
+  [PAGES.CHANGE_PROFILE]: Pages.ChangeProfilePage,
+  [PAGES.CHANGE_PASSWORD]: Pages.ChangePasswordPage,
+  [PAGES.NOT_FOUND]: Pages.NotFoundPage,
+  [PAGES.INTERNAL_SERVER_ERROR]: Pages.InternalServerErrorPage,
 };
 
 export function navigate(page: string): void {
