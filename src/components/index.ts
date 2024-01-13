@@ -1,8 +1,9 @@
-export { Button } from "./button/button"
-export { Field } from "./field/field"
-export { Title } from "./title/title"
-export { Avatar } from './avatar/avatar'
+export { Button } from "./button/button.ts"
+export { Field } from "./field/field.ts"
+export { Title } from "./title/title.ts"
+export { Avatar } from './avatar/avatar.ts'
 export { ChatsCard } from './chats-card/chats-card'
 export { ChatsList } from './chats-list/chats-list'
 export { Link } from './link/link'
 export { Search } from './search/search'
+export { BackAside } from './back-aside/back-aside.ts'

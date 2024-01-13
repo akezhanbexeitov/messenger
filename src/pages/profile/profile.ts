@@ -18,6 +18,9 @@ export class ProfilePage extends Block<IProps> {
             handleLogout: (event: Event) => {
                 event.preventDefault()
                 navigate(PAGES.LOGIN)
+            },
+            handleBackClick: () => { 
+                navigate(PAGES.CHATS)
             }
         })
     }

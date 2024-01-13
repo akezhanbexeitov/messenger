@@ -17,5 +17,6 @@ registerComponent('Avatar', Components.Avatar as typeof Block)
 registerComponent('ChatsList', Components.ChatsList as typeof Block)
 registerComponent('Search', Components.Search as typeof Block)
 registerComponent('Link', Components.Link as typeof Block)
+registerComponent('BackAside', Components.BackAside as typeof Block)
 
 document.addEventListener('DOMContentLoaded', () => navigate(PAGES.LOGIN));
