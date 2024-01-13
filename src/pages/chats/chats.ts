@@ -71,7 +71,7 @@ export class ChatsPage extends Block<IProps> {
                     avatar: avatar
                 },
             ],
-            handleClick: (event: Event) => {
+            handleProfileClick: (event: Event) => {
                 event.preventDefault()
                 navigate(PAGES.PROFILE)
             },
