@@ -37,6 +37,39 @@ export class ChatsPage extends Block<IProps> {
                     unread: 1,
                     avatar: avatar
                 },
+                {
+                    name: "Акежан",
+                    message: "Добрый вечер",
+                    time: "12:00",
+                    unread: 2,
+                    avatar: avatar
+                },
+                {
+                    name: "Максим",
+                    message: "Привет",
+                    time: "13:00",
+                    avatar: avatar
+                },
+                {
+                    name: "Андрей",
+                    message: "Здравствуйте",
+                    time: "11:00",
+                    unread: 1,
+                    avatar: avatar
+                },
+                {
+                    name: "Акежан",
+                    message: "Добрый вечер",
+                    time: "12:00",
+                    unread: 2,
+                    avatar: avatar
+                },
+                {
+                    name: "Максим",
+                    message: "Привет",
+                    time: "13:00",
+                    avatar: avatar
+                },
             ],
             handleClick: (event: Event) => {
                 event.preventDefault()
