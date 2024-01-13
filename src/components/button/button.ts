@@ -1,5 +1,5 @@
-import Block, { Events } from "../../core/Block";
-import template from "./button.hbs?raw"
+import Block, { Events } from '../../core/Block.ts';
+import template from './button.hbs?raw';
 
 interface IProps {
     primary?: boolean
@@ -11,20 +11,16 @@ interface IProps {
     events?: Events
 }
 
-export class Button extends Block<IProps> { 
-    constructor(props: IProps) {
-        super(props)
+export class Button extends Block<IProps> {
+  protected init(): void {
+    if (this.props.onClick) {
+      this.props.events = {
+        click: this.props.onClick,
+      };
     }
+  }
 
-    protected init(): void {
-        if (this.props.onClick) {
-            this.props.events = {
-                click: this.props.onClick
-            }
-        }
-    }
-
-    protected render(): string { 
-        return template
-    }
+  protected render(): string {
+    return template;
+  }
 }
