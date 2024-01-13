@@ -15,13 +15,13 @@ export const first_name = (value: string) => {
     // Check if value contains any spaces or numbers
     const spacesOrNumbersPattern = /\s|\d/
     if (spacesOrNumbersPattern.test(value)) {
-        return 'Login should not contain any spaces or numbers'
+        return 'First name should not contain any spaces or numbers'
     }
 
     // Check if value contains any special signs
     const specialSignsPattern = /-/;
     if (specialSignsPattern.test(value)) {
-        return 'Value should not contain any special signs'
+        return 'First name should not contain any special signs'
     }
 
     return false
@@ -32,7 +32,7 @@ export const second_name = (value: string) => {
     const cyrillicPattern = /^[а-яА-ЯёЁ\s]+$/
     const latinPattern = /^[a-zA-Z\s]+$/
     if (!cyrillicPattern.test(value) || !latinPattern.test(value)) { 
-        return 'First name should contain only Cyrillic or Latin characters'
+        return 'Second name should contain only Cyrillic or Latin characters'
     }
 
     // Check if first letter is not a capital letter
@@ -44,13 +44,111 @@ export const second_name = (value: string) => {
     // Check if value contains any spaces or numbers
     const spacesOrNumbersPattern = /\s|\d/
     if (spacesOrNumbersPattern.test(value)) {
-        return 'Login should not contain any spaces or numbers'
+        return 'Second name should not contain any spaces or numbers'
     }
 
     // Check if value contains any special signs
     const specialSignsPattern = /-/;
     if (specialSignsPattern.test(value)) {
         return 'Value should not contain any special signs'
+    }
+
+    return false
+}
+
+export const login = (value: string) => {
+    // Check if the login is not from 3 to 20 characters long
+    if (value.length < 3 || value.length > 20) {
+        return 'Login should be from 3 to 20 characters long'
+    }
+
+    // Check if login is not in latin characters only
+    const latinPattern = /^[a-zA-Z\s]+$/
+    if (!latinPattern.test(value)) { 
+        return 'First name should contain only latin characters'
+    }
+
+    // Check if login is all numbers
+    const allNumbersPattern = /^\d+$/
+    if (allNumbersPattern.test(value)) {
+        return 'Login should not be all numbers'
+    }
+
+    // Check if login contains any spaces
+    const spacesPattern = /\s/;
+    if (spacesPattern.test(value)) {
+        return 'Login should not contain any spaces'
+    }
+
+    // Check if login contains any special signs other than dash and underline
+    const specialSignsPattern = /[^a-zA-Z0-9-_]/;
+    if (specialSignsPattern.test(value)) {
+        return 'Login should not contain any special signs other than dash and underline'
+    }
+}
+
+export const email = (value: string) => {
+    // Check if email is in latin characters only
+    const latinPattern = /^[a-zA-Z0-9-_@.]+$/
+    if (!latinPattern.test(value)) { 
+        return 'Email should contain only latin characters, numbers, dash, underline, @, and .'
+    }
+
+    // Check if email contains @ and .
+    const atAndDotPattern = /@.*\./;
+    if (!atAndDotPattern.test(value)) {
+        return 'Email should contain @ and ., with . after @'
+    }
+
+    // Check if there are letters before the dot
+    const lettersBeforeDotPattern = /@([a-zA-Z0-9-_]+)\./;
+    if (!lettersBeforeDotPattern.test(value)) {
+        return 'There should be letters before the dot after @'
+    }
+
+    return false
+}
+
+export const password = (value: string) => {
+    // Check if the password is not from 8 to 40 characters long
+    if (value.length < 8 || value.length > 40) {
+        return 'Password should be from 8 to 40 characters long'
+    }
+
+    // Check if password contains at least one uppercase letter
+    const uppercasePattern = /[A-Z]/;
+    if (!uppercasePattern.test(value)) {
+        return 'Password should contain at least one uppercase letter'
+    }
+
+    // Check if password contains at least one digit
+    const digitPattern = /\d/;
+    if (!digitPattern.test(value)) {
+        return 'Password should contain at least one digit'
+    }
+
+    return false
+}
+
+export const phone = (value: string) => {
+    // Check if the phone number is not from 10 to 15 characters long
+    if (value.length < 10 || value.length > 15) {
+        return 'Phone number should be from 10 to 15 characters long'
+    }
+
+    // Check if phone number consists of digits and possibly starts with a plus
+    const phonePattern = /^\+?\d+$/;
+    if (!phonePattern.test(value)) {
+        return 'Phone number should consist of digits and possibly start with a plus'
+    }
+
+    return false
+}
+
+export const message = (value: string) => {
+    // Check if the message is empty
+    if (!value.trim()) {
+        return 'Message should not be empty'
     }
 
     return false
