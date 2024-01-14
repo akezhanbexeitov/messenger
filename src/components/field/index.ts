@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Handlebars from 'handlebars'
 export { default as Field } from './field.hbs?raw'
 
