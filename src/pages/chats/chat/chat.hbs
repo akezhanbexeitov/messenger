@@ -123,16 +123,23 @@
                 {{> PinIcon }}
             </button>
 
-            <input 
-                class="chat-footer__input" 
-                type="text" 
-                name="message"
-                placeholder="Message"
-            >
+            {{{
+                Field
+                    type="text"
+                    name="message"
+                    onBlur=onBlur
+                    ref="message"
+                    env='chat'
+                    placeholder="Message"
+                    validate=validate.message
+            }}}
 
-            <button class="chat__button" type="button">
-                {{> ArrowIcon }}
-            </button>
+            {{{ 
+                Button
+                    type="button"
+                    env='chat'
+                    onClick=handleSendClick
+            }}}
         </footer>
     </section>
 </main>

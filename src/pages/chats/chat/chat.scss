@@ -177,11 +177,11 @@
         position: relative;
 
         &__input {
+            width: 100%;
             padding: 10px 20px;
             background-color: $light-grey;
             border-radius: 30px;
             border: none;
-            flex: 1 1 auto;
             outline: none;
         }
 

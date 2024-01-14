@@ -1,6 +1,7 @@
 import Block, { Events } from '../../core/Block.ts';
 import button from './button.hbs?raw';
 import buttonProfile from './button-profile.hbs?raw';
+import buttonChat from './button-chat.hbs?raw';
 
 interface IProps {
   primary?: boolean
@@ -9,7 +10,7 @@ interface IProps {
   disabled?: boolean
   onClick?: () => void
   events?: Events
-  env?: string
+  env: 'chat' | 'profile'
   danger?: boolean
 }
 
@@ -27,6 +28,10 @@ export class Button extends Block<IProps> {
       return buttonProfile
     }
 
+    if (this.props.env === 'chat') {
+      return buttonChat
+    }
+    
     return button
   }
 }

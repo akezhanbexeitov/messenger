@@ -2,6 +2,7 @@ import { ErrorText } from './../error-text/error-text';
 import Block from "../../core/Block";
 import templateAuth from "./field-auth.hbs?raw"
 import templateProfile from "./field-profile.hbs?raw"
+import templateChat from "./field-chat.hbs?raw"
 import { Input } from '../input/input.ts'
 
 interface IProps {
@@ -10,7 +11,7 @@ interface IProps {
     type: 'email' | 'password' | 'text'
     placeholder?: string
     disabled?: boolean
-    env: 'auth' | 'profile'
+    env: 'auth' | 'profile' | 'chat'
     onBlur: () => void
     validate: (value: string) => boolean | string
 }
@@ -53,6 +54,10 @@ export class Field extends Block<IProps, TRef> {
             return templateProfile
         }
         
-        return templateAuth
+        if (this.props.env === 'auth') {
+            return templateAuth
+        }
+        
+        return templateChat
     }
 }

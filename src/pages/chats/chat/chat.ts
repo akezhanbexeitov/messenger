@@ -2,12 +2,21 @@ import Block from "../../../core/Block";
 import { PAGES, navigate } from "../../../core/navigate";
 import template from './chat.hbs?raw'
 import avatar from "../../../assets/avatar.png"
+import * as validators from '../../../utils/validators.ts'
+import { Field } from "../../../components/index.ts";
 
-interface IProps {}
+interface IProps { }
 
-export class ChatPage extends Block<IProps> {
+type TRef = {
+    message: Field
+}
+
+export class ChatPage extends Block<IProps, TRef> {
     constructor() {
         super({
+            validate: {
+                message: validators.message
+            },
             chats: [
                 {
                     name: "Андрей",
@@ -77,6 +86,13 @@ export class ChatPage extends Block<IProps> {
             },
             handleChatClick: () => {
                 navigate(PAGES.CHAT)
+            },
+            handleSendClick: () => {
+                const message = this.refs.message.value()
+                if (!message) return
+                console.log({
+                    message
+                })
             }
         })
     }
