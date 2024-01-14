@@ -3,7 +3,14 @@
         {{ label }}
     </label>
 
-    {{{ Input type=type name=name onBlur=onBlur ref="input" }}}
+    {{{ 
+        Input 
+            type=type 
+            name=name 
+            onBlur=onBlur 
+            env=env
+            ref="input" 
+    }}}
 
     {{{ ErrorText error=error ref="errorText" }}}
 </div>
