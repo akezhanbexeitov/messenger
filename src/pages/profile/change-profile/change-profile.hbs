@@ -12,6 +12,7 @@
                     type="email"
                     env="profile"
                     placeholder="pochta@yandex.ru"
+                    ref="email"
             }}}
             {{{
                 Field
@@ -20,6 +21,7 @@
                     type="text"
                     env="profile"
                     placeholder="ivanivanov"
+                    ref="login"
             }}}
             {{{
                 Field
@@ -28,6 +30,7 @@
                     type="text"
                     env="profile"
                     placeholder="Ivan"
+                    ref="first_name"
             }}}
             {{{
                 Field
@@ -36,6 +39,7 @@
                     type="text"
                     env="profile"
                     placeholder="Ivanov"
+                    ref="second_name"
             }}}
             {{{
                 Field
@@ -44,6 +48,7 @@
                     type="text"
                     env="profile"
                     placeholder="Ivan"
+                    ref="display_name"
             }}}
             {{!-- TODO Fix number representation --}}
             {{!-- TODO Remove input backgrounds when disabled --}}
@@ -54,6 +59,7 @@
                     type="text"
                     env="profile"
                     placeholder="+7(909)9673030"
+                    ref="phone"
             }}}
         </form>
 
@@ -62,6 +68,7 @@
                 primary="true"
                 text="Save changes"
                 type="submit"
+                onClick=handleSaveChangesClick
         }}}
         </button>
     </section>

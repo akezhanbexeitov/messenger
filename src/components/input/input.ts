@@ -1,9 +1,12 @@
 import Block from "../../core/Block";
-import template from './input.hbs?raw'
+import templateAuth from './input-auth.hbs?raw'
+import templateProfile from './input-profile.hbs?raw'
 
 interface IProps {
-    type: string
+    type: 'email' | 'password' | 'text'
     name: string
+    env: 'auth' | 'profile'
+    placeholder?: string
 }
 
 export class Input extends Block<IProps> {
@@ -12,6 +15,10 @@ export class Input extends Block<IProps> {
     }
 
     protected render(): string {
-        return template
+        if (this.props.env === 'profile') {
+            return templateProfile
+        }
+        
+        return templateAuth
     }
 }

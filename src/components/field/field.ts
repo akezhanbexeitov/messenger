@@ -9,7 +9,7 @@ interface IProps {
     type: 'email' | 'password' | 'text'
     placeholder?: string
     disabled?: boolean
-    env?: 'auth' | 'profile'
+    env: 'auth' | 'profile'
 }
 
 type TRef = {

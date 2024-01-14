@@ -3,13 +3,13 @@
         {{ label }}
     </label>
 
-    <input 
-        class="field-profile__input" 
-        type={{ type }} 
-        id={{ name }} 
-        placeholder={{ placeholder }} 
-        name={{ name }}
-        ref="input"
-        {{#if disabled }} disabled {{/if}}
-    >
+    {{{ 
+        Input 
+            type=type 
+            name=name 
+            placeholder=placeholder 
+            disabled=disabled 
+            env=env
+            ref="input"
+    }}}
 </div>
