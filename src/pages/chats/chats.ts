@@ -75,6 +75,9 @@ export class ChatsPage extends Block<IProps> {
                 event.preventDefault()
                 navigate(PAGES.PROFILE)
             },
+            handleChatClick: () => {
+                navigate(PAGES.CHAT)
+            }
         })
     }
 

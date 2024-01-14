@@ -20,4 +20,4 @@ registerComponent('BackAside', Components.BackAside)
 registerComponent('Input', Components.Input)
 registerComponent('ErrorText', Components.ErrorText)
 
-document.addEventListener('DOMContentLoaded', () => navigate(PAGES.CHANGE_PROFILE));
+document.addEventListener('DOMContentLoaded', () => navigate(PAGES.CHATS));
