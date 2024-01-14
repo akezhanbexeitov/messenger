@@ -1,11 +1,84 @@
 import Block from "../../../core/Block";
+import { PAGES, navigate } from "../../../core/navigate";
 import template from './chat.hbs?raw'
+import avatar from "../../../assets/avatar.png"
 
 interface IProps {}
 
 export class ChatPage extends Block<IProps> {
     constructor() {
-        super()
+        super({
+            chats: [
+                {
+                    name: "Андрей",
+                    message: "Здравствуйте",
+                    time: "11:00",
+                    unread: 1,
+                    avatar: avatar
+                },
+                {
+                    name: "Акежан",
+                    message: "Добрый вечер",
+                    time: "12:00",
+                    unread: 2,
+                    avatar: avatar
+                },
+                {
+                    name: "Максим",
+                    message: "Привет",
+                    time: "13:00",
+                    active: true,
+                    avatar: avatar
+                },
+                {
+                    name: "Андрей",
+                    message: "Здравствуйте",
+                    time: "11:00",
+                    unread: 1,
+                    avatar: avatar
+                },
+                {
+                    name: "Акежан",
+                    message: "Добрый вечер",
+                    time: "12:00",
+                    unread: 2,
+                    avatar: avatar
+                },
+                {
+                    name: "Максим",
+                    message: "Привет",
+                    time: "13:00",
+                    avatar: avatar
+                },
+                {
+                    name: "Андрей",
+                    message: "Здравствуйте",
+                    time: "11:00",
+                    unread: 1,
+                    avatar: avatar
+                },
+                {
+                    name: "Акежан",
+                    message: "Добрый вечер",
+                    time: "12:00",
+                    unread: 2,
+                    avatar: avatar
+                },
+                {
+                    name: "Максим",
+                    message: "Привет",
+                    time: "13:00",
+                    avatar: avatar
+                },
+            ],
+            handleProfileClick: (event: Event) => {
+                event.preventDefault()
+                navigate(PAGES.PROFILE)
+            },
+            handleChatClick: () => {
+                navigate(PAGES.CHAT)
+            }
+        })
     }
 
     protected render(): string {

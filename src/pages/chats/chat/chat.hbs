@@ -1,9 +1,13 @@
 <main class="chats">
     <aside class="chats__aside">
-        {{{ Link text="Profile" }}}
+        {{{
+            Link
+                text="Profile"
+                onClick=handleProfileClick
+        }}}
         {{{ Search }}}
         <nav>
-            {{{ ChatsList }}}
+            {{#ChatsList chats=chats handleChatClick=handleChatClick}}{{/ChatsList}}
         </nav>
     </aside>
 
