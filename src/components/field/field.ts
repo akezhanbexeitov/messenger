@@ -24,8 +24,8 @@ export class Field extends Block<IProps, TRef> {
     }
 
     public value() {
-        // @ts-ignore
-        return this.refs.input.element.value
+        const element = this.refs.input.element as HTMLInputElement
+        return element.value
     }
 
     protected render(): string {
