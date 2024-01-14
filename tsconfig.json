@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "noImplicitAny": true,
+    "sourceMap": true,
 
     "strict": true,
     "noUnusedLocals": true,
