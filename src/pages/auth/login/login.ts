@@ -1,15 +1,27 @@
+import { Field } from "../../../components"
 import Block from "../../../core/Block"
 import { PAGES, navigate } from "../../../core/navigate"
 import template from "./login.hbs?raw"
 // import * as validators from "../../../utils/validators"
 
-interface IProps {}
+interface IProps { }
 
-export class LoginPage extends Block<IProps> {
+type TRef = {
+    login: Field
+    password: Field
+}
+
+export class LoginPage extends Block<IProps, TRef> {
     constructor() {
         super({
             handleLogin: (event: Event) => {
                 event.preventDefault()
+                const login = this.refs.login.value()
+                const password = this.refs.password.value()
+                console.log({
+                    login,
+                    password
+                })
                 navigate(PAGES.CHATS)
             },
             handleRegister: (event: Event) => {

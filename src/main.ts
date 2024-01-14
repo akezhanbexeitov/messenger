@@ -17,5 +17,6 @@ registerComponent('ChatsList', Components.ChatsList)
 registerComponent('Search', Components.Search)
 registerComponent('Link', Components.Link)
 registerComponent('BackAside', Components.BackAside)
+registerComponent('Input', Components.Input)
 
 document.addEventListener('DOMContentLoaded', () => navigate(PAGES.LOGIN));
