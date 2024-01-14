@@ -2,6 +2,7 @@ import * as Icons from './components/icons';
 import * as Components from './components'
 import { registerComponent } from './core/registerComponent';
 import { PAGES, navigate } from './core/navigate';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Handlebars from 'handlebars';
 
 Object.entries(Icons).forEach(([ name, icon ]) => {

@@ -2,8 +2,8 @@ import Block from "../../../core/Block";
 import { PAGES, navigate } from "../../../core/navigate";
 import template from './chat.hbs?raw'
 import avatar from "../../../assets/avatar.png"
-import * as validators from '../../../utils/validators.ts'
-import { Field } from "../../../components/index.ts";
+import * as validators from '../../../utils/validators'
+import { Field } from "../../../components/index";
 
 interface IProps { }
 

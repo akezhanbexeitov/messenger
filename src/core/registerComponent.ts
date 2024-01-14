@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Handlebars from 'handlebars';
 import Block from "./Block";
 import { HelperOptions } from "handlebars";

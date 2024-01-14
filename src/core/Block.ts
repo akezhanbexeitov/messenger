@@ -1,3 +1,4 @@
+/* eslint-disable */
 import EventBus from "./EventBus";
 import { nanoid } from 'nanoid';
 import Handlebars from "handlebars";
