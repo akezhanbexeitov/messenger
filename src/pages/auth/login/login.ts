@@ -22,6 +22,7 @@ export class LoginPage extends Block<IProps, TRef> {
                 event.preventDefault()
                 const login = this.refs.login.value()
                 const password = this.refs.password.value()
+                if (!login || !password) return
                 console.log({
                     login,
                     password

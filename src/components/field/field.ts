@@ -29,12 +29,16 @@ export class Field extends Block<IProps, TRef> {
     }
 
     public value() {
+        if (!this.validate()) {
+            return null;
+        }
         const element = this.refs.input.element as HTMLInputElement
         return element.value
     }
 
     private validate() {
-        const value = this.value()
+        const element = this.refs.input.element as HTMLInputElement
+        const value = element.value
         const error = this.props.validate(value)
         if (error) {
             this.refs.errorText.setProps({ error })
