@@ -6,6 +6,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
+    "stylelint": "stylelint '**/*.scss'",
     "dev": "vite",
     "start": "tsc --noEmit && vite build && node src/server/index.cjs"
   },
@@ -21,7 +22,7 @@
     "nanoid": "5.0.4",
     "sass": "1.69.5",
     "stylelint": "^16.1.0",
-    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard-scss": "13.0.0",
     "typescript": "5.3.3",
     "vite": "5.0.10",
     "vite-plugin-checker": "0.6.2",
