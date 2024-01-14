@@ -48,4 +48,11 @@
             }
         }
     }
+
+    &__error {
+        color: $red;
+        font-size: 9px;
+        font-weight: 500;
+        margin-top: 5px;
+    }
 }
