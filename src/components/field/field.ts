@@ -1,3 +1,4 @@
+import { ErrorText } from './../error-text/error-text';
 import Block from "../../core/Block";
 import templateAuth from "./field-auth.hbs?raw"
 import templateProfile from "./field-profile.hbs?raw"
@@ -11,11 +12,12 @@ interface IProps {
     disabled?: boolean
     env: 'auth' | 'profile'
     onBlur: () => void
-    validate: (value: string) => void
+    validate: (value: string) => boolean | string
 }
 
 type TRef = {
     input: Input
+    errorText: ErrorText
 }
 
 export class Field extends Block<IProps, TRef> {
@@ -32,7 +34,14 @@ export class Field extends Block<IProps, TRef> {
     }
 
     private validate() {
-        console.log('VALIDATION STARTS NOW')
+        const value = this.value()
+        const error = this.props.validate(value)
+        if (error) {
+            this.refs.errorText.setProps({ error })
+            return false
+        }
+        this.refs.errorText.setProps({ error: undefined })
+        return true
     }
 
     protected render(): string {

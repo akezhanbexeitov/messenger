@@ -13,14 +13,15 @@
                     validate=validate.login
             }}}
 
-            {{!-- {{{
+            {{{
                 Field
                     name="password"
                     label="Password"
                     type="password"
                     env="auth"
                     ref="password"
-            }}} --}}
+                    validate=validate.password
+            }}}
         </div>
 
         <div class="auth__buttons">

@@ -15,7 +15,8 @@ export class LoginPage extends Block<IProps, TRef> {
     constructor() {
         super({
             validate: {
-                login: validators.login
+                login: validators.login,
+                password: validators.password
             },
             handleLogin: (event: Event) => {
                 event.preventDefault()

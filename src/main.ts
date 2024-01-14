@@ -18,5 +18,6 @@ registerComponent('Search', Components.Search)
 registerComponent('Link', Components.Link)
 registerComponent('BackAside', Components.BackAside)
 registerComponent('Input', Components.Input)
+registerComponent('ErrorText', Components.ErrorText)
 
 document.addEventListener('DOMContentLoaded', () => navigate(PAGES.LOGIN));
