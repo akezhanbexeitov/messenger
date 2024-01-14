@@ -82,24 +82,11 @@ export const login = (value: string) => {
 }
 
 export const email = (value: string) => {
-    // Check if email is in latin characters only
-    const latinPattern = /^[a-zA-Z0-9-_@.]+$/
-    if (!latinPattern.test(value)) { 
-        return 'Email should contain only latin characters, numbers, dash, underline, @, and .'
+    // Check if email is valid
+    const emailPattern = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i
+    if (!emailPattern.test(value)) {
+        return 'Enter valid email address'
     }
-
-    // Check if email contains @ and .
-    const atAndDotPattern = /@.*\./;
-    if (!atAndDotPattern.test(value)) {
-        return 'Email should contain @ and ., with . after @'
-    }
-
-    // Check if there are letters before the dot
-    const lettersBeforeDotPattern = /@([a-zA-Z0-9-_]+)\./;
-    if (!lettersBeforeDotPattern.test(value)) {
-        return 'There should be letters before the dot after @'
-    }
-
     return false
 }
 
