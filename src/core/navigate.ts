@@ -37,4 +37,3 @@ export function navigate(page: string): void {
   const component = new Component();
   app?.replaceChildren(component.getContent()!);
 }
-  
