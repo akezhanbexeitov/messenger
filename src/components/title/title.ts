@@ -7,7 +7,9 @@ interface IProps {
 
 export class Title extends Block<IProps> {
     constructor(props: IProps) {
-        super(props)
+        super({
+            ...props
+        })
     }
 
     protected render(): string {

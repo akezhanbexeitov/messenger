@@ -31,8 +31,11 @@ export class ChangeProfilePage extends Block<IProps, TRef> {
             },
             handleSaveChangesClick: (event: Event) => {
                 event.preventDefault()
+                // eslint-disable-next-line @typescript-eslint/naming-convention
                 const first_name = this.refs.first_name.value()
+                // eslint-disable-next-line @typescript-eslint/naming-convention
                 const second_name = this.refs.second_name.value()
+                // eslint-disable-next-line @typescript-eslint/naming-convention
                 const display_name = this.refs.display_name.value()
                 const login = this.refs.login.value()
                 const email = this.refs.email.value()

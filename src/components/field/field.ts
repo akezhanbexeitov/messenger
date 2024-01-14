@@ -3,7 +3,7 @@ import Block from "../../core/Block";
 import templateAuth from "./field-auth.hbs?raw"
 import templateProfile from "./field-profile.hbs?raw"
 import templateChat from "./field-chat.hbs?raw"
-import { Input } from '../input/input.ts'
+import { Input } from '../input/input'
 
 interface IProps {
     name: string

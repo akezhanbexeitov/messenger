@@ -36,10 +36,13 @@ export class RegisterPage extends Block<IProps, TRef> {
                 event.preventDefault()
                 const email = this.refs.email.value()
                 const login = this.refs.login.value()
+                // eslint-disable-next-line @typescript-eslint/naming-convention
                 const first_name = this.refs.first_name.value()
+                // eslint-disable-next-line @typescript-eslint/naming-convention
                 const second_name = this.refs.second_name.value()
                 const phone = this.refs.phone.value()
                 const password = this.refs.password.value()
+                // eslint-disable-next-line @typescript-eslint/naming-convention
                 const repeat_password = this.refs.repeat_password.value()
                 if (!email || !login || !first_name || !second_name || !phone || !password || !repeat_password) return
                 console.log({

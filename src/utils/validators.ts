@@ -15,8 +15,11 @@ const namesValidators = (value: string) => {
     return false
 }
 
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const first_name = (value: string) => namesValidators(value)
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const second_name = (value: string) => namesValidators(value)
 
 export const login = (value: string) => {

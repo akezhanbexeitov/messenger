@@ -13,11 +13,11 @@ export enum PAGES {
   INTERNAL_SERVER_ERROR = '500',
 }
 
-type Pages = {
+type TPages = {
   [key in PAGES]: BlockConstructable<object, object>
 };
 
-const pages: Pages = {
+const pages: TPages = {
   [PAGES.LOGIN]: Pages.LoginPage,
   [PAGES.REGISTER]: Pages.RegisterPage,
   [PAGES.CHATS]: Pages.ChatsPage,
@@ -32,8 +32,7 @@ const pages: Pages = {
 export function navigate(page: string): void {
   const app = document.getElementById('app');
   
-  //@ts-ignore
-  const Component = pages[page]
-  const component = new Component();
+  const Component = pages[page as PAGES]; 
+  const component = new Component({});
   app?.replaceChildren(component.getContent()!);
 }

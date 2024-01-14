@@ -9,7 +9,9 @@ interface IProps {
 
 export class Link extends Block<IProps> {
     constructor(props: IProps) {
-        super(props)
+        super({
+            ...props
+        })
     }
 
     protected init(): void {
