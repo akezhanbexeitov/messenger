@@ -59,31 +59,25 @@ export const second_name = (value: string) => {
 export const login = (value: string) => {
     // Check if the login is not from 3 to 20 characters long
     if (value.length < 3 || value.length > 20) {
-        return 'Login should be from 3 to 20 characters long'
-    }
-
-    // Check if login is not in latin characters only
-    const latinPattern = /^[a-zA-Z\s]+$/
-    if (!latinPattern.test(value)) { 
-        return 'First name should contain only latin characters'
-    }
-
-    // Check if login is all numbers
-    const allNumbersPattern = /^\d+$/
-    if (allNumbersPattern.test(value)) {
-        return 'Login should not be all numbers'
+        return 'Login must be from 3 to 20 characters long'
     }
 
     // Check if login contains any spaces
     const spacesPattern = /\s/;
     if (spacesPattern.test(value)) {
-        return 'Login should not contain any spaces'
+        return 'Login must not contain any spaces'
     }
 
     // Check if login contains any special signs other than dash and underline
     const specialSignsPattern = /[^a-zA-Z0-9-_]/;
     if (specialSignsPattern.test(value)) {
-        return 'Login should not contain any special signs other than dash and underline'
+        return 'Login must not contain any special signs other than dash and underline'
+    }
+
+    // Check if login is not all numbers and contains only Latin characters, numbers, dashes, and underscores
+    const latinWithNumbersPattern = /^(?=.*[a-zA-Z])[a-zA-Z0-9-_]+$/;
+    if (!latinWithNumbersPattern.test(value)) {
+        return 'Login must have Latin characters and can contain numbers, dashes, and underscores';
     }
 }
 
