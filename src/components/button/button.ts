@@ -1,4 +1,4 @@
-import Block, { Events } from '../../core/Block.ts';
+import Block, { Events } from '../../core/Block';
 import button from './button.hbs?raw';
 import buttonProfile from './button-profile.hbs?raw';
 import buttonChat from './button-chat.hbs?raw';

@@ -8,7 +8,9 @@ interface IProps {
 
 export class BackAside extends Block<IProps> {
     constructor(props: IProps) {
-        super(props)
+        super({
+            ...props
+        })
     }
 
     protected init(): void {

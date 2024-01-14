@@ -14,7 +14,9 @@ interface IProps {
 
 export class ChatsCard extends Block<IProps> {
     constructor(props: IProps) {
-        super(props)
+        super({
+            ...props
+        })
     }
 
     protected init(): void {
