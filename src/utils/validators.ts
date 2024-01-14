@@ -106,19 +106,19 @@ export const email = (value: string) => {
 export const password = (value: string) => {
     // Check if the password is not from 8 to 40 characters long
     if (value.length < 8 || value.length > 40) {
-        return 'Password should be from 8 to 40 characters long'
+        return 'Password must be from 8 to 40 characters long'
     }
 
     // Check if password contains at least one uppercase letter
     const uppercasePattern = /[A-Z]/;
     if (!uppercasePattern.test(value)) {
-        return 'Password should contain at least one uppercase letter'
+        return 'Password must contain at least one uppercase letter'
     }
 
     // Check if password contains at least one digit
     const digitPattern = /\d/;
     if (!digitPattern.test(value)) {
-        return 'Password should contain at least one digit'
+        return 'Password must contain at least one digit'
     }
 
     return false
