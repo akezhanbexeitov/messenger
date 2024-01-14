@@ -10,6 +10,8 @@ interface IProps {
     placeholder?: string
     disabled?: boolean
     env: 'auth' | 'profile'
+    onBlur: () => void
+    validate: (value: string) => void
 }
 
 type TRef = {
@@ -19,13 +21,18 @@ type TRef = {
 export class Field extends Block<IProps, TRef> {
     constructor(props: IProps) {
         super({
-            ...props
+            ...props,
+            onBlur: () => this.validate()
         })
     }
 
     public value() {
         const element = this.refs.input.element as HTMLInputElement
         return element.value
+    }
+
+    private validate() {
+        console.log('VALIDATION STARTS NOW')
     }
 
     protected render(): string {

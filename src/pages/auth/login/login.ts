@@ -2,7 +2,7 @@ import { Field } from "../../../components"
 import Block from "../../../core/Block"
 import { PAGES, navigate } from "../../../core/navigate"
 import template from "./login.hbs?raw"
-// import * as validators from "../../../utils/validators"
+import * as validators from "../../../utils/validators"
 
 interface IProps { }
 
@@ -14,6 +14,9 @@ type TRef = {
 export class LoginPage extends Block<IProps, TRef> {
     constructor() {
         super({
+            validate: {
+                login: validators.login
+            },
             handleLogin: (event: Event) => {
                 event.preventDefault()
                 const login = this.refs.login.value()

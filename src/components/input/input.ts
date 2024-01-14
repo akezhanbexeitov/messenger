@@ -1,4 +1,4 @@
-import Block from "../../core/Block";
+import Block, { Events } from "../../core/Block";
 import templateAuth from './input-auth.hbs?raw'
 import templateProfile from './input-profile.hbs?raw'
 
@@ -7,11 +7,18 @@ interface IProps {
     name: string
     env: 'auth' | 'profile'
     placeholder?: string
+    onBlur: () => void
+    events: Events
 }
 
 export class Input extends Block<IProps> {
     constructor(props: IProps) { 
-        super(props)
+        super({
+            ...props,
+            events: {
+                blur: props.onBlur
+            }
+        })
     }
 
     protected render(): string {
