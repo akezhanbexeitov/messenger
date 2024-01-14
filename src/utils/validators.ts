@@ -77,13 +77,13 @@ export const password = (value: string) => {
 export const phone = (value: string) => {
     // Check if the phone number is not from 10 to 15 characters long
     if (value.length < 10 || value.length > 15) {
-        return 'Phone number should be from 10 to 15 characters long'
+        return 'Phone number must be from 10 to 15 characters long'
     }
 
     // Check if phone number consists of digits and possibly starts with a plus
     const phonePattern = /^\+?\d+$/;
     if (!phonePattern.test(value)) {
-        return 'Phone number should consist of digits and possibly start with a plus'
+        return 'Phone number must consist of only digits and optionally start with a plus sign'
     }
 
     return false
