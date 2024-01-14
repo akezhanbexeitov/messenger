@@ -13,6 +13,7 @@
                     env="profile"
                     placeholder="pochta@yandex.ru"
                     ref="email"
+                    validate=validate.email
             }}}
             {{{
                 Field
@@ -22,6 +23,7 @@
                     env="profile"
                     placeholder="ivanivanov"
                     ref="login"
+                    validate=validate.login
             }}}
             {{{
                 Field
@@ -31,6 +33,7 @@
                     env="profile"
                     placeholder="Ivan"
                     ref="first_name"
+                    validate=validate.first_name
             }}}
             {{{
                 Field
@@ -40,6 +43,7 @@
                     env="profile"
                     placeholder="Ivanov"
                     ref="second_name"
+                    validate=validate.second_name
             }}}
             {{{
                 Field
@@ -49,6 +53,7 @@
                     env="profile"
                     placeholder="Ivan"
                     ref="display_name"
+                    validate=validate.display_name
             }}}
             {{!-- TODO Fix number representation --}}
             {{!-- TODO Remove input backgrounds when disabled --}}
@@ -60,6 +65,7 @@
                     env="profile"
                     placeholder="+7(909)9673030"
                     ref="phone"
+                    validate=validate.phone
             }}}
         </form>
 
