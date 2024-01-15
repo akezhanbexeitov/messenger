@@ -44,15 +44,25 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-    _addEvents() {
-      const {events = {}}: {events?: Events} = this.props;
+  _addEvents() {
+    const {events = {}}: {events?: Events} = this.props;
 
-      if (!events) return
-      
-      Object.keys(events).forEach(eventName => {
-        this._element!.addEventListener(eventName, events[eventName]);
-      });
-    }
+    if (!events) return
+    
+    Object.keys(events).forEach(eventName => {
+      this._element!.addEventListener(eventName, events[eventName]);
+    });
+  }
+
+  _removeEvents() {
+    const {events = {}}: {events?: Events} = this.props;
+
+    if (!events) return
+    
+    Object.keys(events).forEach(eventName => {
+      this._element!.removeEventListener(eventName, events[eventName]);
+    });
+  }
 
     _registerEvents(eventBus: EventBus) {
       eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
@@ -133,6 +143,8 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     const fragment = this.compile(this.render(), this.props);
 
     const newElement = fragment.firstElementChild as HTMLElement;
+
+    this._removeEvents();
 
     if (this._element) {
       this._element.replaceWith(newElement);
