@@ -57,7 +57,7 @@ class Block<Props extends object, Refs extends RefType = RefType> {
   _removeEvents() {
     const {events = {}}: {events?: Events} = this.props;
 
-    if (!events) return
+    if (!events || !this._element) return
     
     Object.keys(events).forEach(eventName => {
       this._element!.removeEventListener(eventName, events[eventName]);
