@@ -1,0 +1,16 @@
+<div class="field-auth">
+    <label class="field-auth__label" for={{ name }}>
+        {{ label }}
+    </label>
+
+    {{{ 
+        Input 
+            type=type 
+            name=name 
+            onBlur=onBlur 
+            env=env
+            ref="input" 
+    }}}
+
+    {{{ ErrorText error=error ref="errorText" }}}
+</div>

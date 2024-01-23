@@ -1,1 +1,1 @@
-export { default as RegisterPage } from './register.hbs?raw'
+export { RegisterPage as default } from './register'

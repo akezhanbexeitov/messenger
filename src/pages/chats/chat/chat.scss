@@ -25,8 +25,8 @@
             top: 120%;
             right: 0;
             border-radius: 12px;
-            background: #FFF;
-            box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.14);
+            background: $white;
+            box-shadow: 0 0 6px 0 rgb(0 0 0 / 14%);
 
             &-item {
                 display: flex;
@@ -37,19 +37,18 @@
                 &:hover {
                     background-color: $light-grey;
                 }
-            }
 
-            &-item:first-child {
-                padding: 15px 15px 7.5px 15px;
-            }
+                &:first-child {
+                    padding: 15px 15px 7.5px;
+                }
 
-            &-item:not(:first-child):not(:last-child) {
-                padding: 7.5px 15px;
+                &:last-child {
+                    padding: 7.5px 15px 15px;
+                }
 
-            }
-
-            &-item:last-child {
-                padding: 7.5px 15px 15px 15px;
+                &:not(:first-child, :last-child) {
+                    padding: 7.5px 15px;
+                }
             }
         }
 
@@ -80,7 +79,7 @@
     }
 
     &-main {
-        overflow: scroll;
+        overflow-y: scroll;
         flex-grow: 1;
         padding: 20px;
 
@@ -102,7 +101,7 @@
         &__message {
             padding: 11px;
             background-color: $light-grey;
-            border-radius: 0 12px 12px 12px;
+            border-radius: 0 12px 12px;
             font-size: 12px;
             font-weight: 500;
             max-width: 402px;
@@ -119,7 +118,7 @@
             &_mine {
                 padding: 11px;
                 background-color: $light-blue;
-                border-radius: 12px 12px 0 12px;
+                border-radius: 12px 12px 0;
                 width: fit-content;
                 margin-left: auto;
                 max-width: 402px;
@@ -158,7 +157,7 @@
                 right: 11px;
                 bottom: 11px;
                 border-radius: 30px;
-                background: rgba(82, 82, 82, 0.50);
+                background: rgb(82 82 82 / 50%);
                 font-weight: 500;
                 font-size: 9px;
                 color: $white;
@@ -177,11 +176,11 @@
         position: relative;
 
         &__input {
+            width: 100%;
             padding: 10px 20px;
             background-color: $light-grey;
             border-radius: 30px;
             border: none;
-            flex: 1 1 auto;
             outline: none;
         }
 
@@ -191,8 +190,8 @@
             position: absolute;
             bottom: 120%;
             border-radius: 12px;
-            background: #FFF;
-            box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.14);
+            background: $white;
+            box-shadow: 0 0 6px 0 rgb(0 0 0 / 14%);
             overflow: hidden;
             cursor: pointer;
 
@@ -206,19 +205,18 @@
                 &:hover {
                     background-color: $light-grey;
                 }
-            }
 
-            &-item:first-child {
-                padding: 15px 15px 7.5px 15px;
-            }
+                &:first-child {
+                    padding: 15px 15px 7.5px;
+                }
 
-            &-item:not(:first-child):not(:last-child) {
-                padding: 7.5px 15px;
+                &:last-child {
+                    padding: 7.5px 15px 15px;
+                }
 
-            }
-
-            &-item:last-child {
-                padding: 7.5px 15px 15px 15px;
+                &:not(:first-child, :last-child) {
+                    padding: 7.5px 15px;
+                }
             }
         }
     }

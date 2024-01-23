@@ -1,13 +1,13 @@
 <main class="chats">
     <aside class="chats__aside">
-        {{> 
+        {{{
             Link
                 text="Profile"
-                page="profile"
-        }}
-        {{> Search }}
+                onClick=handleProfileClick
+        }}}
+        {{{ Search }}}
         <nav>
-            {{> ChatsList }}
+            {{#ChatsList chats=chats handleChatClick=handleChatClick}}{{/ChatsList}}
         </nav>
     </aside>
 
@@ -68,14 +68,14 @@
                     </div>
                 </div>
                 <div class="chat-main__message_mine">
-                    <p page="404">404 not found page</p>
+                    <p>404 not found page</p>
                     <div class="chat-main__message-details">
                         {{> TicksIcon }}
                         <time datetime="13:45">13:45</time>
                     </div>
                 </div>
                 <div class="chat-main__message_mine">
-                    <p page="500">500 interval server error page</p>
+                    <p>500 interval server error page</p>
                     <div class="chat-main__message-details">
                         {{> TicksIcon }}
                         <time datetime="13:45">13:45</time>
@@ -123,16 +123,23 @@
                 {{> PinIcon }}
             </button>
 
-            <input 
-                class="chat-footer__input" 
-                type="text" 
-                name="message"
-                placeholder="Message"
-            >
+            {{{
+                Field
+                    type="text"
+                    name="message"
+                    onBlur=onBlur
+                    ref="message"
+                    env="chat"
+                    placeholder="Message"
+                    validate=validate.message
+            }}}
 
-            <button class="chat__button" type="button">
-                {{> ArrowIcon }}
-            </button>
+            {{{ 
+                Button
+                    type="button"
+                    env='chat'
+                    onClick=handleSendClick
+            }}}
         </footer>
     </section>
 </main>

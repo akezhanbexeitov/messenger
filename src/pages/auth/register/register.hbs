@@ -1,81 +1,95 @@
 <main class="auth">
     <form class="auth__form auth__form_register">
         <div class="auth__fields">
-            {{> Title text="Register"}}
+            {{{ Title text="Register" }}}
 
-            {{>
+            {{{
                 Field
                     name="email"
                     label="Email"
                     type="email"
                     env="auth"
-            }}
+                    ref="email"
+                    validate=validate.email
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="login"
                     label="Username"
                     type="text"
                     env="auth"
-            }}
+                    ref="login"
+                    validate=validate.login
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="first_name"
                     label="First Name"
                     type="text"
                     env="auth"
-            }}
+                    ref="first_name"
+                    validate=validate.first_name
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="second_name"
                     label="Second Name"
                     type="text"
                     env="auth"
-            }}
+                    ref="second_name"
+                    validate=validate.second_name
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="phone"
                     label="Phone Number"
                     type="text"
                     env="auth"
-            }}
+                    ref="phone"
+                    validate=validate.phone
+            }}}
 
 
-            {{>
+            {{{
                 Field
                     name="password"
                     label="Password"
                     type="password"
                     env="auth"
-            }}
+                    ref="password"
+                    validate=validate.password
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="repeat_password"
                     label="Repeat Password"
                     type="password"
                     env="auth"
-            }}
+                    ref="repeat_password"
+                    validate=validate.repeat_password
+            }}}
         </div>
 
         <div class="auth__buttons">
-            {{>
+            {{{
                 Button
                     primary="true"
                     text="Register"
                     type="submit"
-                    page="chats"
-            }}
+                    onClick=handleRegister
+            }}}
 
-            {{>
+            {{{
                 Button
                     text="Login"
                     type="button"
-                    page="login"
-            }}
+                    onClick=handleLogin
+            }}}
         </div>
 
     </form>

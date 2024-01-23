@@ -1,40 +1,44 @@
 <main class="auth">
     <form class="auth__form auth__form_login">
         <div class="auth__fields">
-            {{> Title text="Login"}}
+            {{{ Title text="Login" }}}
             
-            {{>
+            {{{
                 Field
                     name="login"
                     label="Username"
                     type="text"
                     env="auth"
-            }}
+                    ref="login"
+                    validate=validate.login
+            }}}
 
-            {{>
+            {{{
                 Field
                     name="password"
                     label="Password"
                     type="password"
                     env="auth"
-            }}
+                    ref="password"
+                    validate=validate.password
+            }}}
         </div>
 
         <div class="auth__buttons">
-            {{>
+            {{{
                 Button
                     primary="true"
                     text="Login"
                     type="submit"
-                    page="chats"
-            }}
+                    onClick=handleLogin
+            }}}
             
-            {{>
+            {{{
                 Button
                     text="Register"
                     type="button"
-                    page="register"
-            }}
+                    onClick=handleRegister
+            }}}
         </div>
     </form>
 </main>

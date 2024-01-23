@@ -1,5 +1,5 @@
-import Handlebars from 'handlebars';
-
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Handlebars from 'handlebars'
 export { default as Field } from './field.hbs?raw'
 
 Handlebars.registerHelper('isAuthField', (value) => {

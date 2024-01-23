@@ -1,73 +1,81 @@
 <main class="profile">
-    <aside class="profile-aside" page="profile">
-        {{>
-            ArrowIcon
-                class="icons_left"
-        }}
-    </aside>
+    {{{ BackAside onClick=handleBackClick }}}
 
     <section class="profile-main">
         <form>
-            {{> Avatar }}
+            {{{ Avatar }}}
             
-            {{>
+            {{{
                 Field
                     name="email"
                     label="Email"
                     type="email"
                     env="profile"
                     placeholder="pochta@yandex.ru"
-            }}
-            {{>
+                    ref="email"
+                    validate=validate.email
+            }}}
+            {{{
                 Field
                     name="login"
                     label="Login"
                     type="text"
                     env="profile"
                     placeholder="ivanivanov"
-            }}
-            {{>
+                    ref="login"
+                    validate=validate.login
+            }}}
+            {{{
                 Field
                     name="first_name"
                     label="First Name"
                     type="text"
                     env="profile"
                     placeholder="Ivan"
-            }}
-            {{>
+                    ref="first_name"
+                    validate=validate.first_name
+            }}}
+            {{{
                 Field
                     name="second_name"
                     label="Second Name"
                     type="text"
                     env="profile"
                     placeholder="Ivanov"
-            }}
-            {{>
+                    ref="second_name"
+                    validate=validate.second_name
+            }}}
+            {{{
                 Field
                     name="display_name"
                     label="Display Name"
                     type="text"
                     env="profile"
                     placeholder="Ivan"
-            }}
+                    ref="display_name"
+                    validate=validate.display_name
+            }}}
             {{!-- TODO Fix number representation --}}
             {{!-- TODO Remove input backgrounds when disabled --}}
-            {{>
+            {{{
                 Field
                     name="phone"
                     label="Phone Number"
                     type="text"
                     env="profile"
                     placeholder="+7(909)9673030"
-            }}
+                    ref="phone"
+                    validate=validate.phone
+            }}}
         </form>
 
-        {{> 
+        {{{
             Button
                 primary="true"
                 text="Save changes"
                 type="submit"
-        }}
+                onClick=handleSaveChangesClick
+        }}}
         </button>
     </section>
 </main>

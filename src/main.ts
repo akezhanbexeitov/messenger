@@ -1,39 +1,24 @@
+import * as Icons from './components/icons';
+import * as Components from './components'
+import { registerComponent } from './core/registerComponent';
+import { PAGES, navigate } from './core/navigate';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Handlebars from 'handlebars';
-import * as Components from './components';
-import * as Pages from './pages';
 
-const pages = {
-  'login': [ Pages.LoginPage ],
-  'register': [Pages.RegisterPage],
-  'chats': [Pages.ChatsPage],
-  'chat': [Pages.ChatPage],
-  'profile': [Pages.ProfilePage],
-  'change-profile': [Pages.ChangeProfilePage],
-  'change-password': [Pages.ChangePasswordPage],
-  '404': [Pages.NotFoundPage],
-  '500': [Pages.InternalServerErrorPage],
-};
-
-Object.entries(Components).forEach(([ name, component ]) => {
-  Handlebars.registerPartial(name, component);
+Object.entries(Icons).forEach(([ name, icon ]) => {
+  Handlebars.registerPartial(name, icon);
 });
 
-function navigate(page: string) {
-  //@ts-ignore
-  const [ source, context ] = pages[page];
-  const container = document.getElementById('app')!;
-  container.innerHTML = Handlebars.compile(source)(context);
-}
+registerComponent('Field', Components.Field)
+registerComponent('Button', Components.Button)
+registerComponent('Title', Components.Title)
+registerComponent('ChatsCard', Components.ChatsCard)
+registerComponent('Avatar', Components.Avatar)
+registerComponent('ChatsList', Components.ChatsList)
+registerComponent('Search', Components.Search)
+registerComponent('Link', Components.Link)
+registerComponent('BackAside', Components.BackAside)
+registerComponent('Input', Components.Input)
+registerComponent('ErrorText', Components.ErrorText)
 
-document.addEventListener('DOMContentLoaded', () => navigate('login'));
-
-document.addEventListener('click', e => {
-  //@ts-ignore
-  const page = e.target.getAttribute('page');
-  if (page) {
-    navigate(page);
-
-    e.preventDefault();
-    e.stopImmediatePropagation();
-  }
-});
+document.addEventListener('DOMContentLoaded', () => navigate(PAGES.LOGIN));

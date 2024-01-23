@@ -1,0 +1,9 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "color-hex-length": "long"
+  },
+  "ignoreFiles": [
+    "build/*"
+  ]
+}

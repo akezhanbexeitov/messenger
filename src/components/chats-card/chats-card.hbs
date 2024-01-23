@@ -1,36 +1,29 @@
-<li 
-    class="
-        chats-card 
-        {{#if active}} chats-card_active {{/if}}
-    " 
-    page="chat"
-> 
-    <div class="chats-card__image" page="chat">
+<li class="chats-card {{#if active}} chats-card_active {{/if}}"> 
+    <div class="chats-card__image">
         <img 
             src="{{ avatar }}" 
             alt="Chat card image"
             width="47px"
             height="47px"
-            page="chat"
+           
         />
     </div>
 
-    <div class="chats-card__info" page="chat">
-        <h2 class="chats-card__name" page="chat">{{ name }}</h2>
-        <h3 class="chats-card__message" page="chat">{{ message }}</h3>
+    <div class="chats-card__info">
+        <h2 class="chats-card__name">{{ name }}</h2>
+        <h3 class="chats-card__message">{{ message }}</h3>
     </div>
     
-    <div class="chats-card__additional" page="chat">
+    <div class="chats-card__additional">
         <time 
             class="chats-card__time" 
             datetime={{ time }}
-            page="chat"
         >
             {{ time }}
         </time>
         {{#if unread}}
-            <div class="chats-card__unread" page="chat">
-                <span page="chat">{{ unread }}</span>
+            <div class="chats-card__unread">
+                <span>{{ unread }}</span>
             </div>
         {{/if}}
     </div>

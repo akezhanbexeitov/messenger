@@ -1,5 +1,14 @@
 <ul class="chats-list">
-    {{#each (chats) }}
-        {{> ChatsCard }}
+    {{#each chats}}
+        {{{ 
+            ChatsCard 
+                name=this.name
+                message=this.message
+                time=this.time
+                unread=this.unread
+                active=this.active
+                avatar=this.avatar
+                onClick=../handleChatClick
+        }}}
     {{/each}}
 </ul>

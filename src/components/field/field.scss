@@ -25,27 +25,53 @@
     
     &-profile {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        padding: 10px 0;
+        flex-direction: column;
 
-        &__label {
-            font-size: 13px;
-            font-weight: 500;
+        &__line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+
+            &__label {
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            &__input {
+                flex: 1 1 auto;
+                direction: rtl;
+                font-size: 13px;
+                font-weight: 500;
+                outline: none;
+                border: none;
+
+                &::placeholder {
+                    text-align: right;
+                }
+            }
         }
 
-        &__input {
-            flex: 1 1 auto;
-            direction: rtl;
-            font-size: 13px;
-            font-weight: 500;
-            outline: none;
-            border: none;
+        & p {
+            align-self: flex-end;
+            margin-bottom: 5px;
+        }
+    }
 
-            &::placeholder {
-                text-align: right;
-            }
+    &-chat {
+        flex: 1 1 auto;
+    }
+
+    &__error {
+        display: none;
+
+        &-active {
+            display: block;
+            color: $red;
+            font-size: 9px;
+            font-weight: 500;
+            margin-top: 5px;
         }
     }
 }
