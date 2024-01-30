@@ -60,7 +60,6 @@ export class RegisterPage extends Block<IProps, TRef> {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     this.refs.errorText.setProps({ error: error.message })
-                    throw new Error(`Error trying to sign up: ${ error.message }`)
                 }
             }
         })

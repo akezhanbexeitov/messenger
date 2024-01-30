@@ -17,6 +17,7 @@ const getUser = async () => {
 
 const signin = async (data: LoginRequestData) => {
     const response = await authApi.login(data);
+    console.log(response)
     if (apiHasError(response)) {
         throw Error(response.reason)
     }
@@ -24,6 +25,7 @@ const signin = async (data: LoginRequestData) => {
     const me = await getUser();
 
     window.store.set({ user: me });
+    console.log("STORE: ", window.store.getState())
     router.go(PAGES.CHATS)
 }
 
@@ -35,6 +37,7 @@ const signup = async (data: CreateUser) => {
 
     const me = await getUser();
     window.store.set({ user: me });
+    console.log("STORE: ", window.store.getState())
     router.go(PAGES.CHATS)
 }
 

@@ -36,27 +36,43 @@ export default class HTTPTransport {
     private apiUrl: string = ""
 
     get: THTTPMethod = async (url, options = {}) => {
-        const { response } = await this.request(`${this.apiUrl}${url}`, {...options, method: METHODS.GET}, options.timeout)
-        const result = JSON.parse(response)
-        return result
+        const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.GET }, options.timeout)
+        if (response === "OK") {
+            return response
+        } else {
+            const result = JSON.parse(response)
+            return result
+        }
     }
 
     post: THTTPMethod = async (url, options = {}) => {
         const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.POST }, options.timeout)
-        const result = JSON.parse(response)
-        return result
+        if (response === "OK") {
+            return response
+        } else {
+            const result = JSON.parse(response)
+            return result
+        }
     }
 
     put: THTTPMethod = async (url, options = {}) => {
         const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.PUT }, options.timeout)
-        const result = JSON.parse(response)
-        return result
+        if (response === "OK") {
+            return response
+        } else {
+            const result = JSON.parse(response)
+            return result
+        }
     }
 
     delete: THTTPMethod = async (url, options = {}) => {
         const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.DELETE }, options.timeout)
-        const result = JSON.parse(response)
-        return result
+        if (response === "OK") {
+            return response
+        } else {
+            const result = JSON.parse(response)
+            return result
+        }
     }
 
     request = (url: string, options: TOptions = {}, timeout = 5000): Promise<XMLHttpRequest> => {
