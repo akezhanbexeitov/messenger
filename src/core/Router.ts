@@ -106,11 +106,11 @@ class Router {
 }
 
 export enum PAGES {
-  LOGIN = '/login',
-  REGISTER = '/register',
-  CHATS = '/chats',
+  LOGIN = '/',
+  REGISTER = '/sign-up',
+  CHATS = '/messenger',
   CHAT = '/chat',
-  PROFILE = '/profile',
+  PROFILE = '/settings',
   CHANGE_PROFILE = '/change-profile',
   CHANGE_PASSWORD = '/change-password',
   NOT_FOUND = '/404',
