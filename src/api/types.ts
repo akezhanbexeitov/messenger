@@ -25,6 +25,11 @@ export type CreateChat = {
     title: string
 }
 
+export type AddOrRemoveUsers = {
+    users: number[]
+    chatId: number
+}
+
 export type LoginRequestData = {
     login: string,
     password: string

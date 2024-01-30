@@ -9,7 +9,8 @@ enum METHODS {
 
 type TOptions = {
     method?: METHODS
-    data?: Record<string, string>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data?: any
     timeout?: number
     headers?: Record<string, string>
     tries?: number
