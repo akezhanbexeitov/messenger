@@ -17,6 +17,16 @@ export type UserDTO = {
     email: string;
 };
 
+export type Avatar = {
+    avatar: File
+}
+
+
+export type Password = {
+    oldPassword: string
+    newPassword: string
+}
+
 export type CreateUser = Omit<UserDTO, 'avatar' | 'display_name' | 'id'>  & {
     password: string
 }
