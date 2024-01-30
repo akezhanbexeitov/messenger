@@ -1,7 +1,7 @@
 import Block from "../../core/Block"
 import template from './chats.hbs?raw'
 import avatar from "../../assets/avatar.png"
-import { PAGES, navigate } from "../../core/navigate"
+import { PAGES, router } from "../../core/Router"
 
 interface IProps {}
 
@@ -73,10 +73,10 @@ export class ChatsPage extends Block<IProps> {
             ],
             handleProfileClick: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.PROFILE)
+                router.go(PAGES.PROFILE)
             },
             handleChatClick: () => {
-                navigate(PAGES.CHAT)
+                router.go(PAGES.CHAT)
             }
         })
     }

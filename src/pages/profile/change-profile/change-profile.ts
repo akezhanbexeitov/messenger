@@ -1,8 +1,8 @@
 import { Field } from "../../../components";
 import Block from "../../../core/Block";
-import { PAGES, navigate } from "../../../core/navigate";
 import template from './change-profile.hbs?raw'
 import * as validators from "../../../utils/validators"
+import { PAGES, router } from "../../../core/Router";
 
 interface IProps { }
 
@@ -27,7 +27,7 @@ export class ChangeProfilePage extends Block<IProps, TRef> {
                 phone: validators.phone
             },
             handleBackClick: () => { 
-                navigate(PAGES.PROFILE)
+                router.go(PAGES.PROFILE)
             },
             handleSaveChangesClick: (event: Event) => {
                 event.preventDefault()

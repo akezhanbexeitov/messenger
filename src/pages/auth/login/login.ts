@@ -1,8 +1,8 @@
 import { Field } from "../../../components"
 import Block from "../../../core/Block"
-import { PAGES, navigate } from "../../../core/navigate"
 import template from "./login.hbs?raw"
 import * as validators from "../../../utils/validators"
+import { PAGES, router } from "../../../core/Router"
 
 interface IProps { }
 
@@ -27,11 +27,11 @@ export class LoginPage extends Block<IProps, TRef> {
                     login,
                     password
                 })
-                navigate(PAGES.CHATS)
+                router.go(PAGES.CHATS)
             },
             handleRegister: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.REGISTER)
+                router.go(PAGES.REGISTER)
             },
         })
     }

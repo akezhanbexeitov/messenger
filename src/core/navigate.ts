@@ -1,38 +1,38 @@
-import * as Pages from '../pages';
-import { BlockConstructable } from './registerComponent';
+// import * as Pages from '../pages';
+// import { BlockConstructable } from './registerComponent';
 
-export enum PAGES {
-  LOGIN = 'login',
-  REGISTER = 'register',
-  CHATS = 'chats',
-  CHAT = 'chat',
-  PROFILE = 'profile',
-  CHANGE_PROFILE = 'change-profile',
-  CHANGE_PASSWORD = 'change-password',
-  NOT_FOUND = '404',
-  INTERNAL_SERVER_ERROR = '500',
-}
+// export enum PAGES {
+//   LOGIN = 'login',
+//   REGISTER = 'register',
+//   CHATS = 'chats',
+//   CHAT = 'chat',
+//   PROFILE = 'profile',
+//   CHANGE_PROFILE = 'change-profile',
+//   CHANGE_PASSWORD = 'change-password',
+//   NOT_FOUND = '404',
+//   INTERNAL_SERVER_ERROR = '500',
+// }
 
-type TPages = {
-  [key in PAGES]: BlockConstructable<object, object>
-};
+// type TPages = {
+//   [key in PAGES]: BlockConstructable<object, object>
+// };
 
-const pages: TPages = {
-  [PAGES.LOGIN]: Pages.LoginPage,
-  [PAGES.REGISTER]: Pages.RegisterPage,
-  [PAGES.CHATS]: Pages.ChatsPage,
-  [PAGES.CHAT]: Pages.ChatPage,
-  [PAGES.PROFILE]: Pages.ProfilePage,
-  [PAGES.CHANGE_PROFILE]: Pages.ChangeProfilePage,
-  [PAGES.CHANGE_PASSWORD]: Pages.ChangePasswordPage,
-  [PAGES.NOT_FOUND]: Pages.NotFoundPage,
-  [PAGES.INTERNAL_SERVER_ERROR]: Pages.InternalServerErrorPage,
-};
+// const pages: TPages = {
+//   [PAGES.LOGIN]: Pages.LoginPage,
+//   [PAGES.REGISTER]: Pages.RegisterPage,
+//   [PAGES.CHATS]: Pages.ChatsPage,
+//   [PAGES.CHAT]: Pages.ChatPage,
+//   [PAGES.PROFILE]: Pages.ProfilePage,
+//   [PAGES.CHANGE_PROFILE]: Pages.ChangeProfilePage,
+//   [PAGES.CHANGE_PASSWORD]: Pages.ChangePasswordPage,
+//   [PAGES.NOT_FOUND]: Pages.NotFoundPage,
+//   [PAGES.INTERNAL_SERVER_ERROR]: Pages.InternalServerErrorPage,
+// };
 
-export function navigate(page: string): void {
-  const app = document.getElementById('app');
+// export function navigate(page: string): void {
+//   const app = document.getElementById('app');
   
-  const Component = pages[page as PAGES]; 
-  const component = new Component({});
-  app?.replaceChildren(component.getContent()!);
-}
+//   const Component = pages[page as PAGES]; 
+//   const component = new Component({});
+//   app?.replaceChildren(component.getContent()!);
+// }

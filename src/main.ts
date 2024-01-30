@@ -7,6 +7,7 @@ import Block from './core/Block';
 import { Store } from './core/Store';
 import { AppState } from './types';
 import { initApp } from './services/initApp';
+import { router } from './core/Router';
 
 // Register icons
 Object.entries(Icons).forEach(([ name, icon ]) => {
@@ -34,5 +35,7 @@ const initState: AppState = {
 }
 
 window.store = new Store<AppState>(initState)
+
+router.start()
 
 document.addEventListener('DOMContentLoaded', () => initApp());

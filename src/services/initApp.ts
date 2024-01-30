@@ -1,4 +1,4 @@
-import { PAGES, navigate } from "../core/navigate";
+import { PAGES, router } from "../core/Router";
 import { getUser } from "./auth";
 import { getChats } from "./chat";
 
@@ -7,13 +7,13 @@ const initApp = async () => {
   try {
     me = await getUser();
   } catch (error) {
-    navigate(PAGES.LOGIN);
+    router.go(PAGES.LOGIN)
     return;
   }
 
   const chats = await getChats();
   window.store.set({ user: me, chats });
-  navigate(PAGES.CHATS)
+  router.go(PAGES.CHATS)
 }
 
 const initChatPage = async () => {

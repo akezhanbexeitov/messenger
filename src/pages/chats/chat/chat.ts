@@ -1,9 +1,9 @@
 import Block from "../../../core/Block";
-import { PAGES, navigate } from "../../../core/navigate";
 import template from './chat.hbs?raw'
 import avatar from "../../../assets/avatar.png"
 import * as validators from '../../../utils/validators'
 import { Field } from "../../../components/index";
+import { PAGES, router } from "../../../core/Router";
 
 interface IProps { }
 
@@ -82,10 +82,10 @@ export class ChatPage extends Block<IProps, TRef> {
             ],
             handleProfileClick: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.PROFILE)
+                router.go(PAGES.PROFILE)
             },
             handleChatClick: () => {
-                navigate(PAGES.CHAT)
+                router.go(PAGES.CHAT)
             },
             handleSendClick: () => {
                 const message = this.refs.message.value()

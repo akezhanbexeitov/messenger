@@ -1,5 +1,5 @@
 import Block from "../../core/Block";
-import { PAGES, navigate } from "../../core/navigate";
+import { PAGES, router } from "../../core/Router";
 import template from './profile.hbs?raw'
 
 interface IProps {}
@@ -9,18 +9,18 @@ export class ProfilePage extends Block<IProps> {
         super({
             handleChangeProfile: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.CHANGE_PROFILE)
+                router.go(PAGES.CHANGE_PROFILE)
             },
             handleChangePassword: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.CHANGE_PASSWORD)
+                router.go(PAGES.CHANGE_PASSWORD)
             },
             handleLogout: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.LOGIN)
+                router.go(PAGES.LOGIN)
             },
             handleBackClick: () => { 
-                navigate(PAGES.CHATS)
+                router.go(PAGES.CHATS)
             }
         })
     }

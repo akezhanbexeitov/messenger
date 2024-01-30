@@ -1,6 +1,6 @@
 import AuthApi from "../api/auth";
 import { CreateUser, LoginRequestData, UserDTO } from "../api/types";
-import { PAGES, navigate } from "../core/navigate";
+import { PAGES, router } from "../core/Router";
 import { apiHasError } from "../utils/apiHasError";
 import { transformUser } from "../utils/apiTransformers";
 
@@ -24,7 +24,7 @@ const signin = async (data: LoginRequestData) => {
     const me = await getUser();
 
     window.store.set({ user: me });
-    navigate(PAGES.CHATS)
+    router.go(PAGES.CHATS)
 }
 
 const signup = async (data: CreateUser) => {
@@ -35,13 +35,13 @@ const signup = async (data: CreateUser) => {
 
     const me = await getUser();
     window.store.set({ user: me });
-    navigate(PAGES.CHATS)
+    router.go(PAGES.CHATS)
 }
 
 const logout = async () => {
     await authApi.logout();
     window.store.set({ user: null, chats: [] });
-    navigate(PAGES.LOGIN)
+    router.go(PAGES.LOGIN)
 }
 
 export {
