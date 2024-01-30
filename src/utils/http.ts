@@ -1,3 +1,5 @@
+import constants from "../constants"
+
 enum METHODS {
     GET = 'GET',
     POST = 'POST',
@@ -23,27 +25,48 @@ const queryStringify = (data: Record<string, string>) => {
     }, '?')
 }
 
-type THTTPMethod = (url: string, options?: TOptions) => Promise<unknown>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type THTTPMethod = (url: string, options?: TOptions) => Promise<any>
 
 export default class HTTPTransport {
-    get: THTTPMethod = (url, options = {}) => {
-        return this.request(url, {...options, method: METHODS.GET}, options.timeout)
+    constructor(apiPath: string) {
+        this.apiUrl = `${constants.HOST}${apiPath}`
     }
 
-    post: THTTPMethod = (url, options = {}) => {
-        return this.request(url, {...options, method: METHODS.POST}, options.timeout)
+    private apiUrl: string = ""
+
+    get: THTTPMethod = async (url, options = {}) => {
+        const { response } = await this.request(`${this.apiUrl}${url}`, {...options, method: METHODS.GET}, options.timeout)
+        const result = JSON.parse(response)
+        return result
     }
 
-    put: THTTPMethod = (url, options = {}) => {
-        return this.request(url, {...options, method: METHODS.PUT}, options.timeout)
+    post: THTTPMethod = async (url, options = {}) => {
+        const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.POST }, options.timeout)
+        const result = JSON.parse(response)
+        return result
     }
 
-    delete: THTTPMethod = (url, options = {}) => {
-        return this.request(url, {...options, method: METHODS.DELETE}, options.timeout)
+    put: THTTPMethod = async (url, options = {}) => {
+        const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.PUT }, options.timeout)
+        const result = JSON.parse(response)
+        return result
     }
 
-    request = (url: string, options: TOptions = {}, timeout = 5000) => {
-        const { headers = {}, method, data } = options
+    delete: THTTPMethod = async (url, options = {}) => {
+        const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.DELETE }, options.timeout)
+        const result = JSON.parse(response)
+        return result
+    }
+
+    request = (url: string, options: TOptions = {}, timeout = 5000): Promise<XMLHttpRequest> => {
+        const {
+            headers = {
+                'Content-Type': 'application/json'
+            },
+            method,
+            data
+        } = options
 
         return new Promise((resolve, reject) => {
             if (!method) {
@@ -60,6 +83,8 @@ export default class HTTPTransport {
                     : url
             )
 
+            xhr.withCredentials = true
+            
             Object.keys(headers).forEach(key => {
                 xhr.setRequestHeader(key, headers[key])
             })

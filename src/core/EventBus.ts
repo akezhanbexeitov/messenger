@@ -21,7 +21,8 @@ export default class EventBus<E extends string = string, M extends { [K in E]: u
 
     emit (event: E, ...args: M[E]) {
         if (!this.listeners[event]) {
-            throw new Error(`No such event: ${ event }`)
+            return
+            // throw new Error(`No such event: ${ event }`)
         }
 
         this.listeners[event]!.forEach(listener => listener(...args))

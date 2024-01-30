@@ -1,12 +1,12 @@
 import * as Icons from './components/icons';
 import * as Components from './components'
 import { registerComponent } from './core/registerComponent';
-import { PAGES, navigate } from './core/navigate';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Handlebars from 'handlebars';
 import Block from './core/Block';
 import { Store } from './core/Store';
 import { AppState } from './types';
+import { initApp } from './services/initApp';
 
 // Register icons
 Object.entries(Icons).forEach(([ name, icon ]) => {
@@ -35,4 +35,4 @@ const initState: AppState = {
 
 window.store = new Store<AppState>(initState)
 
-document.addEventListener('DOMContentLoaded', () => navigate(PAGES.LOGIN));
+document.addEventListener('DOMContentLoaded', () => initApp());
