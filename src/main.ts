@@ -4,21 +4,35 @@ import { registerComponent } from './core/registerComponent';
 import { PAGES, navigate } from './core/navigate';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Handlebars from 'handlebars';
+import Block from './core/Block';
+import { Store } from './core/Store';
+import { AppState } from './types';
 
+// Register icons
 Object.entries(Icons).forEach(([ name, icon ]) => {
   Handlebars.registerPartial(name, icon);
 });
 
-registerComponent('Field', Components.Field)
-registerComponent('Button', Components.Button)
-registerComponent('Title', Components.Title)
-registerComponent('ChatsCard', Components.ChatsCard)
-registerComponent('Avatar', Components.Avatar)
-registerComponent('ChatsList', Components.ChatsList)
-registerComponent('Search', Components.Search)
-registerComponent('Link', Components.Link)
-registerComponent('BackAside', Components.BackAside)
-registerComponent('Input', Components.Input)
-registerComponent('ErrorText', Components.ErrorText)
+// Register components
+Object.entries(Components).forEach(([componentName, component]) => {
+  registerComponent(componentName, component as typeof Block)
+})
+
+declare global {
+  interface Window {
+    store: Store<AppState>
+  }
+
+  type Nullable<T> = T | null
+}
+
+const initState: AppState = {
+  error: null,
+  user: null,
+  isOpenDialogChat: false,
+  chats: []
+}
+
+window.store = new Store<AppState>(initState)
 
 document.addEventListener('DOMContentLoaded', () => navigate(PAGES.LOGIN));
