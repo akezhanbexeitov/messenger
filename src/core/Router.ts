@@ -10,32 +10,34 @@ function render(query, block) {
 }
 
 class Route {
-    constructor(pathname, view, props) {
-        this._pathname = pathname;
-        this._blockClass = view;
-        this._block = null;
-        this._props = props;
-    }
+  constructor(pathname, view, props) {
+    this._pathname = pathname;
+    this._blockClass = view;
+    this._block = null;
+    this._props = props;
+  }
   
-    leave() {
-        if (this._block) {
-            this._block.hide();
-        }
+  leave() {
+    if (this._block) {
+      const app = document.querySelector(this._props.rootQuery);
+      app?.removeChild(this._block.getContent());
+      this._block = null; // Delete the component
+    }
+  }
+
+  match(pathname) {
+    return isEqual(pathname, this._pathname);
+  }
+
+  render(query, block) {
+    if (!this._block) {
+      this._block = new this._blockClass();
+      render(this._props.rootQuery, this._block);
+      return;
     }
 
-    match(pathname) {
-        return isEqual(pathname, this._pathname);
-    }
-
-    render() {
-        if (!this._block) {
-            this._block = new this._blockClass();
-            render(this._props.rootQuery, this._block);
-            return;
-        }
-
-        this._block.show();
-    }
+    this._block.show();
+  }
 }
 
 class Router {
@@ -69,7 +71,11 @@ class Router {
   }
 
   _onRoute(pathname) {
-    const route = this.getRoute(pathname);
+    let route = this.getRoute(pathname);
+
+    if (!route) {
+      route = this.routes.find(route => route.match(PAGES.NOT_FOUND))
+    }
 
     if (this._currentRoute) {
       this._currentRoute.leave();
@@ -95,7 +101,7 @@ class Router {
     }
 
     getRoute(pathname) {
-        return this.routes.find(route => route.match(pathname));
+      return this.routes.find(route => route.match(pathname));
     }
 }
 
