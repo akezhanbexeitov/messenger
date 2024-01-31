@@ -74,4 +74,16 @@
             margin-top: 5px;
         }
     }
+
+    &__success {
+        display: none;
+
+        &-active {
+            display: block;
+            color: $green;
+            font-size: 9px;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+    }
 }

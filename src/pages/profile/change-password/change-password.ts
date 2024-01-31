@@ -1,4 +1,4 @@
-import { ErrorText, Field } from "../../../components";
+import { ErrorText, Field, SuccessText } from "../../../components";
 import Block from "../../../core/Block";
 import template from './change-password.hbs?raw'
 import * as validators from "../../../utils/validators"
@@ -12,6 +12,7 @@ type TRef = {
     newPassword: Field
     repeatNewPassword: Field
     errorText: ErrorText
+    successText: SuccessText
 }
 
 export class ChangePasswordPage extends Block<IProps, TRef> {
@@ -36,6 +37,8 @@ export class ChangePasswordPage extends Block<IProps, TRef> {
                         oldPassword,
                         newPassword
                     })
+                    this.refs.errorText.setProps({ error: undefined})
+                    this.refs.successText.setProps({ success: 'Password is set successfully' })
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     this.refs.errorText.setProps({ error: error.message })
