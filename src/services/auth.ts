@@ -17,7 +17,6 @@ const getUser = async () => {
 
 const signin = async (data: LoginRequestData) => {
     const response = await authApi.login(data);
-    console.log(response)
     if (apiHasError(response)) {
         throw Error(response.reason)
     }
@@ -44,6 +43,7 @@ const signup = async (data: CreateUser) => {
 const logout = async () => {
     await authApi.logout();
     window.store.set({ user: null, chats: [] });
+    console.log("STORE: ", window.store.getState())
     router.go(PAGES.LOGIN)
 }
 

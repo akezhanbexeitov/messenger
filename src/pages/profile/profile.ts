@@ -1,5 +1,6 @@
 import Block from "../../core/Block";
 import { PAGES, router } from "../../core/Router";
+import { logout } from "../../services/auth";
 import template from './profile.hbs?raw'
 
 interface IProps {}
@@ -15,12 +16,17 @@ export class ProfilePage extends Block<IProps> {
                 event.preventDefault()
                 router.go(PAGES.CHANGE_PASSWORD)
             },
-            handleLogout: (event: Event) => {
+            handleLogout: async (event: Event) => {
                 event.preventDefault()
-                router.go(PAGES.LOGIN)
+                try {
+                    await logout()
+                    router.go(PAGES.LOGIN)
+                } catch (error) {
+                    console.log(error)
+                }
             },
             handleBackClick: () => { 
-                router.go(PAGES.CHATS)
+                router.back()
             }
         })
     }
