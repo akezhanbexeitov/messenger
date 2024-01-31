@@ -41,6 +41,7 @@ export class ChangePasswordPage extends Block<IProps, TRef> {
                     this.refs.successText.setProps({ success: 'Password is set successfully' })
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
+                    this.refs.successText.setProps({ success: undefined })
                     this.refs.errorText.setProps({ error: error.message })
                 }
             }
