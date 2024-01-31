@@ -1,10 +1,10 @@
-import { Avatar, CreateUser, Password } from "../api/types";
+import { Avatar, ChangeUserProfile, Password } from "../api/types";
 import UsersApi from "../api/users";
 import { apiHasError } from "../utils/apiHasError";
 
 const usersApi = new UsersApi()
 
-const changeProfile = async (data: CreateUser) => { 
+const changeProfile = async (data: ChangeUserProfile) => { 
   const response = await usersApi.profile(data);
   if (apiHasError(response)) {
     throw Error(response.reason)

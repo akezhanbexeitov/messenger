@@ -31,6 +31,15 @@ export type CreateUser = Omit<UserDTO, 'avatar' | 'display_name' | 'id'>  & {
     password: string
 }
 
+export type ChangeUserProfile = {
+    login?: string;
+    first_name?: string;
+    second_name?: string;
+    display_name?: string;
+    phone?: string;
+    email?: string;
+}
+
 export type CreateChat = {
     title: string
 }
