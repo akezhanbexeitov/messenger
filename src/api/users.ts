@@ -2,7 +2,7 @@ import HTTPTransport from "../utils/http";
 import { APIError, Avatar, CreateUser, Password, UserDTO } from "./types";
 
 enum USERS {
-  BASE = '/users',
+  BASE = '/user',
   PROFILE = '/profile',
   PASSWORD = '/password',
   AVATAR = USERS.PROFILE + '/avatar',
