@@ -1,1 +1,3 @@
-export { ChangeProfilePage as default } from './change-profile'
+import { ChangeProfilePage } from "./change-profile";
+
+export default ChangeProfilePage;

@@ -1,10 +1,14 @@
+import { UserDTO } from './../../../api/types';
 import { Field } from "../../../components";
 import Block from "../../../core/Block";
 import template from './change-profile.hbs?raw'
 import * as validators from "../../../utils/validators"
 import { router } from "../../../core/Router";
+import { connect } from "../../../utils/connect";
 
-interface IProps { }
+interface IProps { 
+    user: UserDTO
+}
 
 type TRef = {
     first_name: Field
@@ -16,8 +20,11 @@ type TRef = {
 }
 
 export class ChangeProfilePage extends Block<IProps, TRef> {
-    constructor() {
+    constructor(props: IProps) {
         super({
+            ...props,
+            // eslint-disable-next-line 
+            // @ts-ignore
             validate: {
                 first_name: validators.first_name,
                 second_name: validators.second_name,
@@ -57,3 +64,5 @@ export class ChangeProfilePage extends Block<IProps, TRef> {
         return template
     }
 }
+
+export default connect(({ user }) => ({ user }))(ChangeProfilePage)
