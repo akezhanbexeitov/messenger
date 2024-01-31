@@ -63,7 +63,7 @@
         flex: 1 1 auto;
     }
 
-    &__error {
+    &__input-error {
         display: none;
 
         &-active {
@@ -72,6 +72,19 @@
             font-size: 9px;
             font-weight: 500;
             margin-top: 5px;
+        }
+    }
+
+    &__form-error {
+        display: none;
+        
+        &-active {
+            display: block;
+            color: $red;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 12px;
         }
     }
 
