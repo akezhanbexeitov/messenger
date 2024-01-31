@@ -9,6 +9,7 @@ interface IProps {
     name: string
     label: string
     type: 'email' | 'password' | 'text'
+    value?: string
     placeholder?: string
     disabled?: boolean
     env: 'auth' | 'profile' | 'chat'

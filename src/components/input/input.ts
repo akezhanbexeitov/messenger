@@ -8,6 +8,7 @@ interface IProps {
     name: string
     env: 'auth' | 'profile' | 'chat'
     placeholder?: string
+    value?: string
     onBlur: () => void
     events: Events
 }
