@@ -4,12 +4,14 @@ import templateProfile from './input-profile.hbs?raw'
 import templateChat from './input-chat.hbs?raw'
 
 interface IProps {
-    type: 'email' | 'password' | 'text'
+    type: 'email' | 'password' | 'text' | 'file'
     name: string
     env: 'auth' | 'profile' | 'chat'
+    hidden?: boolean
     placeholder?: string
     value?: string
-    onBlur: () => void
+    onBlur?: (e: Event) => void
+    onChange?: (e: Event) => void
     events: Events
 }
 
@@ -17,10 +19,21 @@ export class Input extends Block<IProps> {
     constructor(props: IProps) { 
         super({
             ...props,
-            events: {
-                blur: props.onBlur
-            }
         })
+    }
+
+    protected init() {
+        if (this.props.onBlur) {
+            this.props.events = {
+                blur: this.props.onBlur
+            }
+        }
+
+        if (this.props.onChange) {
+            this.props.events = {
+                change: this.props.onChange
+            }
+        }
     }
 
     protected render(): string {

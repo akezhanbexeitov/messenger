@@ -1,5 +1,6 @@
+import { User } from "../types";
 import HTTPTransport from "../utils/http";
-import { APIError, Avatar, ChangeUserProfile, Password, UserDTO } from "./types";
+import { APIError, ChangeUserProfile, Password, UserDTO } from "./types";
 
 enum USERS {
   BASE = '/user',
@@ -15,7 +16,7 @@ export default class UsersApi {
     return usersApi.put(USERS.PROFILE, { data })
   }
 
-  async avatar(data: Avatar): Promise<UserDTO | APIError> {
+  async avatar(data: FormData): Promise<User | APIError> {
     return usersApi.put(USERS.AVATAR, { data })
   }
 

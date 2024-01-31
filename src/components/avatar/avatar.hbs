@@ -5,12 +5,18 @@
     <div class="avatar-overlay">
         <p>Change avatar</p>
     </div>
+
     {{> AvatarIcon }}
-    <input
-        type="file"
-        hidden="true"
-        id="avatar"
-        name="avatar"
-        ref="avatarRef"
-    >
+
+    {{{ 
+        Input 
+            type="file"
+            hidden="true"
+            id="avatar"
+            name="avatar"
+            placeholder="Avatar"
+            env="profile"
+            ref="input"
+            onChange=handleAvatarChange
+    }}}
 </label>

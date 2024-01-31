@@ -78,9 +78,7 @@ export default class HTTPTransport {
 
     request = (url: string, options: TOptions = {}, timeout = 5000): Promise<XMLHttpRequest> => {
         const {
-            headers = {
-                'Content-Type': 'application/json'
-            },
+            headers = {},
             method,
             data
         } = options
@@ -115,7 +113,10 @@ export default class HTTPTransport {
 
             if (isGet || !data) {
                 xhr.send()
+            } else if (data instanceof FormData) {
+                xhr.send(data)
             } else {
+                xhr.setRequestHeader('Content-Type', 'application/json')
                 xhr.send(JSON.stringify(data))
             }
         })

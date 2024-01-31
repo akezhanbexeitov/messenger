@@ -17,11 +17,6 @@ export type UserDTO = {
     email: string;
 };
 
-export type Avatar = {
-    avatar: File
-}
-
-
 export type Password = {
     oldPassword: string
     newPassword: string
