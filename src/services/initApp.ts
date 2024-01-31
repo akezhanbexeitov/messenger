@@ -13,6 +13,10 @@ const initApp = async () => {
 
   const chats = await getChats();
   window.store.set({ user: me, chats });
+
+  if (window.location.pathname === PAGES.LOGIN || window.location.pathname === PAGES.REGISTER) { 
+    router.go(PAGES.CHATS);
+  }
 }
 
 const initChatPage = async () => {
