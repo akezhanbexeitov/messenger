@@ -31,8 +31,8 @@ export class DialogCreateChat extends Block<Props, Refs> {
     return this.refs.chatTitle.value();
   }
 
-  public setError(error: string) {
-    this.refs.errorText.setProps({error})
+  public setError(error: unknown) {
+    this.refs.errorText.setProps({ error })
   }
 
   protected render(): string {

@@ -2,10 +2,16 @@ import Block from "../../core/Block"
 import template from './chats.hbs?raw'
 import avatar from "../../assets/avatar.png"
 import { PAGES, router } from "../../core/Router"
+import { DialogCreateChat } from "../../components/dialog-create-chat"
+import { createChat } from "../../services/chat"
 
-interface IProps {}
+interface IProps { }
 
-export class ChatsPage extends Block<IProps> {
+type TRefs = {
+    createChat: DialogCreateChat
+}
+
+export class ChatsPage extends Block<IProps, TRefs> {
     constructor() {
         super({
             chats: [
@@ -80,6 +86,20 @@ export class ChatsPage extends Block<IProps> {
             },
             openDialog: () => window.store.set({ isOpenDialogChat: true }),
             closeDialog: () => window.store.set({ isOpenDialogChat: false }),
+            onSave: async () => {
+                const chatTitle = this.refs.createChat.getChatTitle();
+                if(!chatTitle) {
+                    this.refs.createChat.setError('Название переписки не может быть пустым');
+                    return;
+                }
+
+                try {
+                    await createChat(chatTitle)
+                    window.store.set({ isOpenDialogChat: false })
+                } catch (error) {
+                    this.refs.createChat.setError(error)
+                }
+            }
         })
     }
 
