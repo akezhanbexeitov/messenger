@@ -3,6 +3,7 @@ import template from "./avatar.hbs?raw"
 import { Input } from "../input/input"
 import { changeAvatar } from "../../services/users";
 import constants from "../../constants";
+import { ErrorText, SuccessText } from "..";
 
 interface IProps { 
     img: string | null
@@ -11,6 +12,8 @@ interface IProps {
 
 type TRef = {
     input: Input
+    errorText: ErrorText
+    successText: SuccessText
 }
 
 export class Avatar extends Block<IProps, TRef> {
@@ -27,8 +30,12 @@ export class Avatar extends Block<IProps, TRef> {
                         formData.append("avatar", file)
                         try {
                             await changeAvatar(formData)
-                        } catch (error) {
-                            console.error(error)
+                            this.refs.errorText.setProps({ error: undefined })
+                            this.refs.successText.setProps({ success: "Avatar has been changed successfully" })
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        } catch (error: any) {
+                            this.refs.successText.setProps({ success: undefined })
+                            this.refs.errorText.setProps({ error: error.message })
                         }
                     }
                 }
