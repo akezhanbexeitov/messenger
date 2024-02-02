@@ -13,7 +13,7 @@ interface IProps {
     placeholder?: string
     disabled?: boolean
     env: 'auth' | 'profile' | 'chat'
-    onBlur: () => void
+    onBlur?: () => void
     validate: (value: string) => boolean | string
 }
 
