@@ -26,9 +26,7 @@ export class Avatar extends Block<IProps, TRef> {
                         const file = input.files[0]
                         formData.append("avatar", file)
                         try {
-                            const response = await changeAvatar(formData)
-                            window.store.set({ user: response });
-                            console.log("STORE: ", window.store.getState())
+                            await changeAvatar(formData)
                         } catch (error) {
                             console.error(error)
                         }

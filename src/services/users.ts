@@ -1,6 +1,7 @@
 import { ChangeUserProfile, Password } from "../api/types";
 import UsersApi from "../api/users";
 import { apiHasError } from "../utils/apiHasError";
+import { transformUser } from "../utils/apiTransformers";
 
 const usersApi = new UsersApi()
 
@@ -9,6 +10,10 @@ const changeProfile = async (data: ChangeUserProfile) => {
   if (apiHasError(response)) {
     throw Error(response.reason)
   }
+
+  const user = transformUser(response)
+
+  window.store.set({ user })
   
   return response
 }
@@ -19,7 +24,9 @@ const changeAvatar = async (data: FormData) => {
     throw Error(response.reason)
   }
 
-  window.store.set({ user: response })
+  const user = transformUser(response)
+
+  window.store.set({ user })
 
   return response
 }

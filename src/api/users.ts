@@ -1,4 +1,3 @@
-import { User } from "../types";
 import HTTPTransport from "../utils/http";
 import { APIError, ChangeUserProfile, Password, UserDTO } from "./types";
 
@@ -16,7 +15,7 @@ export default class UsersApi {
     return usersApi.put(USERS.PROFILE, { data })
   }
 
-  async avatar(data: FormData): Promise<User | APIError> {
+  async avatar(data: FormData): Promise<UserDTO | APIError> {
     return usersApi.put(USERS.AVATAR, { data })
   }
 
