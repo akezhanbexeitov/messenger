@@ -2,12 +2,14 @@ import { ErrorText, Field } from "..";
 import Block from "../../core/Block";
 import { connect } from "../../utils/connect";
 import template from "./dialog-create-chat.hbs?raw"
+import { chatTitle } from "../../utils/validators";
 
 interface Props {
   isOpenDialogChat: boolean,
   onSave: () => void,
   onClose: () => void,
   error: string
+  validate: Record<string, (value: string) => string | boolean>
 }
 
 type Refs = {
@@ -19,6 +21,9 @@ export class DialogCreateChat extends Block<Props, Refs> {
   constructor(props: Props) {
     super({
       ...props,
+      validate: {
+        chatTitle: chatTitle
+      }
     })
   }
 

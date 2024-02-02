@@ -78,12 +78,8 @@ export class ChatsPage extends Block<IProps> {
             handleChatClick: () => {
                 router.go(PAGES.CHAT)
             },
-            openDialog: () => {
-                window.store.set({ isOpenDialogChat: true })
-                console.log("STORE: ", window.store.getState())
-                console.log('openDialog')
-            },
-            closeDialog: () => window.store.set({isOpenDialogChat: false}),
+            openDialog: () => window.store.set({ isOpenDialogChat: true }),
+            closeDialog: () => window.store.set({ isOpenDialogChat: false }),
         })
     }
 

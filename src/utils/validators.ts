@@ -100,3 +100,12 @@ export const message = (value: string) => {
 
     return false
 }
+
+export const chatTitle = (value: string) => { 
+    // Check if the chat title is empty
+    if (!value.trim()) {
+        return 'Chat title should not be empty'
+    }
+
+    return false
+}
