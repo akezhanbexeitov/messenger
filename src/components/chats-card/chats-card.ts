@@ -2,13 +2,15 @@ import Block, { Events } from "../../core/Block";
 import template from "./chats-card.hbs?raw"
 
 interface IProps {
-    name: string
-    message: string
-    time: string
-    unread?: number
-    active?: boolean
     avatar: string
-    onClick?: () => void
+    id: number
+    lastMessage: string
+    title: string
+    unreadCount: number
+    name?: string
+    time?: string
+    active?: boolean
+    onClick: () => void
     events?: Events
 }
 

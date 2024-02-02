@@ -23,6 +23,7 @@ const initApp = async () => {
 const initChatPage = async () => {
   const chats = await getChats();
   window.store.set({ chats });
+  console.log("STORE: ", window.store.getState())
 }
 
 export {

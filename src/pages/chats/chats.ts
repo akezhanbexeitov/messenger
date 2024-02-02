@@ -4,16 +4,26 @@ import { PAGES, router } from "../../core/Router"
 import { DialogCreateChat } from "../../components/dialog-create-chat"
 import { createChat } from "../../services/chat"
 import { connect } from "../../utils/connect"
+import { initChatPage } from "../../services/initApp"
+import { Chat } from "../../types"
 
-interface IProps { }
+interface IProps { 
+    chats: Chat[]
+    handleProfileClick: (event: Event) => void
+    handleChatClick: (event: Event) => void
+    openDialog: () => void
+    closeDialog: () => void
+    onSave: () => void
+}
 
 type TRefs = {
     createChat: DialogCreateChat
 }
 
 export class ChatsPage extends Block<IProps, TRefs> {
-    constructor() {
+    constructor(props: IProps) {
         super({
+            ...props,
             handleProfileClick: (event: Event) => {
                 event.preventDefault()
                 router.go(PAGES.PROFILE)
@@ -38,6 +48,7 @@ export class ChatsPage extends Block<IProps, TRefs> {
                 }
             }
         })
+        initChatPage()
     }
 
     protected render(): string {
