@@ -12,4 +12,4 @@ export { ErrorText } from './error-text/error-text'
 export { SuccessText } from './success-text/success-text'
 export { Dialog } from './dialog'
 export { default as DialogCreateChat } from './dialog-create-chat'
-
+export { Loader } from './loader';
