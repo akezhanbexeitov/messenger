@@ -5,7 +5,7 @@ import { changeAvatar } from "../../services/users";
 import constants from "../../constants";
 
 interface IProps { 
-    img: string
+    img: string | null
     handleAvatarChange: () => void
 }
 
@@ -17,7 +17,7 @@ export class Avatar extends Block<IProps, TRef> {
     constructor(props: IProps) {
         super({
             ...props,
-            img: constants.HOST + "/resources" + props.img,
+            img: props.img ? constants.HOST + "/resources" + props.img : null,
             handleAvatarChange: async () => {
                 const input = this.refs.input.element as HTMLInputElement
                 if (input.files) {

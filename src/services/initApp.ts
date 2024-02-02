@@ -10,9 +10,8 @@ const initApp = async () => {
     router.go(PAGES.LOGIN)
     return;
   }
-
-  const chats = await getChats();
-  window.store.set({ user: me, chats });
+  
+  window.store.set({ user: me });
   console.log("STORE: ", window.store.getState())
 
   if (window.location.pathname === PAGES.LOGIN || window.location.pathname === PAGES.REGISTER) { 
@@ -26,14 +25,7 @@ const initChatPage = async () => {
   console.log("STORE: ", window.store.getState())
 }
 
-const initProfilePage = async () => {
-  const me = await getUser();
-  window.store.set({ user: me });
-  console.log("STORE: ", window.store.getState())
-}
-
 export {
   initApp,
   initChatPage,
-  initProfilePage
 }

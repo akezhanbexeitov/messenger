@@ -2,7 +2,6 @@ import { UserDTO } from "../../api/types";
 import Block from "../../core/Block";
 import { PAGES, router } from "../../core/Router";
 import { logout } from "../../services/auth";
-import { initProfilePage } from "../../services/initApp";
 import { connect } from "../../utils/connect";
 import template from './profile.hbs?raw'
 
@@ -39,7 +38,6 @@ export class ProfilePage extends Block<IProps> {
                 router.back()
             }
         })
-        initProfilePage()
     }
 
     protected render(): string {
