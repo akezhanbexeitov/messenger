@@ -17,9 +17,14 @@
                 type="button"
                 onClick=openDialog
         }}}
-        <nav>
-            {{#ChatsList chats=chats handleChatClick=handleChatClick}}{{/ChatsList}}
-        </nav>
+
+        {{#if chats}}
+            <nav>
+                {{#ChatsList chats=chats handleChatClick=handleChatClick}}{{/ChatsList}}
+            </nav>
+        {{else}}
+            <h2 class="chats__empty chats__dummy">No chats</h2>
+        {{/if}}
     </aside>
 
     <section class="chats__main">
