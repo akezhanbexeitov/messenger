@@ -4,8 +4,15 @@ import template from './change-password.hbs?raw'
 import * as validators from "../../../utils/validators"
 import { router } from "../../../core/Router";
 import { changePassword } from "../../../services/users";
+import { connect } from "../../../utils/connect";
+import { UserDTO } from "../../../api/types";
 
-interface IProps { }
+interface IProps { 
+    user: UserDTO
+    validate: Record<string, (value: string) => string | boolean>
+    handleBackClick: () => void
+    handleSaveChangesClick: () => void
+}
 
 type TRef = {
     oldPassword: Field
@@ -16,8 +23,9 @@ type TRef = {
 }
 
 export class ChangePasswordPage extends Block<IProps, TRef> {
-    constructor() {
+    constructor(props: IProps) {
         super({
+            ...props,
             validate: {
                 oldPassword: validators.password,
                 newPassword: validators.password,
@@ -52,3 +60,5 @@ export class ChangePasswordPage extends Block<IProps, TRef> {
         return template
     }
 }
+
+export default connect(({ user }) => ({ user }))(ChangePasswordPage)

@@ -6,7 +6,11 @@
         <p>Change avatar</p>
     </div>
 
-    {{> AvatarIcon }}
+    {{#if img}}
+        <img src={{ img }} alt="User avatar">
+    {{else}}
+        {{> AvatarIcon }}
+    {{/if}}
 
     {{{ 
         Input 

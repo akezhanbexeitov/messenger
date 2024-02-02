@@ -9,7 +9,7 @@ const changeProfile = async (data: ChangeUserProfile) => {
   if (apiHasError(response)) {
     throw Error(response.reason)
   }
-
+  
   return response
 }
 
@@ -18,6 +18,8 @@ const changeAvatar = async (data: FormData) => {
   if (apiHasError(response)) {
     throw Error(response.reason)
   }
+
+  window.store.set({ user: response })
 
   return response
 }

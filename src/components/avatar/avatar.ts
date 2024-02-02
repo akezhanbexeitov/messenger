@@ -2,16 +2,22 @@ import Block from "../../core/Block";
 import template from "./avatar.hbs?raw"
 import { Input } from "../input/input"
 import { changeAvatar } from "../../services/users";
+import constants from "../../constants";
 
-interface IProps { }
+interface IProps { 
+    img: string
+    handleAvatarChange: () => void
+}
 
 type TRef = {
     input: Input
 }
 
 export class Avatar extends Block<IProps, TRef> {
-    constructor() {
+    constructor(props: IProps) {
         super({
+            ...props,
+            img: constants.HOST + "/resources" + props.img,
             handleAvatarChange: async () => {
                 const input = this.refs.input.element as HTMLInputElement
                 if (input.files) {
