@@ -6,6 +6,14 @@
                 onClick=handleProfileClick
         }}}
         {{{ Search }}}
+
+        {{{ 
+            Button 
+                primary="true"
+                text="Create chat"
+                type="button"
+                onClick=handleCreateChat
+        }}}
         <nav>
             {{#ChatsList chats=chats handleChatClick=handleChatClick}}{{/ChatsList}}
         </nav>
