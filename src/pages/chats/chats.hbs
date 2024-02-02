@@ -1,10 +1,13 @@
 <main class="chats">
+    {{{ DialogCreateChat onSave=onSave onClose=closeDialog ref="createChat"}}}
+
     <aside class="chats__aside">
         {{{ 
             Link
                 text="Profile"
                 onClick=handleProfileClick
         }}}
+        
         {{{ Search }}}
 
         {{{ 
@@ -12,7 +15,7 @@
                 primary="true"
                 text="Create chat"
                 type="button"
-                onClick=handleCreateChat
+                onClick=openDialog
         }}}
         <nav>
             {{#ChatsList chats=chats handleChatClick=handleChatClick}}{{/ChatsList}}

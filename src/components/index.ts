@@ -10,4 +10,6 @@ export { BackAside } from './back-aside/back-aside'
 export { Input } from './input/input'
 export { ErrorText } from './error-text/error-text'
 export { SuccessText } from './success-text/success-text'
-export { Dialog } from './dialog/dialog'
+export { Dialog } from './dialog'
+export { default as DialogCreateChat } from './dialog-create-chat'
+

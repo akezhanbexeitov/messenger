@@ -1,6 +1,7 @@
 import { ErrorText, Field } from "..";
 import Block from "../../core/Block";
 import { connect } from "../../utils/connect";
+import template from "./dialog-create-chat.hbs?raw"
 
 interface Props {
   isOpenDialogChat: boolean,
@@ -30,9 +31,7 @@ export class DialogCreateChat extends Block<Props, Refs> {
   }
 
   protected render(): string {
-      return `
-          
-      `
+      return template
   }
 }
 
