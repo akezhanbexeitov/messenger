@@ -1,1 +1,3 @@
-export { ChatsPage as default } from './chats';
+import ChatsPage from './chats'
+
+export default ChatsPage
