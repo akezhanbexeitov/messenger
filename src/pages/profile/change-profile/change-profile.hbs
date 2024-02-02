@@ -3,76 +3,80 @@
 
     <section class="profile-main">
         <form>
-            {{{ Avatar }}}
+            {{#if user}}
+                {{{ Avatar }}}
 
-            {{{
-                Field
-                    name="email"
-                    label="Email"
-                    type="email"
-                    env="profile"
-                    placeholder="pochta@yandex.ru"
-                    value="pochta@yandex.ru"
-                    ref="email"
-                    validate=validate.email
-            }}}
-            {{{
-                Field
-                    name="login"
-                    label="Login"
-                    type="text"
-                    env="profile"
-                    placeholder="ivanivanov"
-                    value="ivanivanov"
-                    ref="login"
-                    validate=validate.login
-            }}}
-            {{{
-                Field
-                    name="first_name"
-                    label="First Name"
-                    type="text"
-                    env="profile"
-                    placeholder="Ivan"
-                    value="Ivan"
-                    ref="first_name"
-                    validate=validate.first_name
-            }}}
-            {{{
-                Field
-                    name="second_name"
-                    label="Second Name"
-                    type="text"
-                    env="profile"
-                    placeholder="Ivanov"
-                    value="Ivanov"
-                    ref="second_name"
-                    validate=validate.second_name
-            }}}
-            {{{
-                Field
-                    name="display_name"
-                    label="Display Name"
-                    type="text"
-                    env="profile"
-                    placeholder="Ivan"
-                    value="Ivan"
-                    ref="display_name"
-                    validate=validate.display_name
-            }}}
-            {{!-- TODO Fix number representation --}}
-            {{!-- TODO Remove input backgrounds when disabled --}}
-            {{{
-                Field
-                    name="phone"
-                    label="Phone Number"
-                    type="text"
-                    env="profile"
-                    placeholder="+7(909)9673030"
-                    value="+7(909)9673030"
-                    ref="phone"
-                    validate=validate.phone
-            }}}
+                {{{
+                    Field
+                        name="email"
+                        label="Email"
+                        type="email"
+                        env="profile"
+                        placeholder=user.email
+                        value=user.email
+                        ref="email"
+                        validate=validate.email
+                }}}
+                {{{
+                    Field
+                        name="login"
+                        label="Login"
+                        type="text"
+                        env="profile"
+                        placeholder=user.login
+                        value=user.login
+                        ref="login"
+                        validate=validate.login
+                }}}
+                {{{
+                    Field
+                        name="first_name"
+                        label="First Name"
+                        type="text"
+                        env="profile"
+                        placeholder=user.firstName
+                        value=user.firstName
+                        ref="first_name"
+                        validate=validate.first_name
+                }}}
+                {{{
+                    Field
+                        name="second_name"
+                        label="Second Name"
+                        type="text"
+                        env="profile"
+                        placeholder=user.secondName
+                        value=user.secondName
+                        ref="second_name"
+                        validate=validate.second_name
+                }}}
+                {{{
+                    Field
+                        name="display_name"
+                        label="Display Name"
+                        type="text"
+                        env="profile"
+                        placeholder=user.displayName
+                        value=user.displayName
+                        ref="display_name"
+                        validate=validate.display_name
+                }}}
+                {{!-- TODO Fix number representation --}}
+                {{!-- TODO Remove input backgrounds when disabled --}}
+                {{{
+                    Field
+                        name="phone"
+                        label="Phone Number"
+                        type="text"
+                        env="profile"
+                        placeholder=user.phone
+                        value=user.phone
+                        ref="phone"
+                        validate=validate.phone
+                }}}
+            {{ else }}
+                {{{ Loader }}}
+            {{/if}}
         </form>
 
         {{{ ErrorText error=error ref="errorText" type="form" }}}
