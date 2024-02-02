@@ -26,7 +26,14 @@ const initChatPage = async () => {
   console.log("STORE: ", window.store.getState())
 }
 
+const initProfilePage = async () => {
+  const me = await getUser();
+  window.store.set({ user: me });
+  console.log("STORE: ", window.store.getState())
+}
+
 export {
   initApp,
-  initChatPage
+  initChatPage,
+  initProfilePage
 }

@@ -4,7 +4,7 @@
     <section class="profile-main">
         {{{ Avatar }}}
 
-        <h1 class="profile-main__name">Ivan</h1>
+        <h1 class="profile-main__name">{{ user.firstName }}</h1>
         
         {{{ 
             Field
@@ -12,7 +12,7 @@
                 label="Email"
                 type="email"
                 env="profile"
-                placeholder="pochta@yandex.ru"
+                placeholder=user.email
                 disabled="true"
         }}}
         {{{
@@ -21,7 +21,7 @@
                 label="Login"
                 type="text"
                 env="profile"
-                placeholder="ivanivanov"
+                placeholder=user.login
                 disabled="true"
         }}}
         {{{
@@ -30,7 +30,7 @@
                 label="First Name"
                 type="text"
                 env="profile"
-                placeholder="Ivan"
+                placeholder=user.firstName
                 disabled="true"
         }}}
         {{{
@@ -39,7 +39,7 @@
                 label="Second Name"
                 type="text"
                 env="profile"
-                placeholder="Ivanov"
+                placeholder=user.secondName
                 disabled="true"
         }}}
         {{{
@@ -48,7 +48,7 @@
                 label="Display Name"
                 type="text"
                 env="profile"
-                placeholder="Ivan"
+                placeholder=user.displayName
                 disabled="true"
         }}}
         {{!-- TODO Fix number representation --}}
@@ -59,7 +59,7 @@
                 label="Phone Number"
                 type="text"
                 env="profile"
-                placeholder="+7(909)9673030"
+                placeholder=user.phone
                 disabled="true"
         }}}
 
