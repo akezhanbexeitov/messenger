@@ -13,4 +13,5 @@ export { SuccessText } from './success-text/success-text'
 export { Dialog } from './dialog'
 export { default as DialogCreateChat } from './dialog-create-chat'
 export { Loader } from './loader';
-export { Chat } from './chat'
+export { default as Chat } from './chat'
+export { OptionsIcon } from './icons/options'

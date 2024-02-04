@@ -4,6 +4,8 @@ export type AppState = {
   error: string | null,
   user: User | null,
   isOpenDialogChat: boolean,
+  isOpenDialogUsers: boolean,
+  isOpenDialogChatOptions: boolean,
   chats: Chat[]
   activeChat: {
     id: number,

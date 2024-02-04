@@ -1,5 +1,4 @@
 export { ChevronIcon } from './chevron'
-export { OptionsIcon } from './options'
 export { PinIcon } from './pin'
 export { ArrowIcon } from './arrow'
 export { TicksIcon } from './ticks'

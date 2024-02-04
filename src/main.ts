@@ -31,6 +31,8 @@ const initState: AppState = {
   error: null,
   user: null,
   isOpenDialogChat: false,
+  isOpenDialogUsers: false,
+  isOpenDialogChatOptions: false,
   chats: [],
   activeChat: null
 }
