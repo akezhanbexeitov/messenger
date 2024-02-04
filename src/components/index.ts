@@ -16,3 +16,4 @@ export { Loader } from './loader';
 export { default as Chat } from './chat'
 export { OptionsIcon } from './icons/options'
 export { ChatOptions } from './chat-options'
+export { AddMember } from './chat-options/add-member'

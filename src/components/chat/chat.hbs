@@ -1,7 +1,7 @@
 <section class="chat">
     <header class="chat-header">
         {{#if isOpenDialogChatOptions}}
-            {{{ ChatOptions }}}
+            {{{ ChatOptions handleAddMember=handleAddMember }}}
         {{/if}}
 
         <div class="chat-header__details">
@@ -15,9 +15,8 @@
             </div>
             <h3 class="chat-header__name">Вадим</h3>
         </div>
-        <button class="chat__button" type="button">
-            {{{ OptionsIcon onClick=handleChatOptionsToggle }}}
-        </button>
+
+        {{{ OptionsIcon onClick=handleChatOptionsToggle }}}
     </header>
 
 

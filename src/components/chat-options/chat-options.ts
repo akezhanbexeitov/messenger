@@ -1,7 +1,10 @@
-import Block from "../../core/Block";
+import Block, { Events } from "../../core/Block";
 import template from './chat-options.hbs?raw'
 
-interface IProps {}
+interface IProps {
+  handleAddMember: () => void
+  events?: Events
+}
 
 export class ChatOptions extends Block<IProps> {
   constructor(props: IProps) {

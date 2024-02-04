@@ -13,6 +13,7 @@ interface IProps {
     }
     handleSendClick: () => void
     handleChatOptionsToggle: () => void
+    handleAddMember: () => void
 }
 
 type TRef = {
@@ -28,6 +29,9 @@ export class Chat extends Block<IProps, TRef> {
             },
             handleChatOptionsToggle: () => {
                 window.store.set({ isOpenDialogChatOptions: !this.props.isOpenDialogChatOptions })
+            },
+            handleAddMember: () => {
+                console.log('handleAddMember')
             },
             handleSendClick: () => {
                 const message = this.refs.message.value()
