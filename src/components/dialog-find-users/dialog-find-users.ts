@@ -1,18 +1,38 @@
+import { ErrorText, Field } from "..";
 import Block from "../../core/Block"
 import { connect } from "../../utils/connect";
 import template from "./dialog-find-users.hbs?raw"
+import { userName } from "../../utils/validators";
 
 interface IProps {
   isOpenDialogUsers: boolean
   onClose: () => void
   addUserToChat: () => void
+  validate: Record<string, (value: string) => string | boolean>
+  onInput: () => void
 }
 
-export class DialogFindUsers extends Block<IProps> {
+type TRefs = {
+  userName: Field,
+  errorText: ErrorText
+}
+
+export class DialogFindUsers extends Block<IProps, TRefs> {
   constructor(props: IProps) {
     super({
-      ...props
+      ...props,
+      validate: {
+        findUser: userName
+      }
     })
+  }
+
+  public getUserName() {
+    return this.refs.userName.value();
+  }
+
+  public setError(error: unknown) {
+    this.refs.errorText.setProps({ error })
   }
 
   protected render(): string {

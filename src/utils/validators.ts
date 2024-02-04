@@ -109,3 +109,12 @@ export const chatTitle = (value: string) => {
 
     return false
 }
+
+export const userName = (value: string) => { 
+    // Check if the user name is empty
+    if (!value.trim()) {
+        return 'User name should not be empty'
+    }
+
+    return false
+}

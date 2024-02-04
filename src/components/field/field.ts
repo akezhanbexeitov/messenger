@@ -5,7 +5,6 @@ import templateProfile from "./field-profile.hbs?raw"
 import templateChat from "./field-chat.hbs?raw"
 import templateSearch from "./field-search.hbs?raw"
 import { Input } from '../input/input'
-import { debounce } from '../../utils/helpers';
 
 interface IProps {
     name: string
@@ -17,7 +16,7 @@ interface IProps {
     env: 'auth' | 'profile' | 'chat' | 'search'
     onBlur?: () => void
     validate: (value: string) => boolean | string
-    handleSearch: () => void
+    onInput?: () => void
 }
 
 type TRef = {
@@ -30,11 +29,6 @@ export class Field extends Block<IProps, TRef> {
         super({
             ...props,
             onBlur: () => this.validate(),
-            handleSearch: () => {
-                debounce(() => {
-                    
-                })
-            }
         })
     }
 

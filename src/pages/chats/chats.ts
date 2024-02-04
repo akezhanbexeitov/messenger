@@ -35,15 +35,16 @@ export class ChatsPage extends Block<IProps, TRefs> {
             onSave: async () => {
                 const chatTitle = this.refs.createChat.getChatTitle();
                 if(!chatTitle) {
-                    this.refs.createChat.setError('Название переписки не может быть пустым');
+                    this.refs.createChat.setError('Chat title should not be empty');
                     return;
                 }
 
                 try {
                     await createChat(chatTitle)
                     window.store.set({ isOpenDialogChat: false })
-                } catch (error) {
-                    this.refs.createChat.setError(error)
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {
+                    this.refs.createChat.setError(error.message)
                 }
             }
         })

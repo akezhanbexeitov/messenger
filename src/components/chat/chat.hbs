@@ -1,5 +1,11 @@
 <section class="chat">
-    {{{ DialogFindUsers onClose=onClose addUserToChat=addUserToChat }}}
+    {{{ 
+        DialogFindUsers 
+            onClose=onClose 
+            addUserToChat=addUserToChat 
+            ref="dialogFindUsers" 
+            onInput=findUsers 
+    }}}
 
     <header class="chat-header">
         {{#if isOpenDialogChatOptions}}

@@ -6,6 +6,7 @@ enum USERS {
   PROFILE = '/profile',
   PASSWORD = '/password',
   AVATAR = USERS.PROFILE + '/avatar',
+  SEARCH = '/search'
 }
 
 const usersApi = new HTTPTransport(USERS.BASE);
@@ -21,5 +22,9 @@ export default class UsersApi {
 
   async password(data: Password): Promise<void | APIError> {
     return usersApi.put(USERS.PASSWORD, { data })
+  }
+
+  async search(query: string): Promise<UserDTO[] | APIError> { 
+    return usersApi.post(USERS.SEARCH, { data: { login: query } })
   }
 }

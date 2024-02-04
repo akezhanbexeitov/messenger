@@ -40,8 +40,19 @@ const changePassword = async (data: Password) => {
   return response
 }
 
+const searchUsers = async (query: string) => {
+  const response = await usersApi.search(query);
+
+  if (apiHasError(response)) {
+    throw Error(response.reason)
+  }
+
+  return response
+}
+
 export {
   changeProfile,
   changeAvatar,
-  changePassword
+  changePassword,
+  searchUsers
 }

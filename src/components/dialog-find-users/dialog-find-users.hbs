@@ -8,13 +8,15 @@
         label="Find user"
         placeholder="User"
         type="text"
-        ref="user"
+        ref="userName"
         env="search"
+        validate=validate.findUser
+        onInput=onInput
     }}}
 
-    {{{ ErrorText error=error ref="errorLine" type="form" }}}
-
     <div>
+      {{{ ErrorText error=error ref="errorText" type="form" }}}
+      
       {{{
         Button
           text="Add"
