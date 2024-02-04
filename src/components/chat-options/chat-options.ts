@@ -3,6 +3,7 @@ import template from './chat-options.hbs?raw'
 
 interface IProps {
   handleAddMember: () => void
+  handleDeleteMember: () => void
   events?: Events
 }
 

@@ -14,6 +14,7 @@ interface IProps {
     handleSendClick: () => void
     handleChatOptionsToggle: () => void
     handleAddMember: () => void
+    handleDeleteMember: () => void
 }
 
 type TRef = {
@@ -32,6 +33,9 @@ export class Chat extends Block<IProps, TRef> {
             },
             handleAddMember: () => {
                 console.log('handleAddMember')
+            },
+            handleDeleteMember: () => {
+                console.log('handleDeleteMember')
             },
             handleSendClick: () => {
                 const message = this.refs.message.value()

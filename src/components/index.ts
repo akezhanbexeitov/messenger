@@ -17,3 +17,4 @@ export { default as Chat } from './chat'
 export { OptionsIcon } from './icons/options'
 export { ChatOptions } from './chat-options'
 export { AddMember } from './chat-options/add-member'
+export { DeleteMember } from './chat-options/delete-member/delete-member';
