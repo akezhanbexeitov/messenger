@@ -22,8 +22,15 @@ export type ActiveChat = Partial<{
 }> | null
 
 export type Message = {
+  isMine: boolean;
+  chat_id: number
+  file: File | null
+  id: number
+  is_read: boolean
+  time: Date
+  user_id: number
   content: string
-  type: "message" | "get old"
+  type: "message"
 }
 
 export type User = {

@@ -1,4 +1,5 @@
 import ChatApi from "../api/chat";
+import { Message } from "../types";
 import { apiHasError } from "../utils/apiHasError";
 import { transformChats, transformUser } from "../utils/apiTransformers";
 
@@ -92,6 +93,11 @@ const ws = ({ chatId, userId, token }: WS) => {
 
     socket.onmessage = (event) => {
         const data = JSON.parse(event.data);
+        data.forEach((message: Message) => {
+            if (String(message.user_id) === userId) {
+                message.isMine = true;
+            }
+        })
         const prevState = window.store.getState().activeChat;
         window.store.set({ activeChat: { messages: [...data, ...(prevState?.messages || [])], ...prevState } })
         console.log("STORE: ", window.store.getState())

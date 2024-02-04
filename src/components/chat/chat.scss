@@ -112,12 +112,15 @@
             max-width: 402px;
             line-height: 125%;
 
+            & p {
+                margin-bottom: 6px;
+            }
+
             &-details {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
                 gap: 4px;
-                margin-top: 6px;
             }
 
             &_mine {
@@ -130,6 +133,10 @@
                 font-size: 12px;
                 font-weight: 500;
                 line-height: 125%;
+
+                & p {
+                    margin-bottom: 6px;
+                }
 
                 & time {
                     display: flex;
@@ -146,7 +153,6 @@
                 font-size: 9px;
                 font-weight: 500;
                 color: $grey;
-                margin-top: 6px;
             }
         }
 
