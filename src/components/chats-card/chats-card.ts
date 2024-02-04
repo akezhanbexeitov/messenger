@@ -1,5 +1,6 @@
 import { LastMessage } from "../../api/types";
 import Block, { Events } from "../../core/Block";
+import { getChatParticipants } from "../../services/chat";
 import template from "./chats-card.hbs?raw"
 
 interface IProps {
@@ -19,9 +20,14 @@ export class ChatsCard extends Block<IProps> {
             ...props,
             active: window.store.getState().activeChat?.id === data.id,
             events: {
-                click: () => {
-                    window.store.set({ activeChat: { ...data } })
-                    console.log("STORE: ", window.store.getState())
+                click: async () => {
+                    try {
+                        const users = await getChatParticipants(props.id)
+                        window.store.set({ activeChat: { ...data, users: users } })
+                        console.log("STORE: ", window.store.getState())
+                    } catch (error) {
+                        console.log(error)
+                    }
                 }
             }
         })

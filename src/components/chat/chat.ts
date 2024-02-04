@@ -7,6 +7,7 @@ import { ChatDTO } from "../../api/types";
 import { connect } from "../../utils/connect";
 import { debounce } from "../../utils/helpers";
 import { searchUsers } from '../../services/users';
+import { addUsersToChat } from '../../services/chat';
 
 interface IProps { 
     isOpenDialogChatOptions: boolean
@@ -44,7 +45,16 @@ export class Chat extends Block<IProps, TRef> {
             handleDeleteMember: () => {
                 console.log('handleDeleteMember')
             },
-            addUserToChat: () => {
+            addUserToChat: async () => {
+                try {
+                    await addUsersToChat({
+                        users: [parseInt(this.refs.dialogFindUsers.getSelectedUserId())],
+                        chatId: window.store.getState().activeChat?.id as number
+                    })
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {
+                    this.refs.dialogFindUsers.setProps(error.message)
+                }
                 console.log("User added to the chat")
                 console.log(this.refs.dialogFindUsers.getSelectedUserId())
             },
@@ -78,4 +88,4 @@ export class Chat extends Block<IProps, TRef> {
     }
 }
 
-export default connect(({ isOpenDialogChatOptions }) => ({ isOpenDialogChatOptions }))(Chat)
+export default connect(({ isOpenDialogChatOptions, activeChat }) => ({ isOpenDialogChatOptions, activeChat }))(Chat)

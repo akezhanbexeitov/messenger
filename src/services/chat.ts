@@ -1,6 +1,6 @@
 import ChatApi from "../api/chat";
 import { apiHasError } from "../utils/apiHasError";
-import { transformChats } from "../utils/apiTransformers";
+import { transformChats, transformUser } from "../utils/apiTransformers";
 
 const chatApi = new ChatApi();
 
@@ -26,6 +26,17 @@ const createChat = async (title: string) => {
 
     const chats = await getChats();
     window.store.set({ chats })
+}
+
+const getChatParticipants = async (chatId: number) => {
+    const response = await chatApi.participants(chatId);
+    if(apiHasError(response)) {
+        throw Error(response.reason)
+    }
+
+    const users = response.map(user => transformUser(user))
+
+    return users
 }
 
 interface IAddOrRemoveUsersToChat { 
@@ -58,5 +69,5 @@ export {
     getChats,
     addUsersToChat,
     removeUsersToChat,
-    
+    getChatParticipants,    
 }

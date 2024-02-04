@@ -1,9 +1,9 @@
 import HTTPTransport from "../utils/http";
-import { APIError, AddOrRemoveUsers, ChatDTO, CreateChat } from "./types";
+import { APIError, AddOrRemoveUsers, ChatDTO, CreateChat, UserDTO } from "./types";
 
 enum CHAT {
   BASE = '/chats',
-  USERS = '/users'
+  USERS = '/users',
 }
 
 const chatApi = new HTTPTransport(CHAT.BASE);
@@ -23,5 +23,9 @@ export default class ChatApi {
 
   async deleteUsers(data: AddOrRemoveUsers): Promise<void | APIError> {
     return chatApi.put(CHAT.USERS, { data })
+  }
+
+  async participants(chatId: number): Promise<UserDTO[] | APIError> {
+    return chatApi.get(`/${chatId}${CHAT.USERS}`)
   }
 }
