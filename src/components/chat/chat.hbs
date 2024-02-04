@@ -12,17 +12,21 @@
             {{{ ChatOptions handleAddMember=handleAddMember handleDeleteMember=handleDeleteMember }}}
         {{/if}}
 
-        <div class="chat-header__details">
-            <div class="chat-header__avatar">
-                <img 
-                    src="http://localhost:3000/avatar.png"
-                    alt="User Avatar"
-                    width="34px"
-                    height="34px"
-                >
+        {{#if companion}}
+            <div class="chat-header__details">
+                <div class="chat-header__avatar">
+                    <img 
+                        src={{ companion.avatar }}
+                        alt="User Avatar"
+                        width="34px"
+                        height="34px"
+                    >
+                </div>
+                <h3 class="chat-header__name">{{ companion.displayName }}</h3>
             </div>
-            <h3 class="chat-header__name">Вадим</h3>
-        </div>
+        {{else}}
+            <h3 class="chat-header__title">{{ activeChat.title }}</h2>
+        {{/if}}
 
         {{{ OptionsIcon onClick=handleChatOptionsToggle }}}
     </header>

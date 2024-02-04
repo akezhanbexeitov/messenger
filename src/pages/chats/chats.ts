@@ -5,12 +5,11 @@ import { DialogCreateChat } from "../../components/dialog-create-chat"
 import { createChat } from "../../services/chat"
 import { connect } from "../../utils/connect"
 import { initChatPage } from "../../services/initApp"
-import { Chat } from "../../types"
-import { ChatDTO } from "../../api/types"
+import { ActiveChat, Chat } from "../../types"
 
 interface IProps { 
     chats: Chat[] | []
-    activeChat: ChatDTO | null
+    activeChat: ActiveChat
     handleProfileClick: (event: Event) => void
     handleChatClick: (event: Event) => void
     openDialog: () => void

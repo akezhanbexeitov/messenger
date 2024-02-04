@@ -20,6 +20,11 @@
         border-bottom: 1px solid $light-grey;
         position: relative;
 
+        &__title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
         &__options {
             position: absolute;
             top: 120%;

@@ -3,15 +3,16 @@ import Block from "../../core/Block";
 import template from './chat.hbs?raw'
 import * as validators from '../../utils/validators'
 import { Field } from "../index";
-import { ChatDTO } from "../../api/types";
 import { connect } from "../../utils/connect";
 import { debounce } from "../../utils/helpers";
 import { searchUsers } from '../../services/users';
 import { addUsersToChat } from '../../services/chat';
+import { ActiveChat, User } from '../../types';
+import constants from '../../constants';
 
 interface IProps { 
     isOpenDialogChatOptions: boolean
-    activeChat: ChatDTO | null
+    activeChat: ActiveChat
     validate: {
         message: (value: string) => string | boolean
     }
@@ -22,6 +23,7 @@ interface IProps {
     addUserToChat: () => void
     onClose: () => void
     findUsers: () => void
+    companion: boolean | User
 }
 
 type TRef = {
@@ -36,6 +38,15 @@ export class Chat extends Block<IProps, TRef> {
             validate: {
                 message: validators.message
             },
+            companion: (() => {
+                const companion = props.activeChat?.users?.find(user => user.id !== window.store.getState().user?.id)
+                if (!companion) return false
+                const result = {
+                    ...companion,
+                    avatar: constants.HOST + '/resources' + companion.avatar
+                }
+                return result
+            })(),
             handleChatOptionsToggle: () => {
                 window.store.set({ isOpenDialogChatOptions: !this.props.isOpenDialogChatOptions })
             },
@@ -49,7 +60,7 @@ export class Chat extends Block<IProps, TRef> {
                 try {
                     await addUsersToChat({
                         users: [parseInt(this.refs.dialogFindUsers.getSelectedUserId())],
-                        chatId: window.store.getState().activeChat?.id as number
+                        chatId: props.activeChat?.id as number
                     })
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {

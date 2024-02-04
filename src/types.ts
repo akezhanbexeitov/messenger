@@ -7,16 +7,18 @@ export type AppState = {
   isOpenDialogUsers: boolean,
   isOpenDialogChatOptions: boolean,
   chats: Chat[]
-  activeChat: Partial<{
+  activeChat: ActiveChat
+  usersSearched: User[] | null
+}
+
+export type ActiveChat = Partial<{
     users: User[] | null,
     id: number,
     title: string,
     avatar: string | null,
     unreadCount: number,
     lastMessage: LastMessageAPI | null
-  }> | null
-  usersSearched: User[] | null
-}
+}> | null
 
 export type User = {
   id: number;
