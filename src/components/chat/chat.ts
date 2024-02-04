@@ -46,10 +46,10 @@ export class Chat extends Block<IProps, TRef> {
             },
             addUserToChat: () => {
                 console.log("User added to the chat")
+                console.log(this.refs.dialogFindUsers.getSelectedUserId())
             },
             onClose: () => window.store.set({ isOpenDialogUsers: false }),
             findUsers: debounce(async () => {
-                console.log("TYPING...")
                 const userName = this.refs.dialogFindUsers.getUserName()
                 if(!userName) {
                     this.refs.dialogFindUsers.setError('User name should not be empty');

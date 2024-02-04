@@ -12,10 +12,11 @@ export { ErrorText } from './error-text/error-text'
 export { SuccessText } from './success-text/success-text'
 export { Dialog } from './dialog'
 export { default as DialogCreateChat } from './dialog-create-chat'
-export { default as DialogFindUsers } from './dialog-find-users';
+export { default as DialogFindUsers } from './dialog-find-users'
+export { default as UsersList } from './users-list'
 export { Loader } from './loader';
 export { default as Chat } from './chat'
 export { OptionsIcon } from './icons/options'
 export { ChatOptions } from './chat-options'
 export { AddMember } from './chat-options/add-member'
-export { DeleteMember } from './chat-options/delete-member/delete-member';
+export { DeleteMember } from './chat-options/delete-member/delete-member'

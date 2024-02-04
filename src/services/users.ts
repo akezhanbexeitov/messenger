@@ -47,6 +47,10 @@ const searchUsers = async (query: string) => {
     throw Error(response.reason)
   }
 
+  const users = response.map(user => transformUser(user))
+
+  window.store.set({ usersSearched: users })
+
   return response
 }
 

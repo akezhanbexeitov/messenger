@@ -14,6 +14,7 @@ export type AppState = {
     unreadCount: number,
     lastMessage: LastMessageAPI | null
   } | null
+  usersSearched: User[] | null
 }
 
 export type User = {

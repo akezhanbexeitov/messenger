@@ -1,0 +1,11 @@
+<select 
+  name={{ name }} 
+  id={{ name }} 
+  {{#if (not usersSearched)}} disabled {{/if}}
+  ref="select"
+>
+  <option value="">Please choose a user</option>
+  {{#each usersSearched}}
+    <option value={{ this.id }}>{{ this.firstName }}</option>
+  {{/each}}
+</select>

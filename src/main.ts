@@ -9,6 +9,11 @@ import { AppState } from './types';
 import { initApp } from './services/initApp';
 import { router } from './core/Router';
 
+// Register helpers
+Handlebars.registerHelper('not', function(value) {
+    return !value;
+});
+
 // Register icons
 Object.entries(Icons).forEach(([ name, icon ]) => {
   Handlebars.registerPartial(name, icon);
@@ -34,7 +39,8 @@ const initState: AppState = {
   isOpenDialogUsers: false,
   isOpenDialogChatOptions: false,
   chats: [],
-  activeChat: null
+  activeChat: null,
+  usersSearched: null
 }
 
 window.store = new Store<AppState>(initState)
