@@ -1,16 +1,7 @@
 <section class="chat">
     <header class="chat-header">
         {{#if isOpenDialogChatOptions}}
-            <div class="chat-header__options">
-                <div class="chat-header__options-item">
-                    {{> PlusIcon }}
-                    <span>Add member</span>
-                </div>
-                <div class="chat-header__options-item">
-                    {{> DeleteIcon }}
-                    <span>Delete member</span>
-                </div>
-            </div>
+            {{{ ChatOptions }}}
         {{/if}}
 
         <div class="chat-header__details">
