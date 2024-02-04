@@ -1,16 +1,15 @@
 {{#Dialog open=isOpenDialogUsers}}
   <form method="dialog">
-    <h3>Create new chat</h3>
+    <h3>Find user</h3>
 
     {{{
       Field
         name="chatTitle"
-        label="Chat name"
-        placeholder="Chat name"
+        label="Find user"
+        placeholder="User"
         type="text"
-        ref="chatTitle"
+        ref="user"
         env="chat"
-        validate=validate.chatTitle
     }}}
 
     {{{ ErrorText error=error ref="errorLine" type="form" }}}

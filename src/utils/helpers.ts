@@ -100,3 +100,11 @@ export const isEqual = (lhs: PlainObject, rhs: PlainObject) => {
 
     return true;
 }
+
+export const debounce = <T extends (...args: unknown[]) => unknown>(callback: T, timeout = 300): (...funcArgs: Parameters<T>) => void => {
+  let timer: NodeJS.Timeout;
+  return (...args: Parameters<T>) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { callback.apply(this, args); }, timeout);
+  };
+}
