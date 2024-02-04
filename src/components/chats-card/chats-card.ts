@@ -10,6 +10,7 @@ interface IProps {
     unreadCount: number,
     lastMessage: LastMessage | null
     active: boolean
+    lastMessageTime: () => string | void
     events?: Events
 }
 
@@ -19,6 +20,19 @@ export class ChatsCard extends Block<IProps> {
         super({
             ...props,
             active: window.store.getState().activeChat?.id === data.id,
+            lastMessageTime: () => {
+                if (!props.lastMessage) return
+
+                const date = new Date(props.lastMessage.time)
+
+                let month = (date.getMonth() + 1).toString()
+                let day = date.getDate().toString()
+
+                month = month.padStart(2, '0')
+                day = day.padStart(2, '0')
+
+                return `${day}.${month}`
+            },
             events: {
                 click: async () => {
                     try {

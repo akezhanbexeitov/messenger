@@ -12,13 +12,19 @@ export type AppState = {
 }
 
 export type ActiveChat = Partial<{
-    users: User[] | null,
-    id: number,
-    title: string,
-    avatar: string | null,
-    unreadCount: number,
-    lastMessage: LastMessageAPI | null
+  users: User[] | null,
+  id: number,
+  title: string,
+  avatar: string | null,
+  unreadCount: number,
+  lastMessage: LastMessageAPI | null
+  messages: Message[]
 }> | null
+
+export type Message = {
+  content: string
+  type: "message" | "get old"
+}
 
 export type User = {
   id: number;
@@ -41,6 +47,6 @@ export type Chat = {
 
 type LastMessage = {
   user: User,
-  time: string,
+  time: Date,
   content: string
 }

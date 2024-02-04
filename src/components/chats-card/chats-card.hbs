@@ -14,16 +14,16 @@
 
     {{#if lastMessage}}
         <div class="chats-card__info">
-            <h2 class="chats-card__name">{{ name }}</h2>
-            <h3 class="chats-card__message">{{ message }}</h3>
+            <h2 class="chats-card__name">{{ lastMessage.user.firstName }}</h2>
+            <h3 class="chats-card__message">{{ lastMessage.content }}</h3>
         </div>
         
         <div class="chats-card__additional">
             <time 
                 class="chats-card__time" 
-                datetime={{ time }}
+                datetime={{ lastMessageTime }}
             >
-                {{ time }}
+                {{ lastMessageTime }}
             </time>
             {{#if unread}}
                 <div class="chats-card__unread">

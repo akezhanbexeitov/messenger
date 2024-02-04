@@ -51,7 +51,7 @@ export type LoginRequestData = {
 
 export type LastMessage = {
     user: UserDTO,
-    time: string,
+    time: Date,
     content: string
 }
 

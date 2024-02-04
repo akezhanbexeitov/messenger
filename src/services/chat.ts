@@ -85,13 +85,16 @@ const ws = ({ chatId, userId, token }: WS) => {
         console.log('[open] Connection established');
 
         socket.send(JSON.stringify({
-            content: 'Моё первое сообщение миру!',
-            type: 'message',
+            content: '0',
+            type: 'get old',
         }));
     };
 
     socket.onmessage = (event) => {
-        console.log('[message] Data received: ', event.data);
+        const data = JSON.parse(event.data);
+        const prevState = window.store.getState().activeChat;
+        window.store.set({ activeChat: { messages: [...data, ...(prevState?.messages || [])], ...prevState } })
+        console.log("STORE: ", window.store.getState())
     };
 
     socket.onclose = (event) => {
