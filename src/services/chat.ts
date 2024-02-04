@@ -64,10 +64,58 @@ const removeUsersToChat = async ({
     }
 }
 
+const getChatToken = async (chatId: number) => {
+    const response = await chatApi.token(chatId);
+    if(apiHasError(response)) {
+        throw Error(response.reason)
+    }
+    return response
+}
+
+type WS = {
+    chatId: string
+    userId: string
+    token: string
+}
+
+const ws = ({ chatId, userId, token }: WS) => {
+    const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${userId}/${chatId}/${token}`);
+
+    socket.onopen = () => {
+        console.log('[open] Connection established');
+
+        socket.send(JSON.stringify({
+            content: 'Моё первое сообщение миру!',
+            type: 'message',
+        }));
+    };
+
+    socket.onmessage = (event) => {
+        console.log('[message] Data received: ', event.data);
+    };
+
+    socket.onclose = (event) => {
+        if (event.wasClean) {
+            console.log(`[close] Connection closed cleanly`);
+        } else {
+            console.log('[close] Connection died');
+        }
+
+        console.log(`Code: ${event.code} | Reason: ${event.reason}`);
+    };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    socket.onerror = function(error: any) {
+        console.log('[error]', error.message);
+    };
+}
+
 export {
     createChat,
     getChats,
     addUsersToChat,
     removeUsersToChat,
     getChatParticipants,    
+    getChatToken,
+    ws,
 }

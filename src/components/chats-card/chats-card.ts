@@ -1,6 +1,6 @@
 import { LastMessage } from "../../api/types";
 import Block, { Events } from "../../core/Block";
-import { getChatParticipants } from "../../services/chat";
+import { getChatParticipants, getChatToken, ws } from "../../services/chat";
 import template from "./chats-card.hbs?raw"
 
 interface IProps {
@@ -23,6 +23,9 @@ export class ChatsCard extends Block<IProps> {
                 click: async () => {
                     try {
                         const users = await getChatParticipants(props.id)
+                        const { token } = await getChatToken(props.id)
+                        const userId = window.store.getState().user?.id
+                        ws({ chatId: String(props.id), userId: String(userId), token })
                         window.store.set({ activeChat: { ...data, users: users } })
                         console.log("STORE: ", window.store.getState())
                     } catch (error) {

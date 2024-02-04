@@ -62,3 +62,5 @@ export type ChatDTO = {
     unread_count: number,
     last_message: LastMessage | null
 }
+
+export type ChatToken = { token: string }
