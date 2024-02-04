@@ -32,7 +32,7 @@ export class Chat extends Block<IProps, TRef> {
                 window.store.set({ isOpenDialogChatOptions: !this.props.isOpenDialogChatOptions })
             },
             handleAddMember: () => {
-                console.log('handleAddMember')
+                window.store.set({ isOpenDialogUsers: true })
             },
             handleDeleteMember: () => {
                 console.log('handleDeleteMember')

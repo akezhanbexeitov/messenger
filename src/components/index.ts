@@ -12,6 +12,7 @@ export { ErrorText } from './error-text/error-text'
 export { SuccessText } from './success-text/success-text'
 export { Dialog } from './dialog'
 export { default as DialogCreateChat } from './dialog-create-chat'
+export { default as DialogFindUsers } from './dialog-find-users';
 export { Loader } from './loader';
 export { default as Chat } from './chat'
 export { OptionsIcon } from './icons/options'
