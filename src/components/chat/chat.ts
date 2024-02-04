@@ -15,6 +15,8 @@ interface IProps {
     handleChatOptionsToggle: () => void
     handleAddMember: () => void
     handleDeleteMember: () => void
+    addUserToChat: () => void
+    onClose: () => void
 }
 
 type TRef = {
@@ -37,6 +39,10 @@ export class Chat extends Block<IProps, TRef> {
             handleDeleteMember: () => {
                 console.log('handleDeleteMember')
             },
+            addUserToChat: () => {
+                console.log("User added to the chat")
+            },
+            onClose: () => window.store.set({ isOpenDialogUsers: false }),
             handleSendClick: () => {
                 const message = this.refs.message.value()
                 if (!message) return

@@ -4,12 +4,12 @@
 
     {{{
       Field
-        name="chatTitle"
+        name="findUser"
         label="Find user"
         placeholder="User"
         type="text"
         ref="user"
-        env="chat"
+        env="search"
     }}}
 
     {{{ ErrorText error=error ref="errorLine" type="form" }}}
@@ -17,10 +17,10 @@
     <div>
       {{{
         Button
-          text="Create"
+          text="Add"
           primary="true"
           type="submit"
-          onClick=onSave
+          onClick=addUserToChat
       }}}
       {{{
         Button

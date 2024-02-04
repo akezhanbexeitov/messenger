@@ -2,16 +2,18 @@ import Block, { Events } from "../../core/Block";
 import templateAuth from './input-auth.hbs?raw'
 import templateProfile from './input-profile.hbs?raw'
 import templateChat from './input-chat.hbs?raw'
+import templateSearch from './input-search.hbs?raw'
 
 interface IProps {
     type: 'email' | 'password' | 'text' | 'file'
     name: string
-    env: 'auth' | 'profile' | 'chat'
+    env: 'auth' | 'profile' | 'chat' | 'search'
     hidden?: boolean
     placeholder?: string
     value?: string
     onBlur?: (e: Event) => void
     onChange?: (e: Event) => void
+    onInput?: (e: Event) => void
     events: Events
 }
 
@@ -34,6 +36,12 @@ export class Input extends Block<IProps> {
                 change: this.props.onChange
             }
         }
+
+        if (this.props.onInput) {
+            this.props.events = {
+                input: this.props.onInput
+            }
+        }
     }
 
     protected render(): string {
@@ -43,6 +51,10 @@ export class Input extends Block<IProps> {
 
         if (this.props.env === 'auth') {
             return templateAuth
+        }
+
+        if (this.props.env === 'search') {
+            return templateSearch
         }
         
         return templateChat

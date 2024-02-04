@@ -4,12 +4,14 @@ import template from "./dialog-find-users.hbs?raw"
 
 interface IProps {
   isOpenDialogUsers: boolean
+  onClose: () => void
+  addUserToChat: () => void
 }
 
 export class DialogFindUsers extends Block<IProps> {
   constructor(props: IProps) {
     super({
-      ...props,
+      ...props
     })
   }
 
