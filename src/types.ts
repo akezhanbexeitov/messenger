@@ -1,8 +1,17 @@
+import { LastMessage as LastMessageAPI } from "../src/api/types";
+
 export type AppState = {
   error: string | null,
   user: User | null,
   isOpenDialogChat: boolean,
   chats: Chat[]
+  activeChat: {
+    id: number,
+    title: string,
+    avatar: string | null,
+    unreadCount: number,
+    lastMessage: LastMessageAPI | null
+  } | null
 }
 
 export type User = {

@@ -1,32 +1,28 @@
+import { LastMessage } from "../../api/types";
 import Block, { Events } from "../../core/Block";
 import template from "./chats-card.hbs?raw"
 
 interface IProps {
-    avatar: string
-    id: number
-    lastMessage: string
-    title: string
-    unreadCount: number
-    name?: string
-    time?: string
-    active?: boolean
-    onClick: () => void
+    id: number,
+    title: string,
+    avatar: string | null,
+    unreadCount: number,
+    lastMessage: LastMessage | null
     events?: Events
 }
 
 export class ChatsCard extends Block<IProps> {
     constructor(props: IProps) {
+        const { events, ...data} = props
         super({
-            ...props
+            ...props,
+            events: {
+                click: () => {
+                    window.store.set({ activeChat: { ...data } })
+                    console.log("STORE: ", window.store.getState())
+                }
+            }
         })
-    }
-
-    protected init(): void {
-        if (this.props.onClick) {
-            this.props.events = {
-                click: this.props.onClick,
-            };
-        }
     }
 
     protected render(): string {

@@ -73,4 +73,13 @@
             font-weight: 500;
         }
     }
+
+    &__title {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        color: $black;
+        font-size: 14px;
+        font-weight: 600;
+    }
 }

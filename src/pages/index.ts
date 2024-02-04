@@ -1,7 +1,6 @@
 export { default as LoginPage } from './auth/login'
 export { default as RegisterPage } from './auth/register'
 export { default as ChatsPage } from './chats'
-export { default as ChatPage } from './chats/chat'
 export { default as ProfilePage } from './profile'
 export { default as ChangeProfilePage } from './profile/change-profile'
 export { default as ChangePasswordPage } from './profile/change-password'

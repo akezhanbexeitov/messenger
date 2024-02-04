@@ -6,9 +6,11 @@ import { createChat } from "../../services/chat"
 import { connect } from "../../utils/connect"
 import { initChatPage } from "../../services/initApp"
 import { Chat } from "../../types"
+import { ChatDTO } from "../../api/types"
 
 interface IProps { 
-    chats: Chat[]
+    chats: Chat[] | []
+    activeChat: ChatDTO | null
     handleProfileClick: (event: Event) => void
     handleChatClick: (event: Event) => void
     openDialog: () => void
@@ -27,9 +29,6 @@ export class ChatsPage extends Block<IProps, TRefs> {
             handleProfileClick: (event: Event) => {
                 event.preventDefault()
                 router.go(PAGES.PROFILE)
-            },
-            handleChatClick: () => {
-                router.go(PAGES.CHAT)
             },
             openDialog: () => window.store.set({ isOpenDialogChat: true }),
             closeDialog: () => window.store.set({ isOpenDialogChat: false }),
@@ -56,4 +55,4 @@ export class ChatsPage extends Block<IProps, TRefs> {
     }
 }
 
-export default connect(({ chats }) => ({ chats }))(ChatsPage)
+export default connect(({ chats, activeChat }) => ({ chats, activeChat }))(ChatsPage)

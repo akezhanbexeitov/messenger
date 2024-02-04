@@ -49,7 +49,7 @@ export type LoginRequestData = {
     password: string
 }
 
-type LastMessage = {
+export type LastMessage = {
     user: UserDTO,
     time: string,
     content: string
