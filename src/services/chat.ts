@@ -2,6 +2,8 @@ import ChatApi from "../api/chat";
 import { Message } from "../types";
 import { apiHasError } from "../utils/apiHasError";
 import { transformChats, transformUser } from "../utils/apiTransformers";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import moment from "moment-timezone"
 
 const chatApi = new ChatApi();
 
@@ -93,13 +95,52 @@ const ws = ({ chatId, userId, token }: WS) => {
 
     socket.onmessage = (event) => {
         const data = JSON.parse(event.data);
-        data.forEach((message: Message) => {
-            if (String(message.user_id) === userId) {
-                message.isMine = true;
+        const prevState = window.store.getState().activeChat;
+
+        if (Array.isArray(data)) {
+            data.forEach((message: Message) => {
+                if (String(message.user_id) === userId) {
+                    message.isMine = true;
+                    const date = new Date(message.time);
+                    const dateInAstana = moment(date).tz("Asia/Almaty");
+                    const hours = dateInAstana.format('HH');
+                    const minutes = dateInAstana.format('mm');
+
+                    message.time = `${hours}:${minutes}`;
+                }
+            })
+            window.store.set({
+                activeChat: {
+                    ...prevState,
+                    messages: [
+                        ...data,
+                        ...(prevState?.messages || [])
+                    ],
+                }
+            })
+            console.log("STORE: ", window.store.getState())
+            return
+        }
+
+        if (String(data.user_id) === userId) {
+            data.isMine = true
+        }
+
+        const date = new Date(data.time);
+        const dateInAstana = moment(date).tz("Asia/Almaty");
+        const hours = dateInAstana.format('HH');
+        const minutes = dateInAstana.format('mm');
+        data.time = `${hours}:${minutes}`;
+
+        window.store.set({
+            activeChat: {
+                ...prevState,
+                messages: [
+                    data,
+                    ...(prevState?.messages || [])
+                ],
             }
         })
-        const prevState = window.store.getState().activeChat;
-        window.store.set({ activeChat: { messages: [...data, ...(prevState?.messages || [])], ...prevState } })
         console.log("STORE: ", window.store.getState())
     };
 
@@ -117,6 +158,8 @@ const ws = ({ chatId, userId, token }: WS) => {
     socket.onerror = function(error: any) {
         console.log('[error]', error.message);
     };
+
+    return socket
 }
 
 export {

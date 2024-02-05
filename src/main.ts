@@ -40,7 +40,8 @@ const initState: AppState = {
   isOpenDialogChatOptions: false,
   chats: [],
   activeChat: null,
-  usersSearched: null
+  usersSearched: null,
+  socket: null
 }
 
 window.store = new Store<AppState>(initState)

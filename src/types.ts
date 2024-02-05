@@ -9,6 +9,7 @@ export type AppState = {
   chats: Chat[]
   activeChat: ActiveChat
   usersSearched: User[] | null
+  socket: WebSocket | null
 }
 
 export type ActiveChat = Partial<{
@@ -27,7 +28,7 @@ export type Message = {
   file: File | null
   id: number
   is_read: boolean
-  time: Date
+  time: Date | string
   user_id: number
   content: string
   type: "message"

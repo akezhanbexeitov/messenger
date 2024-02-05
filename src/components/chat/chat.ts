@@ -87,9 +87,13 @@ export class Chat extends Block<IProps, TRef> {
             handleSendClick: () => {
                 const message = this.refs.message.value()
                 if (!message) return
-                console.log({
-                    message
-                })
+
+                const socket = window.store.getState().socket
+
+                socket?.send(JSON.stringify({
+                    type: "message",
+                    content: message
+                }))
             }
         })
     }

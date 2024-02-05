@@ -33,9 +33,9 @@
 
 
     <div class="chat-main">
-        {{#each activeChat.messages}}
-            {{!-- <time class="chat-main__date" datetime="{{ this.time }}">{{ this.time }}</time>  --}}
-            <div class="chat-main__messages">
+        {{!-- <time class="chat-main__date" datetime="{{ this.time }}">{{ this.time }}</time>  --}}
+        <div class="chat-main__messages">
+            {{#each activeChat.messages}}
                 <div class="chat-main__message {{#if isMine}} chat-main__message_mine {{/if}}">
                     <p>{{ this.content }}</p>
                     <div class="chat-main__message-details">
@@ -43,33 +43,33 @@
                         <time datetime="{{ this.time }}">{{ this.time }}</time>
                     </div>
                 </div>
-                {{!-- <div class="chat-main__photo">
-                    <img src="http://localhost:3000/videocamera.png" alt="Videocamera image">
-                    <time datetime="9:20">9:20</time>
-                </div>
-                <div class="chat-main__message_mine">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ipsum officiis rerum atque repudiandae esse autem et excepturi inventore labore?</p>
-                    <div class="chat-main__message-details">
-                        {{> TicksIcon }}
-                        <time datetime="13:40">13:40</time>
-                    </div>
-                </div>
-                <div class="chat-main__message_mine">
-                    <p>404 not found page</p>
-                    <div class="chat-main__message-details">
-                        {{> TicksIcon }}
-                        <time datetime="13:45">13:45</time>
-                    </div>
-                </div>
-                <div class="chat-main__message_mine">
-                    <p>500 interval server error page</p>
-                    <div class="chat-main__message-details">
-                        {{> TicksIcon }}
-                        <time datetime="13:45">13:45</time>
-                    </div>
-                </div> --}}
+            {{/each}}
+            {{!-- <div class="chat-main__photo">
+                <img src="http://localhost:3000/videocamera.png" alt="Videocamera image">
+                <time datetime="9:20">9:20</time>
             </div>
-        {{/each}}
+            <div class="chat-main__message_mine">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ipsum officiis rerum atque repudiandae esse autem et excepturi inventore labore?</p>
+                <div class="chat-main__message-details">
+                    {{> TicksIcon }}
+                    <time datetime="13:40">13:40</time>
+                </div>
+            </div>
+            <div class="chat-main__message_mine">
+                <p>404 not found page</p>
+                <div class="chat-main__message-details">
+                    {{> TicksIcon }}
+                    <time datetime="13:45">13:45</time>
+                </div>
+            </div>
+            <div class="chat-main__message_mine">
+                <p>500 interval server error page</p>
+                <div class="chat-main__message-details">
+                    {{> TicksIcon }}
+                    <time datetime="13:45">13:45</time>
+                </div>
+            </div> --}}
+        </div>
     </div>
 
 
