@@ -19,7 +19,7 @@
 
 ## Ссылка
 
-Ссылка на задеплоенный проект - https://65ab6d2e9d7b0800084915cf--classy-quokka-e30016.netlify.app/
+Ссылка на задеплоенный проект - https://classy-quokka-e30016.netlify.app/
 
 ## Изменения (05.02.2024)
 
