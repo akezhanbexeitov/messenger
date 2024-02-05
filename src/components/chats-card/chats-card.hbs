@@ -1,16 +1,14 @@
 <li class="chats-card {{#if active}} chats-card_active {{/if}}"> 
-    <div class="chats-card__image">
-        {{#if avatar}}
+    {{#if avatar}}
+        <div class="chats-card__image">
             <img 
                 src="{{ avatar }}" 
                 alt="Chat card image"
                 width="47px"
                 height="47px"
             />
-        {{else}}
-            {{> AvatarIcon }}
-        {{/if}}
-    </div>
+        </div>
+    {{/if}}
 
     {{#if lastMessage}}
         <div class="chats-card__info">
@@ -25,9 +23,9 @@
             >
                 {{ lastMessageTime }}
             </time>
-            {{#if unread}}
+            {{#if unreadCount}}
                 <div class="chats-card__unread">
-                    <span>{{ unread }}</span>
+                    <span>{{ unreadCount }}</span>
                 </div>
             {{/if}}
         </div>
