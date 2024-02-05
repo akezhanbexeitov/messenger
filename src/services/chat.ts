@@ -84,6 +84,10 @@ type WS = {
 const ws = ({ chatId, userId, token }: WS) => {
     const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${userId}/${chatId}/${token}`);
 
+    const ping = () => socket.send(JSON.stringify({ type: "ping" }))
+
+    let pingIntervalId: NodeJS.Timeout;
+
     socket.onopen = () => {
         console.log('[open] Connection established');
 
@@ -91,11 +95,17 @@ const ws = ({ chatId, userId, token }: WS) => {
             content: '0',
             type: 'get old',
         }));
+
+        pingIntervalId = setInterval(ping, 5000)
     };
 
     socket.onmessage = (event) => {
         const data = JSON.parse(event.data);
         const prevState = window.store.getState().activeChat;
+
+        if (data.type === "pong") {
+            return
+        }
 
         if (Array.isArray(data)) {
             data.forEach((message: Message) => {
@@ -150,6 +160,8 @@ const ws = ({ chatId, userId, token }: WS) => {
         } else {
             console.log('[close] Connection died');
         }
+
+        clearInterval(pingIntervalId)
 
         console.log(`Code: ${event.code} | Reason: ${event.reason}`);
     };
