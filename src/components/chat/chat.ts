@@ -2,7 +2,7 @@ import { DialogFindUsers } from './../dialog-find-users/dialog-find-users';
 import Block from "../../core/Block";
 import template from './chat.hbs?raw'
 import * as validators from '../../utils/validators'
-import { Field } from "../index";
+import { Anchor, Field } from "../index";
 import { connect } from "../../utils/connect";
 import { debounce } from "../../utils/helpers";
 import { searchUsers } from '../../services/users';
@@ -29,6 +29,7 @@ interface IProps {
 type TRef = {
     message: Field
     dialogFindUsers: DialogFindUsers
+    anchorRef: Anchor
 }
 
 export class Chat extends Block<IProps, TRef> {
@@ -96,6 +97,12 @@ export class Chat extends Block<IProps, TRef> {
                 }))
             }
         })
+    }
+
+    componentDidMount() {
+        if (!this.refs.anchorRef.element) return
+        const anchor = this.refs.anchorRef.element
+        anchor.scrollIntoView()
     }
 
     protected render(): string {
