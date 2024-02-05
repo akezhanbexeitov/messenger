@@ -9,7 +9,7 @@
     "stylelint": "stylelint '**/*.scss'",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "start": "tsc --noEmit && vite build && node src/server/index.cjs"
+    "start": "tsc --noEmit && vite build && vite preview --port 3000"
   },
   "devDependencies": {
     "@types/node": "20.10.5",
