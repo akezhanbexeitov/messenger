@@ -63,6 +63,7 @@ export class Chat extends Block<IProps, TRef> {
                         users: this.refs.dialogFindUsers.getSelectedUsersIDs(),
                         chatId: props.activeChat?.id as number
                     })
+                    window.store.set({ isOpenDialogUsers: false, isOpenDialogChatOptions: false})
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     this.refs.dialogFindUsers.setProps(error.message)
