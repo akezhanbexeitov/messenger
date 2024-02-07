@@ -100,59 +100,63 @@ const ws = ({ chatId, userId, token }: WS) => {
     };
 
     socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        const prevState = window.store.getState().activeChat;
+        try {
+            const data = JSON.parse(event.data);
+            const prevState = window.store.getState().activeChat;
 
-        if (data.type === "pong" || data.type === "user connected") {
-            return
-        }
+            if (data.type === "pong" || data.type === "user connected") {
+                return
+            }
 
-        if (Array.isArray(data)) {
-            data.forEach((message: Message) => {
-                const date = new Date(message.time);
-                const dateInAstana = moment(date).tz("Asia/Almaty");
-                const hours = dateInAstana.format('HH');
-                const minutes = dateInAstana.format('mm');
+            if (Array.isArray(data)) {
+                data.forEach((message: Message) => {
+                    const date = new Date(message.time);
+                    const dateInAstana = moment(date).tz("Asia/Almaty");
+                    const hours = dateInAstana.format('HH');
+                    const minutes = dateInAstana.format('mm');
 
-                message.time = `${hours}:${minutes}`;
-                
-                if (String(message.user_id) === userId) {
-                    message.isMine = true;
-                }
-            })
+                    message.time = `${hours}:${minutes}`;
+                    
+                    if (String(message.user_id) === userId) {
+                        message.isMine = true;
+                    }
+                })
+                window.store.set({
+                    activeChat: {
+                        ...prevState,
+                        messages: [
+                            ...data,
+                            ...(prevState?.messages || [])
+                        ],
+                    }
+                })
+                console.log("STORE: ", window.store.getState())
+                return
+            }
+
+            if (String(data.user_id) === userId) {
+                data.isMine = true
+            }
+
+            const date = new Date(data.time);
+            const dateInAstana = moment(date).tz("Asia/Almaty");
+            const hours = dateInAstana.format('HH');
+            const minutes = dateInAstana.format('mm');
+            data.time = `${hours}:${minutes}`;
+
             window.store.set({
                 activeChat: {
                     ...prevState,
                     messages: [
-                        ...data,
+                        data,
                         ...(prevState?.messages || [])
                     ],
                 }
             })
             console.log("STORE: ", window.store.getState())
-            return
+        } catch (error) { 
+            console.log(error)
         }
-
-        if (String(data.user_id) === userId) {
-            data.isMine = true
-        }
-
-        const date = new Date(data.time);
-        const dateInAstana = moment(date).tz("Asia/Almaty");
-        const hours = dateInAstana.format('HH');
-        const minutes = dateInAstana.format('mm');
-        data.time = `${hours}:${minutes}`;
-
-        window.store.set({
-            activeChat: {
-                ...prevState,
-                messages: [
-                    data,
-                    ...(prevState?.messages || [])
-                ],
-            }
-        })
-        console.log("STORE: ", window.store.getState())
     };
 
     socket.onclose = (event) => {
