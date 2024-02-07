@@ -1,25 +1,38 @@
 {{#Dialog open=isOpenDialogDeleteUsers}}
-  <form method="dialog">
-    <h3>Delete users</h3>
+  {{#if (isAdmin)}} 
+    <form method="dialog">
+      <h3>Delete users</h3>
 
-    {{{ UsersList name="users" ref="usersList" }}}
+      {{{ UsersList name="users" ref="usersList" }}}
 
-    <div>
-      {{{ ErrorText error=error ref="errorText" type="form" }}}
+      <div>
+        {{{ ErrorText error=error ref="errorText" type="form" }}}
+
+        {{{
+          Button
+            text="Delete"
+            primary="true"
+            type="submit"
+            onClick=deleteUsersFromChat
+        }}}
+        {{{
+          Button
+            text="Cancel"
+            type="button"
+            onClick=onClose
+        }}}
+      </div>
+    </form>
+  {{else}}
+    <form method="dialog">
+      <h3>You are not allowed to delete users</h3>
 
       {{{
         Button
-          text="Delete"
-          primary="true"
-          type="submit"
-          onClick=deleteUsersFromChat
-      }}}
-      {{{
-        Button
-          text="Cancel"
+          text="Exit"
           type="button"
           onClick=onClose
       }}}
-    </div>
-  </form>
+    </form>
+  {{/if}}
 {{/Dialog}}

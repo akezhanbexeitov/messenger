@@ -1,5 +1,5 @@
 import Block from "../../core/Block";
-import { ActiveChat, User } from "../../types";
+import { ActiveChat, ChatUser, User } from "../../types";
 import { connect } from "../../utils/connect";
 import template from './users-list.hbs?raw'
 
@@ -9,7 +9,7 @@ interface IProps {
   activeChat: ActiveChat
   isOpenDialogUsers: boolean
   isOpenDialogDeleteUsers: boolean
-  users: () => User[]
+  users: () => ChatUser[]
 }
 
 type TRefs = {
@@ -21,7 +21,7 @@ export class UsersList extends Block<IProps, TRefs> {
     super({
       ...props,
       users: () => {
-        return props.activeChat?.users?.filter(user => user.id !== window.store.getState().user?.id) as User[]
+        return props.activeChat?.users?.filter(user => user.id !== window.store.getState().user?.id) as ChatUser[]
       }
     })
   }

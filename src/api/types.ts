@@ -17,6 +17,8 @@ export type UserDTO = {
     email: string;
 };
 
+export type ChatUserDTO = Omit<UserDTO, 'phone' | 'email'> & { role: 'admin' | 'regular' }
+
 export type Password = {
     oldPassword: string
     newPassword: string

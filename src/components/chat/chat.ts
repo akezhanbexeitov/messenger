@@ -6,7 +6,7 @@ import { connect } from "../../utils/connect";
 import { debounce } from "../../utils/helpers";
 import { searchUsers } from '../../services/users';
 import { addUsersToChat, getChatParticipants, removeUsersFromChat } from '../../services/chat';
-import { ActiveChat, User } from '../../types';
+import { ActiveChat, ChatUser } from '../../types';
 import constants from '../../constants';
 import { DialogAddUsers } from "../dialog-add-users";
 import { DialogDeleteUsers } from "../dialog-delete-users/dialog-delete-users";
@@ -24,7 +24,7 @@ interface IProps {
     addUserToChat: () => void
     onClose: () => void
     findUsers: () => void
-    companion: boolean | User
+    companion: boolean | ChatUser
     deleteUsersFromChat: () => void
 }
 

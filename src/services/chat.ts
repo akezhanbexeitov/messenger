@@ -1,7 +1,7 @@
 import ChatApi from "../api/chat";
 import { Message } from "../types";
 import { apiHasError } from "../utils/apiHasError";
-import { transformChats, transformUser } from "../utils/apiTransformers";
+import { transformChatUser, transformChats } from "../utils/apiTransformers";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import moment from "moment-timezone"
 
@@ -32,7 +32,7 @@ const getChatParticipants = async (chatId: number) => {
         throw Error(response.reason)
     }
 
-    const users = response.map(user => transformUser(user))
+    const users = response.map(user => transformChatUser(user))
 
     return users
 }

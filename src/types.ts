@@ -14,7 +14,7 @@ export type AppState = {
 }
 
 export type ActiveChat = Partial<{
-  users: User[] | null,
+  users: ChatUser[] | null,
   id: number,
   title: string,
   avatar: string | null,
@@ -45,6 +45,8 @@ export type User = {
   phone: string;
   email: string;
 };
+
+export type ChatUser = Omit<User, 'phone' | 'email'> & { role: 'admin' | 'regular' }
 
 export type Chat = {
   id: number,

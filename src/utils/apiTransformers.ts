@@ -1,6 +1,6 @@
-import { ChatDTO, UserDTO } from "../api/types";
+import { ChatDTO, ChatUserDTO, UserDTO } from "../api/types";
 import constants from "../constants";
-import { Chat, User } from "../types";
+import { Chat, ChatUser, User } from "../types";
 
 const buildPathToResource = (resource: string | null) => {
   if(!resource) {
@@ -23,6 +23,17 @@ export const transformUser = (data: UserDTO): User => {
   };
 };
 
+export const transformChatUser = (data: ChatUserDTO): ChatUser => {
+  return {
+    id: data.id,
+    login: data.login,
+    firstName: data.first_name,
+    secondName: data.second_name,
+    displayName: data.display_name ? data.display_name : data.login,
+    avatar: data.avatar,
+    role: data.role
+  };
+};
 
 export const transformChats = (data: ChatDTO[]): Chat[] => {
   return data.map(chat => ({

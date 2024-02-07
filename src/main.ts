@@ -14,6 +14,12 @@ Handlebars.registerHelper('not', function(value) {
     return !value;
 });
 
+Handlebars.registerHelper('isAdmin', () => {
+  const userId = window.store.getState().user?.id
+  const userRole = window.store.getState().activeChat?.users?.find(user => user.id === userId)?.role
+  return userRole === 'admin'
+});
+
 // Register icons
 Object.entries(Icons).forEach(([ name, icon ]) => {
   Handlebars.registerPartial(name, icon);
