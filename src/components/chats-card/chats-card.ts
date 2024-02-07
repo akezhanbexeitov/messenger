@@ -40,7 +40,7 @@ export class ChatsCard extends Block<IProps> {
                         const { token } = await getChatToken(props.id)
                         const userId = window.store.getState().user?.id
                         const socket = ws({ chatId: String(props.id), userId: String(userId), token })
-                        window.store.set({ socket, activeChat: { ...data, users: users } })
+                        window.store.set({ socket, activeChat: { ...data, users: users }, isOpenDialogChatOptions: false })
                         console.log("STORE: ", window.store.getState())
                     } catch (error) {
                         console.log(error)

@@ -17,14 +17,9 @@ const getChats = async () => {
 }
 
 const createChat = async (title: string) => {
-    const response = await chatApi.create({title});
+    const response = await chatApi.create({ title });
     if(apiHasError(response)) {
         throw Error(response.reason)
-    }
-
-    const responseChat = await chatApi.getChats();
-    if(apiHasError(responseChat)) {
-        throw Error(responseChat.reason)
     }
 
     const chats = await getChats();

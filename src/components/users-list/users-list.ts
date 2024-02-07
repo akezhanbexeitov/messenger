@@ -9,6 +9,7 @@ interface IProps {
   activeChat: ActiveChat
   isOpenDialogUsers: boolean
   isOpenDialogDeleteUsers: boolean
+  users: () => User[]
 }
 
 type TRefs = {
@@ -18,7 +19,10 @@ type TRefs = {
 export class UsersList extends Block<IProps, TRefs> {
   constructor(props: IProps) {
     super({
-      ...props
+      ...props,
+      users: () => {
+        return props.activeChat?.users?.filter(user => user.id !== window.store.getState().user?.id) as User[]
+      }
     })
   }
 
