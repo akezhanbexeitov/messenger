@@ -60,15 +60,13 @@ export class Chat extends Block<IProps, TRef> {
             addUserToChat: async () => {
                 try {
                     await addUsersToChat({
-                        users: [parseInt(this.refs.dialogFindUsers.getSelectedUserId())],
+                        users: this.refs.dialogFindUsers.getSelectedUsersIDs(),
                         chatId: props.activeChat?.id as number
                     })
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     this.refs.dialogFindUsers.setProps(error.message)
                 }
-                console.log("User added to the chat")
-                console.log(this.refs.dialogFindUsers.getSelectedUserId())
             },
             onClose: () => window.store.set({ isOpenDialogUsers: false }),
             findUsers: debounce(async () => {

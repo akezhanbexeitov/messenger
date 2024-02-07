@@ -37,9 +37,12 @@ export class DialogFindUsers extends Block<IProps, TRefs> {
     this.refs.errorText.setProps({ error })
   }
 
-  public getSelectedUserId() {
-    const element = this.refs.usersList.element as HTMLSelectElement
-    return element.value
+  public getSelectedUsersIDs() {
+    const result: number[] = []
+    const select = this.refs.usersList.element as HTMLSelectElement
+    const selectedOptions = select.selectedOptions as HTMLCollectionOf<HTMLOptionElement>
+    Array.from(selectedOptions).forEach(element => result.push(Number(element.value)))
+    return result
   }
 
   protected render(): string {
