@@ -26,6 +26,7 @@ const queryStringify = (data: Record<string, string>) => {
     }, '?')
 }
 
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type THTTPMethod = (url: string, options?: TOptions) => Promise<any>
 
@@ -38,36 +39,26 @@ export default class HTTPTransport {
 
     get: THTTPMethod = async (url, options = {}) => {
         const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.GET }, options.timeout)
-        if (response === "OK") {
-            return response
-        } else {
-            const result = JSON.parse(response)
-            return result
-        }
+        return this.checkResponse(response)
     }
 
     post: THTTPMethod = async (url, options = {}) => {
         const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.POST }, options.timeout)
-        if (response === "OK") {
-            return response
-        } else {
-            const result = JSON.parse(response)
-            return result
-        }
+        return this.checkResponse(response)
     }
 
     put: THTTPMethod = async (url, options = {}) => {
         const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.PUT }, options.timeout)
-        if (response === "OK") {
-            return response
-        } else {
-            const result = JSON.parse(response)
-            return result
-        }
+        return this.checkResponse(response)
     }
 
     delete: THTTPMethod = async (url, options = {}) => {
         const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.DELETE }, options.timeout)
+        return this.checkResponse(response)
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    private checkResponse = (response: any) => {
         if (response === "OK") {
             return response
         } else {
