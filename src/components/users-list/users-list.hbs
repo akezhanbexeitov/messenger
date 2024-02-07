@@ -1,17 +1,15 @@
-<select 
-  name={{ name }} 
-  id={{ name }} 
-  ref="select"
-  multiple
->
-  <option value="">Please choose a user</option>
-  {{#if isOpenDialogUsers}}
-    {{#each usersSearched}}
-      <option value={{ this.id }}>{{ this.firstName }}</option>
-    {{/each}}
-  {{else}}
-    {{#each users}}
-      <option  ption value={{ this.id }}>{{ this.firstName }}</option>
-    {{/each}}
-  {{/if}}
-</select>
+<div class="dialog__select">
+  <p>Please choose a user</p>
+
+  <select name={{ name }} id={{ name }} ref="select" multiple>
+    {{#if isOpenDialogUsers}}
+      {{#each usersSearched}}
+        <option value={{ this.id }}>{{ this.firstName }}</option>
+      {{/each}}
+    {{else}}
+      {{#each users}}
+        <option value={{ this.id }}>{{ this.firstName }}</option>
+      {{/each}}
+    {{/if}}
+  </select>
+</div>
