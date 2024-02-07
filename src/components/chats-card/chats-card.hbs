@@ -12,8 +12,11 @@
 
     {{#if lastMessage}}
         <div class="chats-card__info">
-            <h2 class="chats-card__name">{{ lastMessage.user.firstName }}</h2>
-            <h3 class="chats-card__message">{{ lastMessage.content }}</h3>
+            <div class="chats-card__title">
+                <h2>{{ title }}</h2>
+            </div>
+            <h3 class="chats-card__name">{{ lastMessage.user.firstName }}</h3>
+            <h4 class="chats-card__message">{{ lastMessage.content }}</h4>
         </div>
         
         <div class="chats-card__additional">
