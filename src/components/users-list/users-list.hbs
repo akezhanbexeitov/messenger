@@ -1,12 +1,17 @@
 <select 
   name={{ name }} 
   id={{ name }} 
-  {{#if (not usersSearched)}} disabled {{/if}}
   ref="select"
   multiple
 >
   <option value="">Please choose a user</option>
-  {{#each usersSearched}}
-    <option value={{ this.id }}>{{ this.firstName }}</option>
-  {{/each}}
+  {{#if isOpenDialogUsers}}
+    {{#each usersSearched}}
+      <option value={{ this.id }}>{{ this.firstName }}</option>
+    {{/each}}
+  {{else}}
+    {{#each activeChat.users}}
+      <option  ption value={{ this.id }}>{{ this.firstName }}</option>
+    {{/each}}
+  {{/if}}
 </select>

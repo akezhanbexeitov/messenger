@@ -85,7 +85,7 @@ export class Chat extends Block<IProps, TRef> {
                     this.refs.dialogAddUsers.setProps(error.message)
                 }
             },
-            onClose: () => window.store.set({ isOpenDialogUsers: false }),
+            onClose: () => window.store.set({ isOpenDialogUsers: false, isOpenDialogDeleteUsers: false }),
             findUsers: debounce(async () => {
                 const userName = this.refs.dialogAddUsers.getUserName()
                 if(!userName) {

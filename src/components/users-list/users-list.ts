@@ -1,11 +1,14 @@
 import Block from "../../core/Block";
-import { User } from "../../types";
+import { ActiveChat, User } from "../../types";
 import { connect } from "../../utils/connect";
 import template from './users-list.hbs?raw'
 
 interface IProps { 
   usersSearched: User[]
   name: string
+  activeChat: ActiveChat
+  isOpenDialogUsers: boolean
+  isOpenDialogDeleteUsers: boolean
 }
 
 type TRefs = {
@@ -24,4 +27,14 @@ export class UsersList extends Block<IProps, TRefs> {
   }
 }
 
-export default connect(({ usersSearched }) => ({ usersSearched }))(UsersList)
+export default connect(({
+  usersSearched,
+  activeChat,
+  isOpenDialogUsers,
+  isOpenDialogDeleteUsers
+}) => ({
+  usersSearched,
+  activeChat,
+  isOpenDialogUsers,
+  isOpenDialogDeleteUsers
+}))(UsersList)
