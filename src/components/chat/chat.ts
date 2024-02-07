@@ -1,4 +1,3 @@
-import { DialogFindUsers } from './../dialog-find-users/dialog-find-users';
 import Block from "../../core/Block";
 import template from './chat.hbs?raw'
 import * as validators from '../../utils/validators'
@@ -6,9 +5,11 @@ import { Anchor, Field } from "../index";
 import { connect } from "../../utils/connect";
 import { debounce } from "../../utils/helpers";
 import { searchUsers } from '../../services/users';
-import { addUsersToChat } from '../../services/chat';
+import { addUsersToChat, removeUsersFromChat } from '../../services/chat';
 import { ActiveChat, User } from '../../types';
 import constants from '../../constants';
+import { DialogAddUsers } from "../dialog-add-users";
+import { DialogDeleteUsers } from "../dialog-delete-users/dialog-delete-users";
 
 interface IProps { 
     isOpenDialogChatOptions: boolean
@@ -24,12 +25,14 @@ interface IProps {
     onClose: () => void
     findUsers: () => void
     companion: boolean | User
+    deleteUsersFromChat: () => void
 }
 
 type TRef = {
     message: Field
-    dialogFindUsers: DialogFindUsers
+    dialogAddUsers: DialogAddUsers
     anchorRef: Anchor
+    dialogDeleteUsers: DialogDeleteUsers
 }
 
 export class Chat extends Block<IProps, TRef> {
@@ -55,33 +58,46 @@ export class Chat extends Block<IProps, TRef> {
                 window.store.set({ isOpenDialogUsers: true })
             },
             handleDeleteMember: () => {
-                console.log('handleDeleteMember')
+                window.store.set({ isOpenDialogDeleteUsers: true })
+                console.log("STORE: ", window.store.getState())
             },
             addUserToChat: async () => {
                 try {
                     await addUsersToChat({
-                        users: this.refs.dialogFindUsers.getSelectedUsersIDs(),
+                        users: this.refs.dialogAddUsers.getSelectedUsersIDs(),
                         chatId: props.activeChat?.id as number
                     })
                     window.store.set({ isOpenDialogUsers: false, isOpenDialogChatOptions: false})
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
-                    this.refs.dialogFindUsers.setProps(error.message)
+                    this.refs.dialogAddUsers.setProps(error.message)
+                }
+            },
+            deleteUsersFromChat: async () => {
+                try {
+                    await removeUsersFromChat({
+                        users: this.refs.dialogDeleteUsers.getSelectedUsersIDs(),
+                        chatId: props.activeChat?.id as number
+                    })
+                    window.store.set({ isOpenDialogDeleteUsers: false, isOpenDialogChatOptions: false})
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {
+                    this.refs.dialogAddUsers.setProps(error.message)
                 }
             },
             onClose: () => window.store.set({ isOpenDialogUsers: false }),
             findUsers: debounce(async () => {
-                const userName = this.refs.dialogFindUsers.getUserName()
+                const userName = this.refs.dialogAddUsers.getUserName()
                 if(!userName) {
-                    this.refs.dialogFindUsers.setError('User name should not be empty');
+                    this.refs.dialogAddUsers.setError('User name should not be empty');
                     return;
                 }
 
                 try {
-                    await searchUsers(this.refs.dialogFindUsers.getUserName() as string)
+                    await searchUsers(this.refs.dialogAddUsers.getUserName() as string)
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
-                    this.refs.dialogFindUsers.setError(error.message)
+                    this.refs.dialogAddUsers.setError(error.message)
                 }
             }),
             handleSendClick: () => {

@@ -1,10 +1,17 @@
 <section class="chat">
     {{{ 
-        DialogFindUsers 
+        DialogAddUsers
             onClose=onClose 
             addUserToChat=addUserToChat 
-            ref="dialogFindUsers" 
+            ref="dialogAddUsers" 
             onInput=findUsers 
+    }}}
+
+    {{{
+        DialogDeleteUsers
+            onClose=onClose
+            deleteUsersFromChat=deleteUsersFromChat
+            ref="dialogDeleteUsers"
     }}}
 
     <header class="chat-header">

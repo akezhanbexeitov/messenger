@@ -1,7 +1,7 @@
 import { ErrorText, Field } from "..";
 import Block from "../../core/Block"
 import { connect } from "../../utils/connect";
-import template from "./dialog-find-users.hbs?raw"
+import template from "./dialog-add-users.hbs?raw"
 import { userName } from "../../utils/validators";
 import { UsersList } from "../users-list/users-list";
 
@@ -19,7 +19,7 @@ type TRefs = {
   usersList: UsersList
 }
 
-export class DialogFindUsers extends Block<IProps, TRefs> {
+export class DialogAddUsers extends Block<IProps, TRefs> {
   constructor(props: IProps) {
     super({
       ...props,
@@ -50,4 +50,4 @@ export class DialogFindUsers extends Block<IProps, TRefs> {
   }
 }
 
-export const withStoreDialogUsers = connect((state) => ({ isOpenDialogUsers: state.isOpenDialogUsers }))(DialogFindUsers);
+export const withStoreDialogUsers = connect((state) => ({ isOpenDialogUsers: state.isOpenDialogUsers }))(DialogAddUsers);

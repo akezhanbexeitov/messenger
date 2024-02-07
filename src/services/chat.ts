@@ -57,7 +57,7 @@ const addUsersToChat = async ({
     }
 }
 
-const removeUsersToChat = async ({
+const removeUsersFromChat = async ({
     users,
     chatId
 }: IAddOrRemoveUsersToChat) => { 
@@ -183,7 +183,7 @@ export {
     createChat,
     getChats,
     addUsersToChat,
-    removeUsersToChat,
+    removeUsersFromChat,
     getChatParticipants,    
     getChatToken,
     ws,

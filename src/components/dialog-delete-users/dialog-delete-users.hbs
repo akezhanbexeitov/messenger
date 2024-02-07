@@ -1,0 +1,25 @@
+{{#Dialog open=isOpenDialogDeleteUsers}}
+  <form method="dialog">
+    <h3>Delete users</h3>
+
+    {{{ UsersList name="users" ref="usersList" }}}
+
+    <div>
+      {{{ ErrorText error=error ref="errorText" type="form" }}}
+
+      {{{
+        Button
+          text="Add"
+          primary="true"
+          type="submit"
+          onClick=deleteUsersFromChat
+      }}}
+      {{{
+        Button
+          text="Cancel"
+          type="button"
+          onClick=onClose
+      }}}
+    </div>
+  </form>
+{{/Dialog}}
