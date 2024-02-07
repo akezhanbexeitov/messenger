@@ -5,7 +5,7 @@ import { Anchor, Field } from "../index";
 import { connect } from "../../utils/connect";
 import { debounce } from "../../utils/helpers";
 import { searchUsers } from '../../services/users';
-import { addUsersToChat, removeUsersFromChat } from '../../services/chat';
+import { addUsersToChat, getChatParticipants, removeUsersFromChat } from '../../services/chat';
 import { ActiveChat, User } from '../../types';
 import constants from '../../constants';
 import { DialogAddUsers } from "../dialog-add-users";
@@ -67,7 +67,16 @@ export class Chat extends Block<IProps, TRef> {
                         users: this.refs.dialogAddUsers.getSelectedUsersIDs(),
                         chatId: props.activeChat?.id as number
                     })
-                    window.store.set({ isOpenDialogUsers: false, isOpenDialogChatOptions: false})
+                    const users = await getChatParticipants(props.activeChat?.id as number)
+                    const prevState = window.store.getState().activeChat
+                    window.store.set({
+                        activeChat: {
+                            ...prevState,
+                            users 
+                        },
+                        isOpenDialogUsers: false,
+                        isOpenDialogChatOptions: false
+                    })
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     this.refs.dialogAddUsers.setProps(error.message)
@@ -79,7 +88,16 @@ export class Chat extends Block<IProps, TRef> {
                         users: this.refs.dialogDeleteUsers.getSelectedUsersIDs(),
                         chatId: props.activeChat?.id as number
                     })
-                    window.store.set({ isOpenDialogDeleteUsers: false, isOpenDialogChatOptions: false})
+                    const users = await getChatParticipants(props.activeChat?.id as number)
+                    const prevState = window.store.getState().activeChat
+                    window.store.set({
+                        activeChat: {
+                            ...prevState,
+                            users 
+                        },
+                        isOpenDialogDeleteUsers: false,
+                        isOpenDialogChatOptions: false
+                    })
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     this.refs.dialogAddUsers.setProps(error.message)

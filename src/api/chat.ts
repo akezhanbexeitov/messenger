@@ -23,7 +23,7 @@ export default class ChatApi {
   }
 
   async deleteUsers(data: AddOrRemoveUsers): Promise<void | APIError> {
-    return chatApi.put(CHAT.USERS, { data })
+    return chatApi.delete(CHAT.USERS, { data })
   }
 
   async participants(chatId: number): Promise<UserDTO[] | APIError> {
