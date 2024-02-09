@@ -1,7 +1,9 @@
 {{#Dialog open=isOpenDialogDeleteUsers}}
   {{#if (isAdmin)}} 
-    <form method="dialog">
+    <form>
       <h3>Delete users</h3>
+
+      <p>Select users</p>
 
       {{{ UsersList name="users" ref="usersList" }}}
 
@@ -24,7 +26,7 @@
       </div>
     </form>
   {{else}}
-    <form method="dialog">
+    <form>
       <h3>You are not allowed to delete users</h3>
 
       {{{

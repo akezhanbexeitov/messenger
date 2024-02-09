@@ -1,5 +1,5 @@
 {{#Dialog open=isOpenDialogUsers}}
-  <form method="dialog">
+  <form>
     <h3>Add users</h3>
 
     {{{
@@ -13,6 +13,8 @@
         validate=validate.findUser
         onInput=onInput
     }}}
+
+    <p>Select users</p>
 
     {{{ UsersList name="users" ref="usersList" }}}
 

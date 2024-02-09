@@ -21,11 +21,11 @@ interface IProps {
     handleChatOptionsToggle: () => void
     handleAddMember: () => void
     handleDeleteMember: () => void
-    addUserToChat: () => void
+    addUserToChat: (event: Event) => void
     onClose: () => void
     findUsers: () => void
     companion: boolean | ChatUser
-    deleteUsersFromChat: () => void
+    deleteUsersFromChat: (event: Event) => void
 }
 
 type TRef = {
@@ -51,17 +51,11 @@ export class Chat extends Block<IProps, TRef> {
                 }
                 return result
             })(),
-            handleChatOptionsToggle: () => {
-                window.store.set({ isOpenDialogChatOptions: !this.props.isOpenDialogChatOptions })
-            },
-            handleAddMember: () => {
-                window.store.set({ isOpenDialogUsers: true })
-            },
-            handleDeleteMember: () => {
-                window.store.set({ isOpenDialogDeleteUsers: true })
-                console.log("STORE: ", window.store.getState())
-            },
-            addUserToChat: async () => {
+            handleChatOptionsToggle: () => window.store.set({ isOpenDialogChatOptions: !this.props.isOpenDialogChatOptions }),
+            handleAddMember: () => window.store.set({ isOpenDialogUsers: true }),
+            handleDeleteMember: () => window.store.set({ isOpenDialogDeleteUsers: true }),
+            addUserToChat: async (event) => {
+                event.preventDefault()
                 try {
                     await addUsersToChat({
                         users: this.refs.dialogAddUsers.getSelectedUsersIDs(),
@@ -82,7 +76,8 @@ export class Chat extends Block<IProps, TRef> {
                     this.refs.dialogAddUsers.setProps(error.message)
                 }
             },
-            deleteUsersFromChat: async () => {
+            deleteUsersFromChat: async (event) => {
+                event.preventDefault()
                 try {
                     await removeUsersFromChat({
                         users: this.refs.dialogDeleteUsers.getSelectedUsersIDs(),
