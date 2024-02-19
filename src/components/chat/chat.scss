@@ -20,6 +20,11 @@
         border-bottom: 1px solid $light-grey;
         position: relative;
 
+        &__title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
         &__options {
             position: absolute;
             top: 120%;
@@ -27,6 +32,7 @@
             border-radius: 12px;
             background: $white;
             box-shadow: 0 0 6px 0 rgb(0 0 0 / 14%);
+            overflow: hidden;
 
             &-item {
                 display: flex;
@@ -94,7 +100,7 @@
 
         &__messages {
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             row-gap: 10px;
         }
 
@@ -107,12 +113,15 @@
             max-width: 402px;
             line-height: 125%;
 
+            & p {
+                margin-bottom: 6px;
+            }
+
             &-details {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
                 gap: 4px;
-                margin-top: 6px;
             }
 
             &_mine {
@@ -125,6 +134,10 @@
                 font-size: 12px;
                 font-weight: 500;
                 line-height: 125%;
+
+                & p {
+                    margin-bottom: 6px;
+                }
 
                 & time {
                     display: flex;
@@ -141,7 +154,6 @@
                 font-size: 9px;
                 font-weight: 500;
                 color: $grey;
-                margin-top: 6px;
             }
         }
 

@@ -1,17 +1,37 @@
 <main class="chats">
+    {{{ DialogCreateChat onSave=onSave onClose=closeDialog ref="createChat"}}}
+
     <aside class="chats__aside">
         {{{ 
             Link
                 text="Profile"
                 onClick=handleProfileClick
         }}}
+        
         {{{ Search }}}
-        <nav>
-            {{#ChatsList chats=chats handleChatClick=handleChatClick}}{{/ChatsList}}
-        </nav>
+
+        {{{ 
+            Button 
+                primary="true"
+                text="Create chat"
+                type="button"
+                onClick=openDialog
+        }}}
+
+        {{#if chats}}
+            <nav>
+                {{#ChatsList chats=chats}}{{/ChatsList}}
+            </nav>
+        {{else}}
+            <h2 class="chats__empty chats__dummy">No chats</h2>
+        {{/if}}
     </aside>
 
-    <section class="chats__main">
-        <h1 class="chats__dummy">Choose a chat to send a message</h1>
-    </section>
+    {{#if activeChat}}
+        {{{ Chat activeChat=activeChat }}}
+    {{else}}
+        <section class="chats__main">
+            <h1 class="chats__dummy">Choose a chat to send a message</h1>
+        </section>
+    {{/if}}
 </main>

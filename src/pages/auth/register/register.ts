@@ -1,8 +1,9 @@
-import { Field } from "../../../components";
+import { ErrorText, Field } from "../../../components";
 import Block from "../../../core/Block";
-import { PAGES, navigate } from "../../../core/navigate";
 import template from './register.hbs?raw'
 import * as validators from "../../../utils/validators"
+import { PAGES, router } from "../../../core/Router";
+import { signup } from "../../../services/auth";
 
 interface IProps { }
 
@@ -14,6 +15,7 @@ type TRef = {
     phone: Field
     password: Field
     repeat_password: Field
+    errorText: ErrorText
 }
 
 export class RegisterPage extends Block<IProps, TRef> {
@@ -30,9 +32,9 @@ export class RegisterPage extends Block<IProps, TRef> {
             },
             handleLogin: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.LOGIN)
+                router.go(PAGES.LOGIN)
             },
-            handleRegister: (event: Event) => {
+            handleRegister: async (event: Event) => {
                 event.preventDefault()
                 const email = this.refs.email.value()
                 const login = this.refs.login.value()
@@ -45,16 +47,20 @@ export class RegisterPage extends Block<IProps, TRef> {
                 // eslint-disable-next-line @typescript-eslint/naming-convention
                 const repeat_password = this.refs.repeat_password.value()
                 if (!email || !login || !first_name || !second_name || !phone || !password || !repeat_password) return
-                console.log({
-                    email,
-                    login,
-                    first_name,
-                    second_name,
-                    phone,
-                    password,
-                    repeat_password
-                })
-                navigate(PAGES.CHATS)
+
+                try {
+                    await signup({
+                        email,
+                        login,
+                        first_name,
+                        second_name,
+                        phone,
+                        password,
+                    })
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {
+                    this.refs.errorText.setProps({ error: error.message })
+                }
             }
         })
     }

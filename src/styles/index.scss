@@ -16,11 +16,13 @@
 @import "../components/link/link";
 @import "../components/icons/icons";
 @import "../components/avatar/avatar";
+@import "../components/dialog/dialog";
+@import "../components/loader/loader";
+@import "../components/chat/chat";
 
 // ===== PAGES =====
 @import "../pages/auth/auth";
 @import "../pages/chats/chats";
-@import "../pages/chats/chat/chat";
 @import "../pages/profile/profile";
 @import "../pages/error/error-page";
 

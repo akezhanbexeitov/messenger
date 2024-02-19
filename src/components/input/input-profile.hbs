@@ -2,8 +2,10 @@
     class="field-profile__line__input" 
     type={{ type }} 
     id={{ name }} 
-    placeholder={{ placeholder }} 
+    placeholder="{{ placeholder }}" 
     name={{ name }}
+    {{#if value }}value={{ value }}{{/if}}
     ref="input" 
     {{#if disabled }} disabled {{/if}}
+    {{#if hidden}} hidden {{/if}}
 >

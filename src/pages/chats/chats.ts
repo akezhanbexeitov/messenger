@@ -1,87 +1,58 @@
 import Block from "../../core/Block"
 import template from './chats.hbs?raw'
-import avatar from "../../assets/avatar.png"
-import { PAGES, navigate } from "../../core/navigate"
+import { PAGES, router } from "../../core/Router"
+import { DialogCreateChat } from "../../components/dialog-create-chat"
+import { createChat } from "../../services/chat"
+import { connect } from "../../utils/connect"
+import { initChatPage } from "../../services/initApp"
+import { ActiveChat, Chat } from "../../types"
 
-interface IProps {}
+interface IProps { 
+    chats: Chat[] | []
+    activeChat: ActiveChat
+    handleProfileClick: (event: Event) => void
+    handleChatClick: (event: Event) => void
+    openDialog: () => void
+    closeDialog: () => void
+    onSave: () => void
+}
 
-export class ChatsPage extends Block<IProps> {
-    constructor() {
+type TRefs = {
+    createChat: DialogCreateChat
+}
+
+export class ChatsPage extends Block<IProps, TRefs> {
+    constructor(props: IProps) {
         super({
-            chats: [
-                {
-                    name: "Андрей",
-                    message: "Здравствуйте",
-                    time: "11:00",
-                    unread: 1,
-                    avatar: avatar
-                },
-                {
-                    name: "Акежан",
-                    message: "Добрый вечер",
-                    time: "12:00",
-                    unread: 2,
-                    avatar: avatar
-                },
-                {
-                    name: "Максим",
-                    message: "Привет",
-                    time: "13:00",
-                    active: true,
-                    avatar: avatar
-                },
-                {
-                    name: "Андрей",
-                    message: "Здравствуйте",
-                    time: "11:00",
-                    unread: 1,
-                    avatar: avatar
-                },
-                {
-                    name: "Акежан",
-                    message: "Добрый вечер",
-                    time: "12:00",
-                    unread: 2,
-                    avatar: avatar
-                },
-                {
-                    name: "Максим",
-                    message: "Привет",
-                    time: "13:00",
-                    avatar: avatar
-                },
-                {
-                    name: "Андрей",
-                    message: "Здравствуйте",
-                    time: "11:00",
-                    unread: 1,
-                    avatar: avatar
-                },
-                {
-                    name: "Акежан",
-                    message: "Добрый вечер",
-                    time: "12:00",
-                    unread: 2,
-                    avatar: avatar
-                },
-                {
-                    name: "Максим",
-                    message: "Привет",
-                    time: "13:00",
-                    avatar: avatar
-                },
-            ],
+            ...props,
             handleProfileClick: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.PROFILE)
+                router.go(PAGES.PROFILE)
             },
-            handleChatClick: () => {
-                navigate(PAGES.CHAT)
+            openDialog: () => window.store.set({ isOpenDialogChat: true }),
+            closeDialog: () => window.store.set({ isOpenDialogChat: false }),
+            onSave: async () => {
+                const chatTitle = this.refs.createChat.getChatTitle();
+                if(!chatTitle) {
+                    this.refs.createChat.setError('Chat title should not be empty');
+                    return;
+                }
+
+                try {
+                    await createChat(chatTitle)
+                    window.store.set({ isOpenDialogChat: false })
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {
+                    this.refs.createChat.setError(error.message)
+                }
             }
         })
+        initChatPage()
     }
 
     protected render(): string {
         return template
     }
 }
+
+export default connect(({ chats, activeChat }) => ({ chats, activeChat }))(ChatsPage)

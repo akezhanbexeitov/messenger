@@ -1,26 +1,41 @@
+import { UserDTO } from "../../api/types";
 import Block from "../../core/Block";
-import { PAGES, navigate } from "../../core/navigate";
+import { PAGES, router } from "../../core/Router";
+import { logout } from "../../services/auth";
+import { connect } from "../../utils/connect";
 import template from './profile.hbs?raw'
 
-interface IProps {}
+interface IProps {
+    user: UserDTO,
+    handleChangeProfile: (event: Event) => void,
+    handleChangePassword: (event: Event) => void,
+    handleLogout: (event: Event) => void,
+    handleBackClick: () => void
+}
 
 export class ProfilePage extends Block<IProps> {
-    constructor() {
+    constructor(props: IProps) {
         super({
+            ...props,
             handleChangeProfile: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.CHANGE_PROFILE)
+                router.go(PAGES.CHANGE_PROFILE)
             },
             handleChangePassword: (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.CHANGE_PASSWORD)
+                router.go(PAGES.CHANGE_PASSWORD)
             },
-            handleLogout: (event: Event) => {
+            handleLogout: async (event: Event) => {
                 event.preventDefault()
-                navigate(PAGES.LOGIN)
+                try {
+                    await logout()
+                    router.go(PAGES.LOGIN)
+                } catch (error) {
+                    console.log(error)
+                }
             },
             handleBackClick: () => { 
-                navigate(PAGES.CHATS)
+                router.back()
             }
         })
     }
@@ -29,3 +44,5 @@ export class ProfilePage extends Block<IProps> {
         return template
     }
 }
+
+export default connect(({ user }) => ({ user }))(ProfilePage)

@@ -38,7 +38,7 @@
     &__name {
         color: $black;
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 400;
     }
 
     &__message {
@@ -51,6 +51,7 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        row-gap: 4px;
     }
 
     &__time {
@@ -72,5 +73,14 @@
             font-size: 11px;
             font-weight: 500;
         }
+    }
+
+    &__title {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        color: $black;
+        font-size: 14px;
+        font-weight: 600;
     }
 }

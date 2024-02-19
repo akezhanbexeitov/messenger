@@ -1,3 +1,5 @@
+import constants from "../constants"
+
 enum METHODS {
     GET = 'GET',
     POST = 'POST',
@@ -7,7 +9,8 @@ enum METHODS {
 
 type TOptions = {
     method?: METHODS
-    data?: Record<string, string>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data?: any
     timeout?: number
     headers?: Record<string, string>
     tries?: number
@@ -23,27 +26,53 @@ const queryStringify = (data: Record<string, string>) => {
     }, '?')
 }
 
-type THTTPMethod = (url: string, options?: TOptions) => Promise<unknown>
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type THTTPMethod = (url: string, options?: TOptions) => Promise<any>
 
 export default class HTTPTransport {
-    get: THTTPMethod = (url, options = {}) => {
-        return this.request(url, {...options, method: METHODS.GET}, options.timeout)
+    constructor(apiPath: string) {
+        this.apiUrl = `${constants.HOST}${apiPath}`
     }
 
-    post: THTTPMethod = (url, options = {}) => {
-        return this.request(url, {...options, method: METHODS.POST}, options.timeout)
+    private apiUrl: string = ""
+
+    get: THTTPMethod = async (url, options = {}) => {
+        const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.GET }, options.timeout)
+        return this.checkResponse(response)
     }
 
-    put: THTTPMethod = (url, options = {}) => {
-        return this.request(url, {...options, method: METHODS.PUT}, options.timeout)
+    post: THTTPMethod = async (url, options = {}) => {
+        const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.POST }, options.timeout)
+        return this.checkResponse(response)
     }
 
-    delete: THTTPMethod = (url, options = {}) => {
-        return this.request(url, {...options, method: METHODS.DELETE}, options.timeout)
+    put: THTTPMethod = async (url, options = {}) => {
+        const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.PUT }, options.timeout)
+        return this.checkResponse(response)
     }
 
-    request = (url: string, options: TOptions = {}, timeout = 5000) => {
-        const { headers = {}, method, data } = options
+    delete: THTTPMethod = async (url, options = {}) => {
+        const { response } = await this.request(`${this.apiUrl}${url}`, { ...options, method: METHODS.DELETE }, options.timeout)
+        return this.checkResponse(response)
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    private checkResponse = (response: any) => {
+        if (response === "OK") {
+            return response
+        } else {
+            const result = JSON.parse(response)
+            return result
+        }
+    }
+
+    request = (url: string, options: TOptions = {}, timeout = 5000): Promise<XMLHttpRequest> => {
+        const {
+            headers = {},
+            method,
+            data
+        } = options
 
         return new Promise((resolve, reject) => {
             if (!method) {
@@ -60,6 +89,8 @@ export default class HTTPTransport {
                     : url
             )
 
+            xhr.withCredentials = true
+            
             Object.keys(headers).forEach(key => {
                 xhr.setRequestHeader(key, headers[key])
             })
@@ -73,7 +104,10 @@ export default class HTTPTransport {
 
             if (isGet || !data) {
                 xhr.send()
+            } else if (data instanceof FormData) {
+                xhr.send(data)
             } else {
+                xhr.setRequestHeader('Content-Type', 'application/json')
                 xhr.send(JSON.stringify(data))
             }
         })

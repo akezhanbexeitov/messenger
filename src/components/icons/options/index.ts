@@ -1,1 +1,1 @@
-export { default as OptionsIcon } from './options.hbs?raw'
+export { OptionsIcon } from './options'

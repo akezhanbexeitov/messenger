@@ -1,0 +1,11 @@
+<select name={{ name }} id={{ name }} ref="select" multiple>
+  {{#if isOpenDialogUsers}}
+    {{#each usersSearched}}
+      <option value={{ this.id }}>{{ this.firstName }}</option>
+    {{/each}}
+  {{else}}
+    {{#each users}}
+      <option value={{ this.id }}>{{ this.firstName }}</option>
+    {{/each}}
+  {{/if}}
+</select>

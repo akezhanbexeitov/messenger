@@ -1,0 +1,40 @@
+{{#Dialog open=isOpenDialogDeleteUsers}}
+  {{#if (isAdmin)}} 
+    <form>
+      <h3>Delete users</h3>
+
+      <p>Select users</p>
+
+      {{{ UsersList name="users" ref="usersList" }}}
+
+      <div>
+        {{{ ErrorText error=error ref="errorText" type="form" }}}
+
+        {{{
+          Button
+            text="Delete"
+            primary="true"
+            type="submit"
+            onClick=deleteUsersFromChat
+        }}}
+        {{{
+          Button
+            text="Cancel"
+            type="button"
+            onClick=onClose
+        }}}
+      </div>
+    </form>
+  {{else}}
+    <form>
+      <h3>You are not allowed to delete users</h3>
+
+      {{{
+        Button
+          text="Exit"
+          type="button"
+          onClick=onClose
+      }}}
+    </form>
+  {{/if}}
+{{/Dialog}}

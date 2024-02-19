@@ -1,0 +1,39 @@
+{{#Dialog open=isOpenDialogUsers}}
+  <form>
+    <h3>Add users</h3>
+
+    {{{
+      Field
+        name="findUser"
+        label="Find user"
+        placeholder="Enter user name"
+        type="text"
+        ref="userName"
+        env="search"
+        validate=validate.findUser
+        onInput=onInput
+    }}}
+
+    <p>Select users</p>
+
+    {{{ UsersList name="users" ref="usersList" }}}
+
+    <div>
+      {{{ ErrorText error=error ref="errorText" type="form" }}}
+      
+      {{{
+        Button
+          text="Add"
+          primary="true"
+          type="submit"
+          onClick=addUserToChat
+      }}}
+      {{{
+        Button
+          text="Cancel"
+          type="button"
+          onClick=onClose
+      }}}
+    </div>
+  </form>
+{{/Dialog}}

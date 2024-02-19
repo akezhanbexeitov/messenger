@@ -1,8 +1,10 @@
 import Block from "../../core/Block"
-import template from "./error-text.hbs?raw"
+import errorInput from "./error-input.hbs?raw"
+import errorForm from "./error-form.hbs?raw"
 
 interface IProps {
     error?: string
+    type: 'input' | 'form'
 }
 
 export class ErrorText extends Block<IProps> {
@@ -13,6 +15,6 @@ export class ErrorText extends Block<IProps> {
     }
     
     protected render(): string {
-        return template
+        return this.props.type === 'input' ? errorInput : errorForm
     }
 }
