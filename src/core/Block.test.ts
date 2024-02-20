@@ -1,6 +1,5 @@
 import { expect } from "chai"
-// eslint-disable-next-line import/extensions
-import Block, { Events } from "./Block.ts"
+import Block, { Events } from "./Block"
 import sinon from "sinon"
 
 interface Props {
