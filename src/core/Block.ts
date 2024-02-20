@@ -1,5 +1,5 @@
 /* eslint-disable */
-import EventBus from "./EventBus";
+import EventBus from "./EventBus.ts";
 import { nanoid } from 'nanoid';
 import Handlebars from "handlebars";
 
