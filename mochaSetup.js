@@ -6,11 +6,12 @@ import { describe, it } from 'mocha';
 // import * as Components from './src/components'
 
 // jsdom
-const jsdom = new JSDOM(`
-  <body>
+const jsdom = new JSDOM(
+  `<body>
     <div id="app"></div>
-  </body>
-`);
+  </body>`,
+  { url: "https://localhost:3000"}
+);
 
 global.window = jsdom.window;
 global.document = jsdom.window.document;

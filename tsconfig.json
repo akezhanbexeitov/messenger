@@ -21,9 +21,9 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src", "vite.config.ts"],
-   "ts-node": {
+  "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node",
-    "transpileOnly": true,
+    "transpileOnly": true
   },
 }
