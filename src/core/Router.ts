@@ -1,8 +1,8 @@
 /* eslint-disable */
 // @ts-nocheck
-import * as Pages from "../pages"
-import { isEqual } from "../utils/helpers";
-import { BlockConstructable } from "./registerComponent";
+import * as Pages from "../pages/index.ts"
+import { isEqual } from "../utils/helpers.ts";
+import { BlockConstructable } from "./registerComponent.ts";
 
 function render(query, block) {
   const app = document.querySelector(query);
@@ -85,24 +85,24 @@ class Router {
     route.render(route, pathname);
   }
 
-    go(pathname) {
-      // Push a new state to the history with the specified pathname
-      this.history.pushState({}, "", pathname);
-      // Handle the route change
-      this._onRoute(pathname);
-    }
-  
-    back() {
-      this.history.back()
-    }
+  go(pathname) {
+    // Push a new state to the history with the specified pathname
+    this.history.pushState({}, "", pathname);
+    // Handle the route change
+    this._onRoute(pathname);
+  }
 
-    forward() {
-      this.history.forward()
-    }
+  back() {
+    this.history.back()
+  }
 
-    getRoute(pathname) {
-      return this.routes.find(route => route.match(pathname));
-    }
+  forward() {
+    this.history.forward()
+  }
+
+  getRoute(pathname) {
+    return this.routes.find(route => route.match(pathname));
+  }
 }
 
 export enum PAGES {

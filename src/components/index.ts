@@ -1,24 +1,24 @@
-export { Button } from "./button/button"
-export { Field } from "./field/field"
-export { Title } from "./title/title"
-export { Avatar } from './avatar/avatar'
-export { ChatsCard } from './chats-card/chats-card'
-export { ChatsList } from './chats-list/chats-list'
-export { Link } from './link/link'
-export { Search } from './search/search'
-export { BackAside } from './back-aside/back-aside'
-export { Input } from './input/input'
-export { ErrorText } from './error-text/error-text'
-export { SuccessText } from './success-text/success-text'
-export { Dialog } from './dialog'
-export { default as DialogCreateChat } from './dialog-create-chat'
-export { default as DialogAddUsers } from './dialog-add-users'
-export { default as DialogDeleteUsers } from './dialog-delete-users'
-export { default as UsersList } from './users-list'
-export { Loader } from './loader';
-export { default as Chat } from './chat'
-export { OptionsIcon } from './icons/options'
-export { ChatOptions } from './chat-options'
-export { AddMember } from './chat-options/add-member'
-export { DeleteMember } from './chat-options/delete-member/delete-member'
-export { Anchor } from './anchor'
+export { Button } from "./button/index.ts"
+export { Field } from "./field/index.ts"
+export { Title } from "./title/index.ts"
+export { Avatar } from './avatar/index.ts'
+export { ChatsCard } from './chats-card/index.ts'
+export { ChatsList } from './chats-list/index.ts'
+export { Link } from './link/index.ts'
+export { Search } from './search/index.ts'
+export { BackAside } from './back-aside/index.ts'
+export { Input } from './input/index.ts'
+export { ErrorText } from './error-text/index.ts'
+export { SuccessText } from './success-text/index.ts'
+export { Dialog } from './dialog/index.ts'
+export { default as DialogCreateChat } from './dialog-create-chat/index.ts'
+export { default as DialogAddUsers } from './dialog-add-users/index.ts'
+export { default as DialogDeleteUsers } from './dialog-delete-users/index.ts'
+export { default as UsersList } from './users-list/index.ts'
+export { Loader } from './loader/index.ts';
+export { default as Chat } from './chat/index.ts'
+export { OptionsIcon } from './icons/options/index.ts'
+export { ChatOptions } from './chat-options/index.ts'
+export { AddMember } from './chat-options/add-member/index.ts'
+export { DeleteMember } from './chat-options/delete-member/index.ts'
+export { Anchor } from './anchor/index.ts'

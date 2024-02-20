@@ -1,1 +1,1 @@
-export { InternalServerErrorPage as default } from './server-error'
+export { InternalServerErrorPage as default } from './server-error.ts'

@@ -1,3 +1,3 @@
-import ChatsPage from './chats'
+import ChatsPage from './chats.ts'
 
 export default ChatsPage

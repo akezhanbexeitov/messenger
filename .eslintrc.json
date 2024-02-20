@@ -10,5 +10,6 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.eslint.json"
-  }
+  },
+  "import/extensions": ["always"]
 }

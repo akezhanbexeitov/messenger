@@ -1,1 +1,1 @@
-export { LoginPage as default } from './login'
+export { LoginPage as default } from './login.ts'

@@ -1,3 +1,3 @@
-import ProfilePage from './profile'
+import ProfilePage from './profile.ts'
 
 export default ProfilePage
