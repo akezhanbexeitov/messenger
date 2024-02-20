@@ -1,6 +1,6 @@
 import constants from "../constants"
 
-enum METHODS {
+export enum METHODS {
     GET = 'GET',
     POST = 'POST',
     PUT = 'PUT',
@@ -15,17 +15,6 @@ type TOptions = {
     headers?: Record<string, string>
     tries?: number
 }
-
-const queryStringify = (data: Record<string, string>) => {
-    if (typeof data !== 'object') {
-        throw new Error('Data must be object')
-    }
-    const keys = Object.keys(data)
-    return keys.reduce((result, key, index) => {
-        return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`
-    }, '?')
-}
-
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type THTTPMethod = (url: string, options?: TOptions) => Promise<any>
@@ -67,6 +56,16 @@ export default class HTTPTransport {
         }
     }
 
+    queryStringify = (data: Record<string, string>) => {
+        if (typeof data !== 'object') {
+            throw new Error('Data must be object')
+        }
+        const keys = Object.keys(data)
+        return keys.reduce((result, key, index) => {
+            return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`
+        }, '?')
+    }
+
     request = (url: string, options: TOptions = {}, timeout = 5000): Promise<XMLHttpRequest> => {
         const {
             headers = {},
@@ -85,7 +84,7 @@ export default class HTTPTransport {
             xhr.open(
                 method,
                 isGet && !!data
-                    ? url + queryStringify(data)
+                    ? url + this.queryStringify(data)
                     : url
             )
 
