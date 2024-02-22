@@ -68,8 +68,7 @@ describe("Block", () => {
     const element = component.element as HTMLDivElement
     element.dispatchEvent(clickEvent)
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    expect(stub.calledOnce).to.be.true
+    expect(stub.calledOnce).to.be.equal(true)
   })
 
   it("should call dispatchComponentDidMount method", () => { 
@@ -82,7 +81,6 @@ describe("Block", () => {
     document.body.appendChild(element!)
     clock.next()
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    expect(spy.calledOnce).to.be.true
+    expect(spy.calledOnce).to.be.equal(true)
   })
 })

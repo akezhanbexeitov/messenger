@@ -9,7 +9,7 @@ function render(query, block) {
   app?.replaceChildren(block.getContent()!);
 }
 
-class Route {
+export class Route {
   constructor(pathname, view, props) {
     this._pathname = pathname;
     this._blockClass = view;
@@ -40,7 +40,7 @@ class Route {
   }
 }
 
-class Router {
+export class Router {
   constructor(rootQuery) {
     if (Router.__instance) {
       return Router.__instance;
@@ -85,24 +85,24 @@ class Router {
     route.render(route, pathname);
   }
 
-    go(pathname) {
-      // Push a new state to the history with the specified pathname
-      this.history.pushState({}, "", pathname);
-      // Handle the route change
-      this._onRoute(pathname);
-    }
-  
-    back() {
-      this.history.back()
-    }
+  go(pathname) {
+    // Push a new state to the history with the specified pathname
+    this.history.pushState({}, "", pathname);
+    // Handle the route change
+    this._onRoute(pathname);
+  }
 
-    forward() {
-      this.history.forward()
-    }
+  back() {
+    this.history.back()
+  }
 
-    getRoute(pathname) {
-      return this.routes.find(route => route.match(pathname));
-    }
+  forward() {
+    this.history.forward()
+  }
+
+  getRoute(pathname) {
+    return this.routes.find(route => route.match(pathname));
+  }
 }
 
 export enum PAGES {

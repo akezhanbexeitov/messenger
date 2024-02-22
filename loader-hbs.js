@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 export async function resolve(specifier, context, next) {
   const nextResult = await next(specifier, context);
 
-  if (!specifier.endsWith('.hbs')) {
+  if (!specifier.endsWith('.hbs?raw')) {
     return nextResult;
   }
 
@@ -17,7 +17,7 @@ export async function resolve(specifier, context, next) {
 
 export async function load(url, context, next) {
   if (context.format !== "hbs") {
-    next(url, context);
+    return next(url, context);
   }
 
   const rawSource = await fs.readFile(fileURLToPath(url), 'utf8')
