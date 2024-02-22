@@ -10,7 +10,8 @@
     "stylelint": "stylelint '**/*.scss'",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "start": "tsc --noEmit && vite build && vite preview --port 3000"
+    "start": "tsc --noEmit && vite build && vite preview --port 3000",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/chai": "4.3.11",
@@ -28,6 +29,7 @@
     "eslint-plugin-prettier": "5.1.3",
     "express": "4.18.2",
     "handlebars": "4.7.8",
+    "husky": "^8.0.3",
     "jsdom": "24.0.0",
     "mocha": "10.3.0",
     "moment": "2.30.1",
