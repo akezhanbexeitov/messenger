@@ -17,7 +17,7 @@ export default class AuthApi {
   }
 
   async login(data: LoginRequestData): Promise<void | APIError> {
-    return authApi.post(AUTH.SIGNIN, {data});
+    return authApi.post(AUTH.SIGNIN, { data });
   }
 
   async me(): Promise<UserDTO | APIError> {
