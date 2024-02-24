@@ -13,6 +13,7 @@
 3. `npm run start` - сборка и запуск проекта.
 4. `npm run stylelint` - проверка стилей проекта с помощью StyleLint
 5. `npm run test` - запускает тесты
+6. `npm run eslint` - запускает eslint для проекта
 
 ## Дизайн
 

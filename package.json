@@ -6,6 +6,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
+    "eslint": "npx eslint src",
     "test": "./node_modules/.bin/mocha",
     "stylelint": "stylelint '**/*.scss'",
     "dev": "vite",
